@@ -86,14 +86,15 @@
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
-      <li><a href="#templates" class="nav-badge-link">50+ Templates <span class="nav-pill-badge">Exclusive</span></a></li>
+      <li><a href="templates.html" class="nav-badge-link">50+ Templates <span class="nav-pill-badge">Exclusive</span></a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#customizer">Live Studio</a></li>
+      <li><a href="#comparison">Paper vs Digital</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="nav-cta"><span>Order Now</span> <i class="fas fa-sparkles"></i></a>
-      </li>
+      <li><a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="nav-cta"><span>Order Now</span> <i class="fas fa-sparkles"></i></a></li>
     </ul>
     <button class="hamburger" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -133,7 +134,7 @@
       </blockquote>
 
       <div class="hero-btns reveal">
-        <a href="#templates" class="btn-primary btn-gold-luxury">
+        <a href="templates.html" class="btn-primary btn-gold-luxury">
           <span>Explore 50 Templates</span>
           <i class="fas fa-gem" style="margin-left:10px"></i>
         </a>
@@ -171,116 +172,6 @@
     </div>
   </section>
 
-  <!-- ===== 50 TEMPLATES SHOWCASE SECTION ===== -->
-  <section class="templates-section" id="templates">
-    <div class="section-header reveal">
-      <span class="section-tag"><i class="fas fa-crown"></i> Exclusive Portfolio</span>
-      <h2>50 Bespoke Website Templates</h2>
-      <p>Hand-crafted celebration experiences designed to captivate your guests. Filter by occasion, search by aesthetic, and preview your dream website before ordering.</p>
-    </div>
-
-    <!-- FILTER & SEARCH CONTROLS -->
-    <div class="templates-controls-wrap reveal">
-      <div class="search-box-wrap">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" id="template-search-input" placeholder="Search 50 templates (e.g., Royal, Vineyard, Gatsby, Galaxy, Gold)..." aria-label="Search templates">
-        <button id="search-clear-btn" class="search-clear-btn" title="Clear search" style="display:none;"><i class="fas fa-times"></i></button>
-      </div>
-
-      <div class="category-filters-scroll">
-        <div class="category-filters" id="category-filters">
-          <button class="filter-tab active" data-category="all">
-            <span class="tab-icon">🌟</span>
-            <span class="tab-name">All Collection</span>
-            <span class="tab-count">50</span>
-          </button>
-          <button class="filter-tab" data-category="wedding">
-            <span class="tab-icon">💒</span>
-            <span class="tab-name">Weddings</span>
-            <span class="tab-count">10</span>
-          </button>
-          <button class="filter-tab" data-category="birthday">
-            <span class="tab-icon">🎂</span>
-            <span class="tab-name">Birthdays</span>
-            <span class="tab-count">10</span>
-          </button>
-          <button class="filter-tab" data-category="anniversary">
-            <span class="tab-icon">💕</span>
-            <span class="tab-name">Anniversaries</span>
-            <span class="tab-count">8</span>
-          </button>
-          <button class="filter-tab" data-category="engagement">
-            <span class="tab-icon">💍</span>
-            <span class="tab-name">Engagements</span>
-            <span class="tab-count">5</span>
-          </button>
-          <button class="filter-tab" data-category="babyshower">
-            <span class="tab-icon">👶</span>
-            <span class="tab-name">Baby Showers</span>
-            <span class="tab-count">6</span>
-          </button>
-          <button class="filter-tab" data-category="invitation">
-            <span class="tab-icon">💌</span>
-            <span class="tab-name">Digital Invites</span>
-            <span class="tab-count">6</span>
-          </button>
-          <button class="filter-tab" data-category="special">
-            <span class="tab-icon">🕊️</span>
-            <span class="tab-name">Special Occasions</span>
-            <span class="tab-count">5</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- ANIMATED VS NON-ANIMATED EXPERIENCE FILTER -->
-      <div class="type-filter-row">
-        <span class="type-filter-label"><i class="fas fa-sliders-h"></i> Experience Style:</span>
-        <div class="type-filter-group" id="type-filters">
-          <button class="type-tab active" data-type="all">All Styles <span class="type-count">50</span></button>
-          <button class="type-tab" data-type="animated">⚡ Animated & Interactive <span class="type-count">32</span></button>
-          <button class="type-tab" data-type="non-animated">💎 Classic & Minimalist <span class="type-count">18</span></button>
-        </div>
-      </div>
-
-      <div class="templates-meta-status">
-        <div class="results-info">
-          <span>Showing <strong id="visible-count">50</strong> curated templates</span>
-        </div>
-        <div class="sort-note">
-          <i class="fas fa-check-circle" style="color:var(--gold)"></i> 100% Mobile & WhatsApp Share Ready
-        </div>
-      </div>
-    </div>
-
-    <!-- TEMPLATES GRID -->
-    <div class="templates-grid" id="templates-grid">
-      <!-- Injected dynamically via script.js -->
-    </div>
-
-    <!-- EMPTY STATE -->
-    <div id="templates-empty-state" class="templates-empty-state" style="display: none;">
-      <div class="empty-icon">🔍</div>
-      <h3>No Templates Found</h3>
-      <p>Try searching for a different keyword or browse through our categories above.</p>
-      <button id="reset-filters-btn" class="btn-outline">Reset Filters</button>
-    </div>
-
-    <!-- CUSTOM BESPOKE BANNER -->
-    <div class="custom-atelier-banner reveal">
-      <div class="atelier-banner-content">
-        <div class="atelier-crown"><i class="fas fa-crown"></i></div>
-        <div class="atelier-text">
-          <h3>Want a 100% Unique, Custom Signature Theme?</h3>
-          <p>Have a custom color scheme, specific animations, couple portrait illustrations, or special music in mind? Our master designers will craft a one-of-a-kind website exclusively for you.</p>
-        </div>
-        <a href="https://wa.me/916381366088?text=Hello!%20I'd%20like%20to%20request%20a%20100%25%20Custom%20Website%20Design%20for%20my%20event." target="_blank" rel="noopener" class="btn-primary atelier-btn">
-          <span>Request Custom Design</span>
-          <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== SERVICES SECTION ===== -->
   <section class="services" id="services">
     <div class="section-header reveal">
@@ -290,7 +181,7 @@
         ones.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal" data-category="birthday" role="button" tabindex="0" title="Click to view Birthday templates">
+      <a href="templates.html?category=birthday" class="service-card reveal text-decoration-none" data-category="birthday" title="Click to view Birthday templates">
         <div class="service-icon">🎂</div>
         <h3>Birthday Websites</h3>
         <p>Make birthdays unforgettable with personalized websites featuring photos, wishes, and party animations.</p>
@@ -298,8 +189,8 @@
           <span>View 10 Birthday Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="wedding" role="button" tabindex="0" title="Click to view Wedding templates">
+      </a>
+      <a href="templates.html?category=wedding" class="service-card reveal text-decoration-none" data-category="wedding" title="Click to view Wedding templates">
         <div class="service-icon">💒</div>
         <h3>Wedding Websites</h3>
         <p>Elegant wedding portals with event details, photo galleries, countdown timers, and easy sharing for guests.</p>
@@ -307,8 +198,8 @@
           <span>View 10 Wedding Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="anniversary" role="button" tabindex="0" title="Click to view Anniversary templates">
+      </a>
+      <a href="templates.html?category=anniversary" class="service-card reveal text-decoration-none" data-category="anniversary" title="Click to view Anniversary templates">
         <div class="service-icon">💕</div>
         <h3>Anniversary Websites</h3>
         <p>Celebrate your love story with a stunning anniversary website featuring your journey together.</p>
@@ -316,8 +207,8 @@
           <span>View 8 Anniversary Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="engagement" role="button" tabindex="0" title="Click to view Engagement templates">
+      </a>
+      <a href="templates.html?category=engagement" class="service-card reveal text-decoration-none" data-category="engagement" title="Click to view Engagement templates">
         <div class="service-icon">💍</div>
         <h3>Engagement Websites</h3>
         <p>Share the joy of your engagement with a beautiful digital page for family and friends.</p>
@@ -325,8 +216,8 @@
           <span>View 5 Engagement Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="babyshower" role="button" tabindex="0" title="Click to view Baby Shower templates">
+      </a>
+      <a href="templates.html?category=babyshower" class="service-card reveal text-decoration-none" data-category="babyshower" title="Click to view Baby Shower templates">
         <div class="service-icon">👶</div>
         <h3>Baby Shower & Naming</h3>
         <p>Adorable websites for baby showers, naming ceremonies, and welcoming your little one.</p>
@@ -334,8 +225,8 @@
           <span>View 6 Baby Shower Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="special" role="button" tabindex="0" title="Click to view Festival & Celebration templates">
+      </a>
+      <a href="templates.html?category=special" class="service-card reveal text-decoration-none" data-category="special" title="Click to view Festival & Celebration templates">
         <div class="service-icon">🎉</div>
         <h3>Festival & Celebration</h3>
         <p>Festive websites for celebrations, invitations, and greeting pages to spread the joy.</p>
@@ -343,8 +234,8 @@
           <span>View 5 Festival Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="invitation" role="button" tabindex="0" title="Click to view Invitation templates">
+      </a>
+      <a href="templates.html?category=invitation" class="service-card reveal text-decoration-none" data-category="invitation" title="Click to view Invitation templates">
         <div class="service-icon">💌</div>
         <h3>Invitation Websites</h3>
         <p>Digital invite pages that replace printed cards — modern, eco-friendly, and shareable instantly.</p>
@@ -352,8 +243,8 @@
           <span>View 6 Invitation Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="anniversary" role="button" tabindex="0" title="Click to view Love & Couple templates">
+      </a>
+      <a href="templates.html?category=anniversary" class="service-card reveal text-decoration-none" data-category="anniversary" title="Click to view Love & Couple templates">
         <div class="service-icon">❤️</div>
         <h3>Love & Couple Story</h3>
         <p>Tell your love story digitally with a beautiful couple story website featuring your memories.</p>
@@ -361,8 +252,8 @@
           <span>View Couple Story Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="special" role="button" tabindex="0" title="Click to view Memorial templates">
+      </a>
+      <a href="templates.html?category=special" class="service-card reveal text-decoration-none" data-category="special" title="Click to view Memorial templates">
         <div class="service-icon">🕊️</div>
         <h3>Memorial & Tribute</h3>
         <p>Heartfelt tribute pages honoring loved ones with photos, memories, and messages.</p>
@@ -370,14 +261,430 @@
           <span>View Memorial Templates</span>
           <i class="fas fa-arrow-right"></i>
         </div>
-      </div>
-      <div class="service-card reveal" data-category="all" role="button" tabindex="0" title="Click to view Custom Event templates">
+      </a>
+      <a href="templates.html?category=all" class="service-card reveal text-decoration-none" data-category="all" title="Click to view Custom Event templates">
         <div class="service-icon">🌟</div>
         <h3>Custom Event Websites</h3>
         <p>Any special occasion? We create custom websites tailored to your unique event and needs.</p>
         <div class="service-card-action">
           <span>Explore All 50 Templates</span>
           <i class="fas fa-arrow-right"></i>
+        </div>
+      </a>
+    </div>
+
+    <!-- 50+ TEMPLATES SPOTLIGHT BANNER -->
+    <div class="custom-atelier-banner reveal" style="margin-top: 50px;">
+      <div class="atelier-banner-content">
+        <div class="atelier-crown"><i class="fas fa-crown"></i></div>
+        <div class="atelier-text">
+          <h3>Explore All 50+ Bespoke Website Templates</h3>
+          <p>Filter by occasion, search by aesthetic, preview interactive music players and countdown timers, and choose your perfect celebration design.</p>
+        </div>
+        <a href="templates.html" class="btn-primary atelier-btn">
+          <span>Browse 50+ Templates</span>
+          <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FEATURE 1: INTERACTIVE "DESIGN YOUR DREAM SITE" STUDIO
+       ======================================================== -->
+  <section class="studio-section" id="customizer">
+    <div class="section-header reveal">
+      <span class="section-tag"><i class="fas fa-wand-magic-sparkles"></i> Interactive Atelier</span>
+      <h2>Design Your Dream Website</h2>
+      <p>Select your occasion, pick your luxury color palette, customize your couple/celebrant details, and preview your live website in real-time before ordering.</p>
+    </div>
+
+    <div class="studio-grid-wrap reveal">
+      <!-- STUDIO CONTROLS (LEFT) -->
+      <div class="studio-controls-card">
+        <!-- STEP 1: OCCASION -->
+        <div class="studio-step-group">
+          <label class="studio-step-label"><span class="step-num">1</span> Choose Occasion</label>
+          <div class="studio-pills-row" id="studio-occasion-pills">
+            <button class="studio-pill active" data-occasion="wedding" data-icon="👑" data-default-name="Ananya & Karthik" data-sub="Wedding Celebration">💒 Wedding</button>
+            <button class="studio-pill" data-occasion="birthday" data-icon="🎂" data-default-name="Rohan's 25th Milestone" data-sub="Birthday Bash">🎂 Birthday</button>
+            <button class="studio-pill" data-occasion="anniversary" data-icon="💕" data-default-name="Priya & Rahul" data-sub="25th Silver Jubilee">💕 Anniversary</button>
+            <button class="studio-pill" data-occasion="engagement" data-icon="💍" data-default-name="Sneha & Vikram" data-sub="Rings & Promises">💍 Engagement</button>
+            <button class="studio-pill" data-occasion="babyshower" data-icon="👶" data-default-name="Baby Anaya" data-sub="Welcome Little Star">👶 Baby Shower</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: CELEBRANTS & DATE -->
+        <div class="studio-step-group">
+          <label class="studio-step-label"><span class="step-num">2</span> Names & Celebration Date</label>
+          <div class="studio-inputs-grid">
+            <div class="studio-input-wrap">
+              <span class="input-icon"><i class="fas fa-user-friends"></i></span>
+              <input type="text" id="studio-name-input" value="Ananya & Karthik" placeholder="Enter Couple / Celebrant Names">
+            </div>
+            <div class="studio-input-wrap">
+              <span class="input-icon"><i class="fas fa-calendar-alt"></i></span>
+              <input type="text" id="studio-date-input" value="Saturday, December 19, 2026" placeholder="Celebration Date">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: COLOR THEME -->
+        <div class="studio-step-group">
+          <label class="studio-step-label"><span class="step-num">3</span> Luxury Aesthetic Palette</label>
+          <div class="studio-palettes-grid" id="studio-palettes">
+            <button class="palette-option active" data-theme="royal-gold" data-bg="linear-gradient(135deg, #181124 0%, #0d0c18 100%)" data-gold="#d4af37" data-accent="#9333ea" title="Royal Velvet & Gold">
+              <span class="palette-swatch" style="background: linear-gradient(135deg, #d4af37, #800020);"></span>
+              <span class="palette-name">Royal Velvet</span>
+            </button>
+            <button class="palette-option" data-theme="champagne-rose" data-bg="linear-gradient(135deg, #24141d 0%, #150a10 100%)" data-gold="#fbc2eb" data-accent="#f43f5e" title="Champagne Rose">
+              <span class="palette-swatch" style="background: linear-gradient(135deg, #fbc2eb, #e11d48);"></span>
+              <span class="palette-name">Champagne Rose</span>
+            </button>
+            <button class="palette-option" data-theme="midnight-sapphire" data-bg="linear-gradient(135deg, #09132b 0%, #040915 100%)" data-gold="#38bdf8" data-accent="#2563eb" title="Midnight Sapphire">
+              <span class="palette-swatch" style="background: linear-gradient(135deg, #38bdf8, #1d4ed8);"></span>
+              <span class="palette-name">Midnight Sapphire</span>
+            </button>
+            <button class="palette-option" data-theme="emerald-vineyard" data-bg="linear-gradient(135deg, #0b1f14 0%, #051009 100%)" data-gold="#34d399" data-accent="#059669" title="Emerald Vineyard">
+              <span class="palette-swatch" style="background: linear-gradient(135deg, #34d399, #047857);"></span>
+              <span class="palette-name">Emerald Gold</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: AMBIENT MUSIC -->
+        <div class="studio-step-group">
+          <label class="studio-step-label"><span class="step-num">4</span> Background Celebration Music</label>
+          <div class="studio-music-select-grid" id="studio-music-options">
+            <button class="music-pill-opt active" data-track="Royal Sitar & Shehnai Raga"><i class="fas fa-music"></i> Royal Sitar & Shehnai</button>
+            <button class="music-pill-opt" data-track="Acoustic Romance Guitar"><i class="fas fa-guitar"></i> Acoustic Romance</button>
+            <button class="music-pill-opt" data-track="Celebration Euphoria Beats"><i class="fas fa-drum"></i> Euphoria Beats</button>
+            <button class="music-pill-opt" data-track="Violin Serenade"><i class="fas fa-compact-disc"></i> Violin Serenade</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: ADD-ON FEATURES -->
+        <div class="studio-step-group">
+          <label class="studio-step-label"><span class="step-num">5</span> Interactive Modules</label>
+          <div class="studio-addons-list">
+            <label class="studio-addon-checkbox">
+              <input type="checkbox" id="addon-rsvp" checked>
+              <span class="addon-check-box"><i class="fas fa-check"></i></span>
+              <div class="addon-text">
+                <strong>WhatsApp Direct RSVP</strong>
+                <span>Guests confirm attendance with 1 tap</span>
+              </div>
+            </label>
+            <label class="studio-addon-checkbox">
+              <input type="checkbox" id="addon-map" checked>
+              <span class="addon-check-box"><i class="fas fa-check"></i></span>
+              <div class="addon-text">
+                <strong>Google Maps GPS Venue</strong>
+                <span>Instant route navigation for attendees</span>
+              </div>
+            </label>
+            <label class="studio-addon-checkbox">
+              <input type="checkbox" id="addon-gallery" checked>
+              <span class="addon-check-box"><i class="fas fa-check"></i></span>
+              <div class="addon-text">
+                <strong>4K Heirloom Photo Album</strong>
+                <span>High-res photos & memories slider</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STUDIO CTA -->
+        <div class="studio-cta-box">
+          <a href="#" id="studio-order-btn" target="_blank" rel="noopener" class="btn-primary btn-gold-luxury w-100">
+            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>
+            <span>Order This Custom Website on WhatsApp</span>
+          </a>
+          <span class="studio-sub-note"><i class="fas fa-bolt" style="color:var(--gold)"></i> 24–48 Hours Delivery • Pay after review</span>
+        </div>
+      </div>
+
+      <!-- LIVE SMARTPHONE SIMULATOR PREVIEW (RIGHT) -->
+      <div class="studio-preview-card">
+        <div class="preview-badge-live">
+          <span class="live-dot"></span> LIVE INTERACTIVE PREVIEW
+        </div>
+
+        <div class="phone-mockup-frame">
+          <div class="phone-notch">
+            <span class="notch-speaker"></span>
+            <span class="notch-cam"></span>
+          </div>
+
+          <!-- SMARTPHONE SCREEN CONTAINER -->
+          <div class="phone-screen" id="phone-screen-target">
+            <!-- HEADER -->
+            <div class="phone-site-header">
+              <span class="phone-crest" id="phone-crest">👑</span>
+              <span class="phone-title-brand" id="phone-brand-title">Ananya & Karthik</span>
+            </div>
+
+            <!-- HERO -->
+            <div class="phone-hero-section">
+              <span class="phone-occasion-pill" id="phone-occasion-pill">💒 Royal Wedding Portal</span>
+              <h2 class="phone-hero-names" id="phone-names-display">Ananya & Karthik</h2>
+              <div class="phone-date-display" id="phone-date-display">✨ Saturday, December 19, 2026 ✨</div>
+
+              <!-- LIVE COUNTDOWN -->
+              <div class="phone-countdown">
+                <div class="phone-cd-item"><strong>48</strong><small>Days</small></div>
+                <div class="phone-cd-sep">:</div>
+                <div class="phone-cd-item"><strong>14</strong><small>Hours</small></div>
+                <div class="phone-cd-sep">:</div>
+                <div class="phone-cd-item"><strong>32</strong><small>Mins</small></div>
+              </div>
+            </div>
+
+            <!-- AUDIO PLAYER -->
+            <div class="phone-music-widget" id="phone-music-widget">
+              <div class="phone-play-icon"><i class="fas fa-music"></i></div>
+              <div class="phone-track-info">
+                <span class="track-status">Celebration Soundtrack</span>
+                <strong id="phone-track-title">Royal Sitar & Shehnai Raga</strong>
+              </div>
+              <span class="music-wave-bars"><span></span><span></span><span></span></span>
+            </div>
+
+            <!-- STORY BLOCK -->
+            <div class="phone-story-block">
+              <span class="block-tag">Our Sacred Journey</span>
+              <p id="phone-story-text">"Two souls united in love and joy, ready to celebrate a lifetime of magical adventures together."</p>
+            </div>
+
+            <!-- DYNAMIC ADDONS PREVIEW -->
+            <div class="phone-addons-preview">
+              <div class="phone-addon-card" id="phone-rsvp-preview">
+                <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+                <div>
+                  <strong>Instant WhatsApp RSVP</strong>
+                  <small>1-Click Guest Attendance</small>
+                </div>
+              </div>
+              <div class="phone-addon-card" id="phone-map-preview">
+                <i class="fas fa-map-pin" style="color:var(--gold);"></i>
+                <div>
+                  <strong>Venue Directions</strong>
+                  <small>Google Maps GPS Location</small>
+                </div>
+              </div>
+              <div class="phone-addon-card" id="phone-gallery-preview">
+                <i class="fas fa-images" style="color:#38bdf8;"></i>
+                <div>
+                  <strong>Precious Memories Gallery</strong>
+                  <small>4K Photo Showcase</small>
+                </div>
+              </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="phone-site-footer">
+              <span>Made with Love • LB Digital Creations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FEATURE 2: BEFORE VS AFTER (PAPER VS DIGITAL)
+       ======================================================== -->
+  <section class="comparison-section" id="comparison">
+    <div class="section-header reveal">
+      <span class="section-tag"><i class="fas fa-balance-scale"></i> The Modern Difference</span>
+      <h2>Traditional Paper Cards vs. LB Living Websites</h2>
+      <p>Why modern couples and families are replacing static paper invitations with interactive, heirloom-grade digital website portals.</p>
+    </div>
+
+    <div class="comparison-grid reveal">
+      <!-- TRADITIONAL PAPER CARD -->
+      <div class="comparison-card paper-side">
+        <div class="comp-badge paper">Traditional Paper Invitations</div>
+        <div class="comp-icon-display">📜❌</div>
+        <h3>Printed Paper Cards</h3>
+        <ul class="comp-checklist">
+          <li class="negative"><i class="fas fa-times-circle"></i> High printing costs & expensive reprints for minor typos</li>
+          <li class="negative"><i class="fas fa-times-circle"></i> Static and easily misplaced in WhatsApp chats or drawers</li>
+          <li class="negative"><i class="fas fa-times-circle"></i> Zero music, zero sound, zero countdown excitement</li>
+          <li class="negative"><i class="fas fa-times-circle"></i> Difficult RSVP tracking (calling each guest individually)</li>
+          <li class="negative"><i class="fas fa-times-circle"></i> Confusing addresses with no 1-click GPS map directions</li>
+          <li class="negative"><i class="fas fa-times-circle"></i> Cannot add new pre-wedding photos or event updates</li>
+        </ul>
+        <div class="comp-summary-pill paper">❌ Outdated & Inflexible</div>
+      </div>
+
+      <!-- LB DIGITAL CREATIONS -->
+      <div class="comparison-card digital-side">
+        <div class="comp-badge luxury-glow">💎 LB Digital Living Websites</div>
+        <div class="comp-icon-display">✨📱</div>
+        <h3>Interactive Living Web Portal</h3>
+        <ul class="comp-checklist">
+          <li class="positive"><i class="fas fa-check-circle"></i> Share instantly with 1 tap across WhatsApp, Instagram & SMS</li>
+          <li class="positive"><i class="fas fa-check-circle"></i> Live real-time countdown clock & celebration itinerary</li>
+          <li class="positive"><i class="fas fa-check-circle"></i> Atmospheric background music & shehnai raga audio players</li>
+          <li class="positive"><i class="fas fa-check-circle"></i> 1-Click WhatsApp RSVP with automatic guest attendance lists</li>
+          <li class="positive"><i class="fas fa-check-circle"></i> Integrated Google Maps GPS navigation straight to the venue</li>
+          <li class="positive"><i class="fas fa-check-circle"></i> 4K Photo gallery & timeless digital heirloom saved forever</li>
+        </ul>
+        <div class="comp-summary-pill digital">✨ 100% Wow Factor Guaranteed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================
+       FEATURE 3: INTERACTIVE PRICING CALCULATOR
+       ======================================================== -->
+  <section class="pricing-calc-section" id="pricing">
+    <div class="section-header reveal">
+      <span class="section-tag"><i class="fas fa-calculator"></i> Transparent Pricing</span>
+      <h2>Interactive Package Customizer</h2>
+      <p>Select your base experience tier, add your desired custom modules, and see the exact pricing with zero hidden fees.</p>
+    </div>
+
+    <div class="pricing-calc-wrap reveal">
+      <!-- TIER SELECTOR -->
+      <div class="tier-select-grid">
+        <!-- TIER 1 -->
+        <div class="tier-card" data-tier="classic" data-price="999">
+          <div class="tier-header">
+            <span class="tier-tag">Classic Clean</span>
+            <h3>Minimalist Edition</h3>
+            <div class="tier-price">
+              <span class="currency">₹</span>
+              <span class="amount">999</span>
+            </div>
+            <p>Fast, lightweight & elegant design for intimate gatherings and digital invitations.</p>
+          </div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> 1-Page Custom Celebration Website</li>
+            <li><i class="fas fa-check"></i> Event Schedule & Itinerary</li>
+            <li><i class="fas fa-check"></i> Google Maps Venue Directions</li>
+            <li><i class="fas fa-check"></i> 24–48h Rapid Delivery</li>
+          </ul>
+          <button class="tier-select-btn" type="button">Select Classic</button>
+        </div>
+
+        <!-- TIER 2 (FEATURED) -->
+        <div class="tier-card featured active" data-tier="luxury" data-price="1999">
+          <div class="popular-ribbon">⭐ MOST POPULAR</div>
+          <div class="tier-header">
+            <span class="tier-tag gold">Ultra-Luxury</span>
+            <h3>Animated Interactive</h3>
+            <div class="tier-price">
+              <span class="currency">₹</span>
+              <span class="amount">1,999</span>
+            </div>
+            <p>The signature experience with dynamic sound, animated countdown, and RSVP tracking.</p>
+          </div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> Full Animated & Interactive Theme</li>
+            <li><i class="fas fa-check"></i> Background Audio & Raga Player</li>
+            <li><i class="fas fa-check"></i> Live Real-Time Countdown Timer</li>
+            <li><i class="fas fa-check"></i> WhatsApp 1-Click RSVP Integration</li>
+            <li><i class="fas fa-check"></i> 4K Photo Gallery (Up to 15 Photos)</li>
+          </ul>
+          <button class="tier-select-btn active" type="button">Selected</button>
+        </div>
+
+        <!-- TIER 3 -->
+        <div class="tier-card" data-tier="bespoke" data-price="3499">
+          <div class="tier-header">
+            <span class="tier-tag royal">Haute Couture</span>
+            <h3>Bespoke Signature</h3>
+            <div class="tier-price">
+              <span class="currency">₹</span>
+              <span class="amount">3,499</span>
+            </div>
+            <p>100% custom-tailored masterwork with custom couple portrait illustrations and priority service.</p>
+          </div>
+          <ul class="tier-features">
+            <li><i class="fas fa-check"></i> 100% Bespoke Theme (Any Layout/FX)</li>
+            <li><i class="fas fa-check"></i> Custom Couple / Portrait Illustration</li>
+            <li><i class="fas fa-check"></i> Unlimited 4K Gallery & Video Reels</li>
+            <li><i class="fas fa-check"></i> Guest Wishes & Memory Wall</li>
+            <li><i class="fas fa-check"></i> 12h Priority VIP Express Delivery</li>
+          </ul>
+          <button class="tier-select-btn" type="button">Select Bespoke</button>
+        </div>
+      </div>
+
+      <!-- ADD-ONS & SUMMARY ROW -->
+      <div class="calc-bottom-panel">
+        <div class="calc-addons-col">
+          <h4>Customize with Premium Add-ons</h4>
+          <div class="calc-addons-grid">
+            <label class="calc-addon-item">
+              <input type="checkbox" class="calc-addon-check" data-name="Custom Domain (.com / .in)" data-cost="799">
+              <span class="calc-check-box"><i class="fas fa-check"></i></span>
+              <div class="calc-addon-meta">
+                <strong>Custom Domain Name</strong>
+                <small>e.g. karthikananya.com</small>
+              </div>
+              <span class="calc-addon-price">+₹799</span>
+            </label>
+
+            <label class="calc-addon-item">
+              <input type="checkbox" class="calc-addon-check" data-name="12-Hour VIP Express Delivery" data-cost="499">
+              <span class="calc-check-box"><i class="fas fa-check"></i></span>
+              <div class="calc-addon-meta">
+                <strong>12h VIP Express Delivery</strong>
+                <small>Same-day priority turnaround</small>
+              </div>
+              <span class="calc-addon-price">+₹499</span>
+            </label>
+
+            <label class="calc-addon-item">
+              <input type="checkbox" class="calc-addon-check" data-name="Custom Portrait Illustration" data-cost="599">
+              <span class="calc-check-box"><i class="fas fa-check"></i></span>
+              <div class="calc-addon-meta">
+                <strong>Digital Couple Portrait Art</strong>
+                <small>Hand-drawn digital artwork</small>
+              </div>
+              <span class="calc-addon-price">+₹599</span>
+            </label>
+
+            <label class="calc-addon-item">
+              <input type="checkbox" class="calc-addon-check" data-name="Cinematic Video Reel Integration" data-cost="399">
+              <span class="calc-check-box"><i class="fas fa-check"></i></span>
+              <div class="calc-addon-meta">
+                <strong>Cinematic Video & Reel Player</strong>
+                <small>Embed 4K pre-wedding / birthday reels</small>
+              </div>
+              <span class="calc-addon-price">+₹399</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- TOTAL & BOOKING CTA -->
+        <div class="calc-summary-col">
+          <div class="summary-breakdown-card">
+            <h4>Package Summary</h4>
+            <div class="breakdown-line">
+              <span id="calc-selected-tier-name">Ultra-Luxury Animated Edition</span>
+              <strong id="calc-tier-cost">₹1,999</strong>
+            </div>
+            <div class="breakdown-line" id="calc-addons-breakdown-row" style="display:none;">
+              <span>Selected Add-ons</span>
+              <strong id="calc-addons-cost">+₹0</strong>
+            </div>
+            <div class="breakdown-divider"></div>
+            <div class="breakdown-total">
+              <span>Total Estimated Investment</span>
+              <strong class="total-gold-price" id="calc-grand-total">₹1,999</strong>
+            </div>
+            <a href="#" id="calc-whatsapp-book-btn" target="_blank" rel="noopener" class="btn-primary btn-gold-luxury w-100 mt-3">
+              <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>
+              <span>Book This Package on WhatsApp</span>
+            </a>
+            <div class="summary-guarantee">
+              <i class="fas fa-shield-alt" style="color:var(--gold)"></i> 50% Advance • Pay Remaining Only After 100% Satisfaction
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -617,254 +924,85 @@
   </section>
 
   <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-logo">
-        <img src="logo.jpg" alt="LB">
-        <span>LB Digital Creations</span>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="footer-top reveal">
+      <div class="footer-brand">
+        <div class="logo-wrapper">
+          <img src="logo.jpg" alt="LB Digital Creations">
+        </div>
+        <div class="logo-text-group">
+          <span class="brand-title">LB Digital Creations</span>
+          <span class="brand-subtitle">Haute Digital Atelier</span>
+        </div>
+        <p class="footer-tagline">Transforming life's most precious celebrations into timeless, shareable digital masterpieces.</p>
       </div>
-      <div class="footer-socials">
-        <a href="mailto:lbdigitalcreations7326@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.instagram.com/lb_digital_creations" target="_blank" rel="noopener" title="Instagram"><i
-            class="fab fa-instagram"></i></a>
-        <a href="https://whatsapp.com/channel/0029Vb7jTKl9sBIAWhoh383E" target="_blank" rel="noopener"
-          title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" title="Order Form"><i
-            class="fas fa-clipboard-list"></i></a>
+
+      <div class="footer-links-group">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="templates.html">50+ Templates</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#reviews">Client Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Occasion Categories</h4>
+        <ul>
+          <li><a href="templates.html?category=wedding">Wedding Websites (10)</a></li>
+          <li><a href="templates.html?category=birthday">Birthday Portals (10)</a></li>
+          <li><a href="templates.html?category=anniversary">Anniversary Stories (8)</a></li>
+          <li><a href="templates.html?category=engagement">Engagement Invites (5)</a></li>
+          <li><a href="templates.html?category=babyshower">Baby Shower Sites (6)</a></li>
+          <li><a href="templates.html?category=invitation">Digital Invites (6)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>VIP Concierge</h4>
+        <p><i class="fab fa-whatsapp" style="color:#25D366"></i> +91 63813 66088</p>
+        <p><i class="fas fa-envelope" style="color:var(--gold)"></i> lbdigitalcreations7326@gmail.com</p>
+        <p><i class="fas fa-clock" style="color:var(--gold-light)"></i> 24–48h Rapid Delivery</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/lb_digital_creations" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/916381366088" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://whatsapp.com/channel/0029Vb7jTKl9sBIAWhoh383E" target="_blank" rel="noopener" aria-label="WhatsApp Channel"><i class="fas fa-bullhorn"></i></a>
+          <a href="mailto:lbdigitalcreations7326@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
     </div>
+
     <div class="footer-bottom">
-      &copy; 2026 LB Digital Creations. All rights reserved.
+      <p>&copy; 2026 LB Digital Creations. All Rights Reserved. Sculpted with pure passion & elegance.</p>
     </div>
   </footer>
 
-  <!-- ===== TEMPLATE PREVIEW MODAL ===== -->
-  <div class="template-modal-overlay" id="template-modal" aria-hidden="true" role="dialog">
-    <div class="template-modal-box">
-      <div class="modal-header">
-        <div class="modal-title-group">
-          <div class="modal-badge-row">
-            <span class="modal-badge" id="modal-badge">Royal Luxury</span>
-            <span class="modal-category" id="modal-category">Wedding Collection</span>
-            <span class="modal-rating">★★★★★ 4.9</span>
-          </div>
-          <h2 id="modal-title">Royal Maharaja Wedding</h2>
-        </div>
-
-        <div class="modal-controls">
-          <div class="device-switcher" title="Toggle Preview Screen">
-            <button class="device-btn active" data-device="desktop" title="Desktop View"><i class="fas fa-desktop"></i></button>
-            <button class="device-btn" data-device="mobile" title="Mobile Smartphone View"><i class="fas fa-mobile-alt"></i></button>
-          </div>
-          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Preview"><i class="fas fa-times"></i></button>
-        </div>
+  <!-- ===== FLOATING AMBIENT CELEBRATION MUSIC PLAYER ===== -->
+  <div class="floating-music-bar" id="floating-music-bar">
+    <button class="music-toggle-btn" id="floating-play-btn" aria-label="Toggle Celebration Music" title="Play Celebration Music">
+      <i class="fas fa-play" id="floating-play-icon"></i>
+    </button>
+    <div class="music-meta-wrap">
+      <div class="music-wave-bars-anim" id="floating-wave-bars">
+        <span></span><span></span><span></span><span></span><span></span>
       </div>
-
-      <div class="modal-body">
-        <!-- SIMULATED LIVE DEVICE FRAME -->
-        <div class="device-frame-wrap" id="device-frame-wrap">
-          <div class="mockup-frame desktop-mode" id="mockup-frame">
-            <div class="mockup-browser-bar">
-              <span class="browser-dot red"></span>
-              <span class="browser-dot yellow"></span>
-              <span class="browser-dot green"></span>
-              <div class="browser-address" id="mockup-address">https://lbdigitalcreations.in/demo/royal-maharaja</div>
-            </div>
-            <div class="mockup-viewport" id="mockup-viewport">
-              <div class="demo-site-container" id="demo-site-container">
-                <!-- 1. DEMO SITE NAV -->
-                <div class="demo-site-nav">
-                  <div class="demo-nav-logo" id="demo-nav-logo">
-                    <span class="demo-monogram">👑</span>
-                    <span class="demo-brand-name" id="demo-brand-name">Royal Celebration</span>
-                  </div>
-                  <div class="demo-nav-links">
-                    <span>Story</span>
-                    <span>Schedule</span>
-                    <span>Gallery</span>
-                    <span>Location</span>
-                    <span class="demo-rsvp-pill">RSVP</span>
-                  </div>
-                </div>
-
-                <!-- 2. DEMO HERO SECTION -->
-                <div class="demo-hero-section" id="demo-hero-section">
-                  <div class="demo-experience-badge" id="demo-experience-badge">
-                    <span class="exp-icon">⚡</span>
-                    <span id="demo-exp-text">Animated Interactive Experience</span>
-                  </div>
-
-                  <h3 class="demo-hero-names" id="demo-hero-names">Ananya & Karthik</h3>
-                  <div class="demo-hero-date" id="demo-hero-date">✨ Saturday, December 19, 2026 • Grand Palace Ballroom ✨</div>
-                  
-                  <p class="demo-hero-invitation-text" id="demo-hero-subheading">
-                    We request the honor of your presence as we celebrate our auspicious union surrounded by family, love, and sacred joy.
-                  </p>
-
-                  <!-- FLOATING MUSIC PLAYER BAR -->
-                  <div class="demo-music-bar" id="demo-music-bar">
-                    <button class="demo-music-play-btn" id="demo-music-play-btn" title="Toggle audio">
-                      <i class="fas fa-play" id="demo-play-icon"></i>
-                    </button>
-                    <div class="demo-music-info">
-                      <span class="music-label">Background Melody</span>
-                      <strong id="demo-music-title">Royal Shehnai & Sitar Harmony</strong>
-                    </div>
-                    <div class="demo-soundwave" id="demo-soundwave">
-                      <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 3. DEMO COUNTDOWN TIMER -->
-                <div class="demo-countdown-strip">
-                  <div class="demo-section-label">Counting Down To The Celebration</div>
-                  <div class="demo-countdown-boxes">
-                    <div class="demo-cd-box"><span id="demo-cd-days">18</span><small>Days</small></div>
-                    <div class="demo-cd-box"><span id="demo-cd-hours">09</span><small>Hours</small></div>
-                    <div class="demo-cd-box"><span id="demo-cd-mins">44</span><small>Minutes</small></div>
-                    <div class="demo-cd-box"><span id="demo-cd-secs">27</span><small>Seconds</small></div>
-                  </div>
-                </div>
-
-                <!-- 4. DEMO OUR STORY / WELCOME -->
-                <div class="demo-content-section demo-story-section">
-                  <div class="demo-sec-header">
-                    <span class="demo-sec-tag">Our Journey</span>
-                    <h4 id="demo-story-title">How Our Story Unfolded</h4>
-                  </div>
-                  <div class="demo-story-grid">
-                    <div class="demo-portrait-box">
-                      <div class="demo-portrait-placeholder" id="demo-portrait-bg">
-                        <span class="demo-portrait-icon" id="demo-portrait-icon">👰🤵</span>
-                        <span class="demo-portrait-badge">Couple Portrait</span>
-                      </div>
-                    </div>
-                    <div class="demo-story-text-col">
-                      <p id="demo-story-body">
-                        "From our first serendipitous encounter to countless shared memories, laughter, and milestones, our journey has been an extraordinary blessing. We cannot wait to begin this new chapter with all the people who mean the world to us."
-                      </p>
-                      <div class="demo-quote-author" id="demo-story-author">— Forever & Always</div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 5. DEMO EVENT ITINERARY / TIMELINE -->
-                <div class="demo-content-section demo-itinerary-section">
-                  <div class="demo-sec-header">
-                    <span class="demo-sec-tag">Schedule of Events</span>
-                    <h4>Ceremonies & Celebrations</h4>
-                  </div>
-                  <div class="demo-timeline-cards" id="demo-timeline-cards">
-                    <!-- Rendered dynamically -->
-                  </div>
-                </div>
-
-                <!-- 6. DEMO MEMORIES GALLERY -->
-                <div class="demo-content-section demo-gallery-section">
-                  <div class="demo-sec-header">
-                    <span class="demo-sec-tag">Treasured Memories</span>
-                    <h4>Photo & Reel Showcase</h4>
-                  </div>
-                  <div class="demo-gallery-grid" id="demo-gallery-grid">
-                    <!-- 4 placeholder photo cards -->
-                    <div class="demo-photo-card"><span class="photo-icon">📸</span><small>Sweet Moments</small></div>
-                    <div class="demo-photo-card"><span class="photo-icon">✨</span><small>Golden Hours</small></div>
-                    <div class="demo-photo-card"><span class="photo-icon">🥂</span><small>Celebration</small></div>
-                    <div class="demo-photo-card"><span class="photo-icon">💖</span><small>Forever Love</small></div>
-                  </div>
-                </div>
-
-                <!-- 7. DEMO VENUE & LOCATION -->
-                <div class="demo-content-section demo-location-section">
-                  <div class="demo-sec-header">
-                    <span class="demo-sec-tag">Join Our Celebration</span>
-                    <h4>Venue & Directions</h4>
-                  </div>
-                  <div class="demo-venue-card">
-                    <div class="demo-venue-map-preview">
-                      <i class="fas fa-map-marked-alt map-pin-icon"></i>
-                      <span>Interactive GPS Map View</span>
-                    </div>
-                    <div class="demo-venue-details">
-                      <h5 id="demo-venue-name">The Leela Grand Palace, Ballroom Hall</h5>
-                      <p id="demo-venue-address">Adyar Seaface Road, MRC Nagar, Chennai, Tamil Nadu</p>
-                      <button class="demo-maps-btn"><i class="fas fa-location-arrow"></i> Open Google Maps Navigation</button>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- 8. DEMO RSVP & WISHES FORM -->
-                <div class="demo-content-section demo-rsvp-section">
-                  <div class="demo-sec-header">
-                    <span class="demo-sec-tag">Guest Check-In</span>
-                    <h4>Will You Celebrate With Us?</h4>
-                  </div>
-                  <div class="demo-rsvp-form-mockup">
-                    <div class="demo-input-mock">Guest Name: Priya & Family</div>
-                    <div class="demo-rsvp-options">
-                      <span class="rsvp-opt active">✓ Joyfully Attending (2)</span>
-                      <span class="rsvp-opt">Regretfully Decline</span>
-                    </div>
-                    <div class="demo-textarea-mock">"Wishing you both an eternity of pure bliss and adventures together! ❤️"</div>
-                    <button class="demo-submit-btn">Send Wishes & Confirm RSVP</button>
-                  </div>
-                </div>
-
-                <!-- 9. DEMO FOOTER -->
-                <div class="demo-site-footer">
-                  <p>Crafted with love for an unforgettable celebration • LB Digital Creations</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TEMPLATE SPECIFICATIONS SIDEBAR -->
-        <div class="modal-sidebar">
-          <div class="sidebar-section">
-            <h4>About This Design</h4>
-            <p id="modal-description">Custom sculpted for grand celebrations. Features rich traditional ornamentation, smooth parallax transitions, and instant guest RSVP via WhatsApp and Google Forms.</p>
-          </div>
-
-          <div class="sidebar-section">
-            <h4>Aesthetic Color Palette</h4>
-            <div class="color-palette-swatches" id="modal-swatches">
-              <!-- Rendered dynamically -->
-            </div>
-          </div>
-
-          <div class="sidebar-section">
-            <h4>Key Included Features</h4>
-            <ul class="features-checklist" id="modal-features">
-              <li><i class="fas fa-check"></i> 100% Mobile & WhatsApp Share Optimized</li>
-              <li><i class="fas fa-check"></i> Interactive Countdown & Event Schedule</li>
-              <li><i class="fas fa-check"></i> High-Resolution Photo Gallery</li>
-              <li><i class="fas fa-check"></i> Google Maps Venue Directions</li>
-              <li><i class="fas fa-check"></i> WhatsApp Direct RSVP Integration</li>
-              <li><i class="fas fa-check"></i> Background Audio & Video Integration</li>
-            </ul>
-          </div>
-
-          <div class="sidebar-delivery-box">
-            <i class="fas fa-bolt" style="color:var(--gold)"></i>
-            <div>
-              <strong>24–48 Hours Delivery</strong>
-              <p>Personalized with your couple/celebrant photos, names, dates, and songs.</p>
-            </div>
-          </div>
-
-          <div class="modal-cta-group">
-            <a href="#" id="modal-order-whatsapp-btn" target="_blank" rel="noopener" class="btn-primary btn-gold-luxury modal-order-btn">
-              <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>
-              <span>Order This Template via WhatsApp</span>
-            </a>
-            <a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="btn-outline modal-form-btn">
-              <i class="fas fa-clipboard-list" style="margin-right: 8px;"></i>
-              <span>Fill Custom Order Form</span>
-            </a>
-          </div>
-        </div>
+      <div class="music-text-group">
+        <span class="music-now-label">Ambient Celebration Music</span>
+        <strong class="music-track-name" id="floating-track-name">Royal Sitar & Shehnai Raga</strong>
+      </div>
+    </div>
+    <div class="music-track-selector-dropdown">
+      <button class="track-menu-btn" id="track-menu-btn" title="Change Melody"><i class="fas fa-list-music"></i></button>
+      <div class="track-popup-menu" id="track-popup-menu">
+        <span class="track-popup-title">Celebration Soundtracks</span>
+        <button class="track-item active" data-sound="sitar">👑 Royal Sitar & Shehnai Raga</button>
+        <button class="track-item" data-sound="guitar">🎸 Acoustic Romance Melody</button>
+        <button class="track-item" data-sound="synth">🎉 Celebration Euphoria Rhythms</button>
+        <button class="track-item" data-sound="violin">🎻 Sacred Violin Harmony</button>
       </div>
     </div>
   </div>
@@ -872,7 +1010,7 @@
   <!-- TOAST NOTIFICATION -->
   <div id="luxury-toast" class="luxury-toast">
     <i class="fas fa-info-circle"></i>
-    <span id="toast-text">Template link copied!</span>
+    <span id="toast-text">Notification</span>
   </div>
 
   <script src="script.js"></script>

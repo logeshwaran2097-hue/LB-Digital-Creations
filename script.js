@@ -21,6 +21,7 @@ const ring = document.querySelector('.cursor-ring');
 if (!isMobile && dot && ring) {
   let mouseX = 0, mouseY = 0;
   let ringX = 0, ringY = 0;
+  let cursorActive = false;
   const trails = [];
   const TRAIL_COUNT = 8;
 
@@ -32,6 +33,10 @@ if (!isMobile && dot && ring) {
   }
 
   document.addEventListener('mousemove', (e) => {
+    if (!cursorActive) {
+      document.body.classList.add('custom-cursor-active');
+      cursorActive = true;
+    }
     mouseX = e.clientX;
     mouseY = e.clientY;
     dot.style.left = mouseX - 4 + 'px';
@@ -3065,6 +3070,14 @@ const resetFiltersBtn = document.getElementById('reset-filters-btn');
 const typeTabs = document.querySelectorAll('.type-tab');
 const filterTabs = document.querySelectorAll('.filter-tab');
 
+// Check URL parameters on page load (e.g. templates.html?category=wedding)
+const urlParams = new URLSearchParams(window.location.search);
+const initialCat = urlParams.get('category');
+if (initialCat && ['wedding', 'birthday', 'anniversary', 'engagement', 'babyshower', 'invitation', 'special', 'all'].includes(initialCat)) {
+  activeCategory = initialCat;
+  filterTabs.forEach(t => t.classList.toggle('active', t.getAttribute('data-category') === initialCat));
+}
+
 function renderTemplates() {
   if (!templatesGrid) return;
 
@@ -3159,8 +3172,10 @@ function renderTemplates() {
   }
 }
 
-// Initial render
-renderTemplates();
+// Initial render if grid is present
+if (templatesGrid) {
+  renderTemplates();
+}
 
 // Category Filter Tabs
 filterTabs.forEach(tab => {
@@ -3219,41 +3234,25 @@ if (resetFiltersBtn) {
 // ========================================================
 // SERVICE CARDS (WEBSITES WE BUILD) CLICK-TO-FILTER LOGIC
 // ========================================================
-// Clicking "Birthday Websites", "Wedding Websites", etc.
-// automatically sets category, scrolls down to showcase, and filters!
 const serviceCards = document.querySelectorAll('.service-card[data-category]');
 serviceCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const category = card.getAttribute('data-category');
-    if (!category) return;
-
-    // 1. Set active category
-    activeCategory = category;
-
-    // 2. Sync category filter tabs UI
-    filterTabs.forEach(tab => {
-      tab.classList.toggle('active', tab.getAttribute('data-category') === category);
-    });
-
-    // 3. Render filtered templates
-    renderTemplates();
-
-    // 4. Smooth scroll to templates section
+  card.addEventListener('click', (e) => {
     const templatesSection = document.getElementById('templates');
-    if (templatesSection) {
-      templatesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    // 5. User feedback toast
-    const cardTitle = card.querySelector('h3') ? card.querySelector('h3').textContent : 'Templates';
-    showLuxuryToast(`Showing 50-Template Collection: ${cardTitle}`);
-  });
-
-  // Keyboard accessibility
-  card.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
+    // If on same page where templates showcase exists (templates.html), filter in-place
+    if (templatesSection && templatesGrid) {
       e.preventDefault();
-      card.click();
+      const category = card.getAttribute('data-category');
+      if (!category) return;
+
+      activeCategory = category;
+      filterTabs.forEach(tab => {
+        tab.classList.toggle('active', tab.getAttribute('data-category') === category);
+      });
+      renderTemplates();
+      templatesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      const cardTitle = card.querySelector('h3') ? card.querySelector('h3').textContent : 'Templates';
+      showLuxuryToast(`Showing 50-Template Collection: ${cardTitle}`);
     }
   });
 });
@@ -3494,3 +3493,403 @@ document.querySelectorAll('.demo-rsvp-options .rsvp-opt').forEach(opt => {
     opt.classList.add('active');
   });
 });
+
+// ========================================================
+// FEATURE 1: INTERACTIVE "DESIGN YOUR DREAM SITE" STUDIO LOGIC
+// ========================================================
+(function initStudio() {
+  const occasionPills = document.querySelectorAll('#studio-occasion-pills .studio-pill');
+  const nameInput = document.getElementById('studio-name-input');
+  const dateInput = document.getElementById('studio-date-input');
+  const paletteBtns = document.querySelectorAll('#studio-palettes .palette-option');
+  const musicBtns = document.querySelectorAll('#studio-music-options .music-pill-opt');
+  const addonRsvp = document.getElementById('addon-rsvp');
+  const addonMap = document.getElementById('addon-map');
+  const addonGallery = document.getElementById('addon-gallery');
+  const orderBtn = document.getElementById('studio-order-btn');
+
+  // Target preview elements
+  const phoneScreen = document.getElementById('phone-screen-target');
+  const phoneCrest = document.getElementById('phone-crest');
+  const phoneBrandTitle = document.getElementById('phone-brand-title');
+  const phoneOccasionPill = document.getElementById('phone-occasion-pill');
+  const phoneNamesDisplay = document.getElementById('phone-names-display');
+  const phoneDateDisplay = document.getElementById('phone-date-display');
+  const phoneTrackTitle = document.getElementById('phone-track-title');
+  const phoneStoryText = document.getElementById('phone-story-text');
+  const phoneRsvpPreview = document.getElementById('phone-rsvp-preview');
+  const phoneMapPreview = document.getElementById('phone-map-preview');
+  const phoneGalleryPreview = document.getElementById('phone-gallery-preview');
+
+  if (!phoneScreen) return;
+
+  let currentOccasion = 'wedding';
+  let currentOccasionLabel = 'Royal Wedding Portal';
+  let currentIcon = '👑';
+  let currentPalette = 'Royal Velvet';
+  let currentMusic = 'Royal Sitar & Shehnai Raga';
+
+  const occasionStoryMap = {
+    wedding: '"Two souls united in love and sacred vows, ready to celebrate a lifetime of magical adventures together."',
+    birthday: '"Celebrating another year of boundless dreams, vibrant laughter, and making memories with the best people."',
+    anniversary: '"25 golden years of cherished memories, unwavering commitment, and a timeless love that grows brighter every day."',
+    engagement: '"A sacred promise sealed with rings and pure love. Join us as we begin our countdown to forever."',
+    babyshower: '"A sweet little miracle is on the way to fill our world with joy, laughter, and endless blessings."'
+  };
+
+  function updateStudioPreview() {
+    const names = (nameInput && nameInput.value.trim()) || 'Ananya & Karthik';
+    const date = (dateInput && dateInput.value.trim()) || 'Saturday, December 19, 2026';
+
+    if (phoneCrest) phoneCrest.textContent = currentIcon;
+    if (phoneBrandTitle) phoneBrandTitle.textContent = names.split('&')[0].trim() || names;
+    if (phoneOccasionPill) phoneOccasionPill.textContent = `${currentIcon} ${currentOccasionLabel}`;
+    if (phoneNamesDisplay) phoneNamesDisplay.textContent = names;
+    if (phoneDateDisplay) phoneDateDisplay.textContent = `✨ ${date} ✨`;
+    if (phoneTrackTitle) phoneTrackTitle.textContent = currentMusic;
+    if (phoneStoryText) phoneStoryText.textContent = occasionStoryMap[currentOccasion] || occasionStoryMap.wedding;
+
+    // Addons visibility
+    if (phoneRsvpPreview) phoneRsvpPreview.style.display = addonRsvp && addonRsvp.checked ? 'flex' : 'none';
+    if (phoneMapPreview) phoneMapPreview.style.display = addonMap && addonMap.checked ? 'flex' : 'none';
+    if (phoneGalleryPreview) phoneGalleryPreview.style.display = addonGallery && addonGallery.checked ? 'flex' : 'none';
+
+    // WhatsApp CTA link prefill
+    if (orderBtn) {
+      const selectedAddons = [];
+      if (addonRsvp && addonRsvp.checked) selectedAddons.push('WhatsApp RSVP');
+      if (addonMap && addonMap.checked) selectedAddons.push('GPS Venue Map');
+      if (addonGallery && addonGallery.checked) selectedAddons.push('4K Photo Gallery');
+
+      const message = `Hello LB Digital Creations! I customized my dream website in the Live Studio:
+- Occasion: ${currentOccasionLabel}
+- Names: ${names}
+- Date: ${date}
+- Aesthetic Theme: ${currentPalette}
+- Music: ${currentMusic}
+- Included Modules: ${selectedAddons.join(', ')}
+
+I would like to discuss and book this custom design!`;
+
+      orderBtn.href = `https://wa.me/916381366088?text=${encodeURIComponent(message)}`;
+    }
+  }
+
+  // Occasion Pills click
+  occasionPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      occasionPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentOccasion = pill.getAttribute('data-occasion');
+      currentIcon = pill.getAttribute('data-icon');
+      currentOccasionLabel = pill.getAttribute('data-sub');
+
+      const defaultName = pill.getAttribute('data-default-name');
+      if (nameInput && defaultName) {
+        nameInput.value = defaultName;
+      }
+
+      updateStudioPreview();
+      showLuxuryToast(`Studio Theme set to ${currentOccasionLabel}`);
+    });
+  });
+
+  // Inputs live listener
+  if (nameInput) nameInput.addEventListener('input', updateStudioPreview);
+  if (dateInput) dateInput.addEventListener('input', updateStudioPreview);
+
+  // Palette click
+  paletteBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      paletteBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentPalette = btn.getAttribute('title') || 'Luxury Gold';
+      const bg = btn.getAttribute('data-bg');
+      if (phoneScreen && bg) {
+        phoneScreen.style.background = bg;
+      }
+      updateStudioPreview();
+    });
+  });
+
+  // Music Option click
+  musicBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      musicBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentMusic = btn.getAttribute('data-track');
+      updateStudioPreview();
+      showLuxuryToast(`Soundtrack selected: ${currentMusic}`);
+    });
+  });
+
+  // Addons toggle
+  [addonRsvp, addonMap, addonGallery].forEach(cb => {
+    if (cb) cb.addEventListener('change', updateStudioPreview);
+  });
+
+  // Initial preview update
+  updateStudioPreview();
+})();
+
+// ========================================================
+// FEATURE 2: INTERACTIVE PRICING CALCULATOR LOGIC
+// ========================================================
+(function initPricingCalculator() {
+  const tierCards = document.querySelectorAll('.tier-card');
+  const addonChecks = document.querySelectorAll('.calc-addon-check');
+  const selectedTierNameEl = document.getElementById('calc-selected-tier-name');
+  const tierCostEl = document.getElementById('calc-tier-cost');
+  const addonsRowEl = document.getElementById('calc-addons-breakdown-row');
+  const addonsCostEl = document.getElementById('calc-addons-cost');
+  const grandTotalEl = document.getElementById('calc-grand-total');
+  const bookBtn = document.getElementById('calc-whatsapp-book-btn');
+
+  if (!grandTotalEl) return;
+
+  let currentTierName = 'Ultra-Luxury Animated Edition';
+  let currentTierPrice = 1999;
+
+  function updatePricing() {
+    let addonsTotal = 0;
+    const selectedAddonNames = [];
+
+    addonChecks.forEach(check => {
+      if (check.checked) {
+        const cost = parseInt(check.getAttribute('data-cost'), 10) || 0;
+        const name = check.getAttribute('data-name');
+        addonsTotal += cost;
+        selectedAddonNames.push(`${name} (+₹${cost})`);
+      }
+    });
+
+    const grandTotal = currentTierPrice + addonsTotal;
+
+    if (selectedTierNameEl) selectedTierNameEl.textContent = currentTierName;
+    if (tierCostEl) tierCostEl.textContent = `₹${currentTierPrice.toLocaleString('en-IN')}`;
+
+    if (addonsRowEl && addonsCostEl) {
+      if (addonsTotal > 0) {
+        addonsRowEl.style.display = 'flex';
+        addonsCostEl.textContent = `+₹${addonsTotal.toLocaleString('en-IN')}`;
+      } else {
+        addonsRowEl.style.display = 'none';
+      }
+    }
+
+    if (grandTotalEl) {
+      grandTotalEl.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
+    }
+
+    // Prefill WhatsApp booking link
+    if (bookBtn) {
+      const addonText = selectedAddonNames.length > 0 ? `\n- Selected Add-ons: ${selectedAddonNames.join(', ')}` : '\n- Add-ons: None';
+      const message = `Hello LB Digital Creations! I would like to book a celebration website package:
+- Selected Tier: ${currentTierName} (₹${currentTierPrice.toLocaleString('en-IN')})${addonText}
+- Total Investment: ₹${grandTotal.toLocaleString('en-IN')}
+
+Please share the onboarding details and order form!`;
+
+      bookBtn.href = `https://wa.me/916381366088?text=${encodeURIComponent(message)}`;
+    }
+  }
+
+  tierCards.forEach(card => {
+    const btn = card.querySelector('.tier-select-btn');
+    const selectTier = () => {
+      tierCards.forEach(c => {
+        c.classList.remove('active');
+        const b = c.querySelector('.tier-select-btn');
+        if (b) {
+          b.classList.remove('active');
+          b.textContent = b.getAttribute('data-orig-text') || 'Select Plan';
+        }
+      });
+
+      card.classList.add('active');
+      if (btn) {
+        if (!btn.getAttribute('data-orig-text')) {
+          btn.setAttribute('data-orig-text', btn.textContent);
+        }
+        btn.classList.add('active');
+        btn.textContent = 'Selected';
+      }
+
+      const tierKey = card.getAttribute('data-tier');
+      currentTierPrice = parseInt(card.getAttribute('data-price'), 10) || 1999;
+      if (tierKey === 'classic') currentTierName = 'Classic Minimalist Edition';
+      else if (tierKey === 'luxury') currentTierName = 'Ultra-Luxury Animated Edition';
+      else if (tierKey === 'bespoke') currentTierName = 'Haute Couture Bespoke Signature';
+
+      updatePricing();
+      showLuxuryToast(`Package selected: ${currentTierName}`);
+    };
+
+    card.addEventListener('click', (e) => {
+      if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+        selectTier();
+      }
+    });
+
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectTier();
+      });
+    }
+  });
+
+  addonChecks.forEach(check => {
+    check.addEventListener('change', () => {
+      updatePricing();
+    });
+  });
+
+  // Initial calculation
+  updatePricing();
+})();
+
+// ========================================================
+// FEATURE 3: FLOATING AMBIENT MUSIC PLAYER WITH SYNTHESIZER
+// ========================================================
+(function initAmbientPlayer() {
+  const playBtn = document.getElementById('floating-play-btn');
+  const playIcon = document.getElementById('floating-play-icon');
+  const waveBars = document.getElementById('floating-wave-bars');
+  const trackNameEl = document.getElementById('floating-track-name');
+  const trackMenuBtn = document.getElementById('track-menu-btn');
+  const trackPopupMenu = document.getElementById('track-popup-menu');
+  const trackItems = document.querySelectorAll('.track-item');
+
+  if (!playBtn) return;
+
+  let isPlaying = false;
+  let currentSound = 'sitar';
+  let audioCtx = null;
+  let synthInterval = null;
+
+  // Sound raga note tables (frequencies in Hz)
+  const soundScales = {
+    sitar: [220, 247.5, 277.18, 329.63, 370, 440, 495, 554.37], // Raga Yaman / Kalyani
+    guitar: [261.63, 293.66, 329.63, 392.00, 440.00, 523.25], // C Major Pentatonic
+    synth: [174.61, 220.00, 261.63, 329.63, 392.00, 440.00], // Euphoria F Major
+    violin: [293.66, 369.99, 440.00, 554.37, 587.33, 659.25] // D Major Harmonics
+  };
+
+  const trackTitleMap = {
+    sitar: 'Royal Sitar & Shehnai Raga',
+    guitar: 'Acoustic Romance Melody',
+    synth: 'Celebration Euphoria Rhythms',
+    violin: 'Sacred Violin Harmony'
+  };
+
+  function playAmbientNote(freq, type = 'sine') {
+    if (!audioCtx) return;
+    try {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.08, audioCtx.currentTime + 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.8);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 2.0);
+    } catch (err) {
+      // Ignore audio synthesis restrictions
+    }
+  }
+
+  function startSynthesizer() {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    const scale = soundScales[currentSound] || soundScales.sitar;
+    let step = 0;
+
+    synthInterval = setInterval(() => {
+      const noteFreq = scale[step % scale.length];
+      const harmonic = scale[(step + 2) % scale.length] * 0.5;
+
+      const oscType = currentSound === 'sitar' ? 'triangle' : currentSound === 'violin' ? 'sawtooth' : 'sine';
+      playAmbientNote(noteFreq, oscType);
+      if (step % 2 === 0) {
+        playAmbientNote(harmonic, 'sine');
+      }
+
+      step++;
+    }, 600);
+  }
+
+  function stopSynthesizer() {
+    if (synthInterval) {
+      clearInterval(synthInterval);
+      synthInterval = null;
+    }
+  }
+
+  function togglePlay() {
+    isPlaying = !isPlaying;
+
+    if (isPlaying) {
+      startSynthesizer();
+      if (playIcon) playIcon.className = 'fas fa-pause';
+      if (waveBars) waveBars.classList.add('playing');
+      showLuxuryToast(`🎵 Playing: ${trackTitleMap[currentSound]}`);
+    } else {
+      stopSynthesizer();
+      if (playIcon) playIcon.className = 'fas fa-play';
+      if (waveBars) waveBars.classList.remove('playing');
+      showLuxuryToast('🔇 Celebration Music Paused');
+    }
+  }
+
+  playBtn.addEventListener('click', togglePlay);
+
+  // Track popup menu toggle
+  if (trackMenuBtn && trackPopupMenu) {
+    trackMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      trackPopupMenu.classList.toggle('show');
+    });
+
+    document.addEventListener('click', () => {
+      trackPopupMenu.classList.remove('show');
+    });
+  }
+
+  trackItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      trackItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      currentSound = item.getAttribute('data-sound');
+
+      if (trackNameEl) {
+        trackNameEl.textContent = trackTitleMap[currentSound] || 'Celebration Soundtrack';
+      }
+
+      if (trackPopupMenu) {
+        trackPopupMenu.classList.remove('show');
+      }
+
+      if (isPlaying) {
+        stopSynthesizer();
+        startSynthesizer();
+      }
+
+      showLuxuryToast(`Melody changed: ${trackTitleMap[currentSound]}`);
+    });
+  });
+})();
+
