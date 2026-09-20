@@ -48,6 +48,11 @@
   }
   </script>
 
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -70,15 +75,24 @@
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">
-      <img src="logo.jpg" alt="LB Digital Creations">
-      <span>LB Digital Creations</span>
+      <div class="logo-wrapper">
+        <img src="logo.jpg" alt="LB Digital Creations">
+        <span class="logo-ring"></span>
+      </div>
+      <div class="logo-text-group">
+        <span class="brand-title">LB Digital Creations</span>
+        <span class="brand-subtitle">Haute Digital Atelier</span>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
+      <li><a href="#templates" class="nav-badge-link">50+ Templates <span class="nav-pill-badge">Exclusive</span></a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="nav-cta">Order Now</a>
+      <li><a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="nav-cta"><span>Order Now</span> <i class="fas fa-sparkles"></i></a>
       </li>
     </ul>
     <button class="hamburger" aria-label="Menu">
@@ -90,19 +104,169 @@
   <section class="hero" id="home">
     <div class="hero-bg-glow g1"></div>
     <div class="hero-bg-glow g2"></div>
+    <div class="hero-bg-glow g3"></div>
+    
     <div class="hero-content">
-      <div class="hero-badge"><span class="dot"></span> Now Accepting New Projects</div>
-      <h1>We Build Digital<br><span class="highlight" id="typing-text">Websites</span></h1>
-      <p class="hero-tagline">✨ Creating Websites for Your Special Moments ✨</p>
-      <p>We create beautiful and shareable websites for special occasions — birthdays, weddings, anniversaries, and
-        celebrations. Turn your special moments into a memorable digital experience.</p>
-      <blockquote class="hero-quote">"Your special moments deserve a digital stage — let us craft it for you."
+      <div class="hero-badge reveal">
+        <span class="gem-icon">💎</span>
+        <span class="hero-badge-text">Haute Digital Atelier • 50+ Bespoke Celebration Templates</span>
+        <span class="badge-shimmer"></span>
+      </div>
+
+      <h1 class="reveal">
+        Crafting Ultra-Luxury<br>
+        <span class="highlight-wrapper">
+          <span class="highlight" id="typing-text">Celebration Websites</span>
+          <span class="gold-underline"></span>
+        </span>
+      </h1>
+
+      <p class="hero-tagline reveal">✨ Transforming Milestones Into Timeless Digital Masterpieces ✨</p>
+      
+      <p class="hero-desc reveal">
+        We architect bespoke, interactive websites for the celebrations that define your life — royal weddings, milestone birthdays, anniversaries, and grand invitations. Featuring interactive RSVPs, orchestral audio, and heirloom-grade photo galleries.
+      </p>
+
+      <blockquote class="hero-quote reveal">
+        <i class="fas fa-quote-left quote-icon"></i>
+        <span>"Your most precious moments deserve a world-class digital stage — meticulously sculpted with love and elegance."</span>
       </blockquote>
-      <div class="hero-btns">
-        <a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="btn-primary">Order Now <i
-            class="fas fa-arrow-right" style="margin-left:8px"></i></a>
-        <a href="#services" class="btn-outline">Explore Services</a>
-        <a href="#contact" class="btn-outline">Contact Us</a>
+
+      <div class="hero-btns reveal">
+        <a href="#templates" class="btn-primary btn-gold-luxury">
+          <span>Explore 50 Templates</span>
+          <i class="fas fa-gem" style="margin-left:10px"></i>
+        </a>
+        <a href="https://wa.me/916381366088?text=Hello%20LB%20Digital%20Creations!%20I'd%20like%20to%20discuss%20a%20luxury%20website%20for%20my%20event." target="_blank" rel="noopener" class="btn-outline btn-glass-whatsapp">
+          <i class="fab fa-whatsapp" style="margin-right:8px; color: #25D366;"></i>
+          <span>WhatsApp VIP Chat</span>
+        </a>
+        <a href="#services" class="btn-outline">
+          <span>Our Services</span>
+        </a>
+      </div>
+
+      <!-- LUXURY STATS TICKER -->
+      <div class="hero-stats-bar reveal">
+        <div class="stat-pill">
+          <div class="stat-number"><span class="counter" data-target="50" data-suffix="+">50+</span></div>
+          <div class="stat-label">Bespoke Templates</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <div class="stat-number">24–48h</div>
+          <div class="stat-label">Fast Delivery</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Mobile & Interactive</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-pill">
+          <div class="stat-number">4.9 ★</div>
+          <div class="stat-label">Client Distinction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 50 TEMPLATES SHOWCASE SECTION ===== -->
+  <section class="templates-section" id="templates">
+    <div class="section-header reveal">
+      <span class="section-tag"><i class="fas fa-crown"></i> Exclusive Portfolio</span>
+      <h2>50 Bespoke Website Templates</h2>
+      <p>Hand-crafted celebration experiences designed to captivate your guests. Filter by occasion, search by aesthetic, and preview your dream website before ordering.</p>
+    </div>
+
+    <!-- FILTER & SEARCH CONTROLS -->
+    <div class="templates-controls-wrap reveal">
+      <div class="search-box-wrap">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="template-search-input" placeholder="Search 50 templates (e.g., Royal, Vineyard, Gatsby, Galaxy, Gold)..." aria-label="Search templates">
+        <button id="search-clear-btn" class="search-clear-btn" title="Clear search" style="display:none;"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="category-filters-scroll">
+        <div class="category-filters" id="category-filters">
+          <button class="filter-tab active" data-category="all">
+            <span class="tab-icon">🌟</span>
+            <span class="tab-name">All Collection</span>
+            <span class="tab-count">50</span>
+          </button>
+          <button class="filter-tab" data-category="wedding">
+            <span class="tab-icon">💒</span>
+            <span class="tab-name">Weddings</span>
+            <span class="tab-count">10</span>
+          </button>
+          <button class="filter-tab" data-category="birthday">
+            <span class="tab-icon">🎂</span>
+            <span class="tab-name">Birthdays</span>
+            <span class="tab-count">10</span>
+          </button>
+          <button class="filter-tab" data-category="anniversary">
+            <span class="tab-icon">💕</span>
+            <span class="tab-name">Anniversaries</span>
+            <span class="tab-count">8</span>
+          </button>
+          <button class="filter-tab" data-category="engagement">
+            <span class="tab-icon">💍</span>
+            <span class="tab-name">Engagements</span>
+            <span class="tab-count">5</span>
+          </button>
+          <button class="filter-tab" data-category="babyshower">
+            <span class="tab-icon">👶</span>
+            <span class="tab-name">Baby Showers</span>
+            <span class="tab-count">6</span>
+          </button>
+          <button class="filter-tab" data-category="invitation">
+            <span class="tab-icon">💌</span>
+            <span class="tab-name">Digital Invites</span>
+            <span class="tab-count">6</span>
+          </button>
+          <button class="filter-tab" data-category="special">
+            <span class="tab-icon">🕊️</span>
+            <span class="tab-name">Special Occasions</span>
+            <span class="tab-count">5</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="templates-meta-status">
+        <div class="results-info">
+          <span>Showing <strong id="visible-count">50</strong> curated templates</span>
+        </div>
+        <div class="sort-note">
+          <i class="fas fa-check-circle" style="color:var(--gold)"></i> 100% Mobile & WhatsApp Share Ready
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATES GRID -->
+    <div class="templates-grid" id="templates-grid">
+      <!-- Injected dynamically via script.js -->
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div id="templates-empty-state" class="templates-empty-state" style="display: none;">
+      <div class="empty-icon">🔍</div>
+      <h3>No Templates Found</h3>
+      <p>Try searching for a different keyword or browse through our categories above.</p>
+      <button id="reset-filters-btn" class="btn-outline">Reset Filters</button>
+    </div>
+
+    <!-- CUSTOM BESPOKE BANNER -->
+    <div class="custom-atelier-banner reveal">
+      <div class="atelier-banner-content">
+        <div class="atelier-crown"><i class="fas fa-crown"></i></div>
+        <div class="atelier-text">
+          <h3>Want a 100% Unique, Custom Signature Theme?</h3>
+          <p>Have a custom color scheme, specific animations, couple portrait illustrations, or special music in mind? Our master designers will craft a one-of-a-kind website exclusively for you.</p>
+        </div>
+        <a href="https://wa.me/916381366088?text=Hello!%20I'd%20like%20to%20request%20a%20100%25%20Custom%20Website%20Design%20for%20my%20event." target="_blank" rel="noopener" class="btn-primary atelier-btn">
+          <span>Request Custom Design</span>
+          <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+        </a>
       </div>
     </div>
   </section>
@@ -235,6 +399,126 @@
     </div>
   </section>
 
+  <!-- ===== REVIEWS & TESTIMONIALS SECTION ===== -->
+  <section class="reviews-section" id="reviews">
+    <div class="section-header reveal">
+      <span class="section-tag"><i class="fas fa-star"></i> Client Stories</span>
+      <h2>Celebrated by Families & Couples</h2>
+      <p>Hear from families and couples who turned their once-in-a-lifetime occasions into cherished digital memories.</p>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-header">
+          <div class="review-avatar">👰🤵</div>
+          <div class="review-author-meta">
+            <h4>Ananya & Karthik</h4>
+            <p>Royal Maharaja Wedding Website</p>
+          </div>
+          <div class="review-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our wedding guests were completely blown away by our website! The countdown timer, venue map, and song playing in the background felt like an invitation fit for royalty. LB Digital Creations delivered within 24 hours!"</p>
+        <div class="review-footer">
+          <span class="review-tag">Chennai • Destination Wedding</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-header">
+          <div class="review-avatar">🎂</div>
+          <div class="review-author-meta">
+            <h4>Priya M.</h4>
+            <p>Sweet 16 Sparkle Birthday</p>
+          </div>
+          <div class="review-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Made my daughter's 16th birthday so magical! Friends easily sent their wishes directly through the website, and everyone loved the photo reel. Best decision ever instead of boring paper cards."</p>
+        <div class="review-footer">
+          <span class="review-tag">Bangalore • Milestone Birthday</span>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-header">
+          <div class="review-avatar">💕</div>
+          <div class="review-author-meta">
+            <h4>Venkatesh & Sumathi</h4>
+            <p>Golden 50th Anniversary</p>
+          </div>
+          <div class="review-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Our children surprised us with a 50th anniversary timeline website showcasing our memories from 1974 to 2024. Tears of joy flowed everywhere. Thank you for treating our memories with such elegance."</p>
+        <div class="review-footer">
+          <span class="review-tag">Coimbatore • Golden Jubilee</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ SECTION ===== -->
+  <section class="faq-section" id="faq">
+    <div class="section-header reveal">
+      <span class="section-tag"><i class="fas fa-question-circle"></i> Got Questions?</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about getting your custom celebration website crafted.</p>
+    </div>
+
+    <div class="faq-container reveal">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How fast will our celebration website be ready?</span>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Our standard white-glove turnaround is <strong>24 to 48 hours</strong> once you provide your photos, event schedule, and details. Express same-day emergency delivery is also available upon request.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>Can we add our own background music and videos?</span>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, absolutely! We can embed any romantic background track, custom song, YouTube video teaser, pre-wedding reel, or personalized video greetings with smooth auto-play and mute controls.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do guests RSVP or send wishes?</span>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Every template includes interactive guest interaction modules: 1-click WhatsApp RSVP, direct attendance confirmation form, digital wish wall, or Google Maps venue directions for effortless navigation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How do we share the website with friends and family?</span>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-answer">
+          <p>You will receive a sleek, personalized link (e.g. <code>lbdigitalcreations.in/karthik-ananya</code> or custom domain) with customized WhatsApp preview thumbnails, title, and description ready to share in family groups with 1 tap!</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span>How does payment work?</span>
+          <i class="fas fa-chevron-down faq-icon"></i>
+        </button>
+        <div class="faq-answer">
+          <p>We work with 50% advance to begin design and development. You review the live preview on your phone, request any adjustments, and pay the remaining 50% only when you are 100% satisfied!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CONTACT SECTION ===== -->
   <section class="contact" id="contact">
     <div class="section-header reveal">
@@ -304,6 +588,115 @@
       &copy; 2026 LB Digital Creations. All rights reserved.
     </div>
   </footer>
+
+  <!-- ===== TEMPLATE PREVIEW MODAL ===== -->
+  <div class="template-modal-overlay" id="template-modal" aria-hidden="true" role="dialog">
+    <div class="template-modal-box">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-badge-row">
+            <span class="modal-badge" id="modal-badge">Royal Luxury</span>
+            <span class="modal-category" id="modal-category">Wedding Collection</span>
+            <span class="modal-rating">★★★★★ 4.9</span>
+          </div>
+          <h2 id="modal-title">Royal Maharaja Wedding</h2>
+        </div>
+
+        <div class="modal-controls">
+          <div class="device-switcher" title="Toggle Preview Screen">
+            <button class="device-btn active" data-device="desktop" title="Desktop View"><i class="fas fa-desktop"></i></button>
+            <button class="device-btn" data-device="mobile" title="Mobile Smartphone View"><i class="fas fa-mobile-alt"></i></button>
+          </div>
+          <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Preview"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- SIMULATED LIVE DEVICE FRAME -->
+        <div class="device-frame-wrap" id="device-frame-wrap">
+          <div class="mockup-frame desktop-mode" id="mockup-frame">
+            <div class="mockup-browser-bar">
+              <span class="browser-dot red"></span>
+              <span class="browser-dot yellow"></span>
+              <span class="browser-dot green"></span>
+              <div class="browser-address" id="mockup-address">https://lbdigitalcreations.in/demo/royal-maharaja</div>
+            </div>
+            <div class="mockup-viewport" id="mockup-viewport">
+              <div class="mockup-hero" id="mockup-hero">
+                <div class="mockup-floating-tag" id="mockup-tag">Exclusive Showcase</div>
+                <h3 id="mockup-heading">Royal Maharaja Wedding</h3>
+                <p id="mockup-subheading">A majestic royal palace celebration with golden crest animations, live shehnai background score, and interactive guest RSVP.</p>
+                <div class="mockup-countdown-sample">
+                  <div class="cd-box"><span>14</span><small>Days</small></div>
+                  <div class="cd-box"><span>08</span><small>Hours</small></div>
+                  <div class="cd-box"><span>42</span><small>Mins</small></div>
+                  <div class="cd-box"><span>19</span><small>Secs</small></div>
+                </div>
+                <div class="mockup-interactive-pills">
+                  <span class="m-pill"><i class="fas fa-music"></i> Audio Player</span>
+                  <span class="m-pill"><i class="fas fa-envelope-open-text"></i> Live RSVP</span>
+                  <span class="m-pill"><i class="fas fa-images"></i> 4K Gallery</span>
+                  <span class="m-pill"><i class="fas fa-map-marker-alt"></i> Google Maps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEMPLATE SPECIFICATIONS SIDEBAR -->
+        <div class="modal-sidebar">
+          <div class="sidebar-section">
+            <h4>About This Design</h4>
+            <p id="modal-description">Custom sculpted for grand celebrations. Features rich traditional ornamentation, smooth parallax transitions, and instant guest RSVP via WhatsApp and Google Forms.</p>
+          </div>
+
+          <div class="sidebar-section">
+            <h4>Aesthetic Color Palette</h4>
+            <div class="color-palette-swatches" id="modal-swatches">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <h4>Key Included Features</h4>
+            <ul class="features-checklist" id="modal-features">
+              <li><i class="fas fa-check"></i> 100% Mobile & WhatsApp Share Optimized</li>
+              <li><i class="fas fa-check"></i> Interactive Countdown & Event Schedule</li>
+              <li><i class="fas fa-check"></i> High-Resolution Photo Gallery</li>
+              <li><i class="fas fa-check"></i> Google Maps Venue Directions</li>
+              <li><i class="fas fa-check"></i> WhatsApp Direct RSVP Integration</li>
+              <li><i class="fas fa-check"></i> Background Audio & Video Integration</li>
+            </ul>
+          </div>
+
+          <div class="sidebar-delivery-box">
+            <i class="fas fa-bolt" style="color:var(--gold)"></i>
+            <div>
+              <strong>24–48 Hours Delivery</strong>
+              <p>Personalized with your couple/celebrant photos, names, dates, and songs.</p>
+            </div>
+          </div>
+
+          <div class="modal-cta-group">
+            <a href="#" id="modal-order-whatsapp-btn" target="_blank" rel="noopener" class="btn-primary btn-gold-luxury modal-order-btn">
+              <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>
+              <span>Order This Template via WhatsApp</span>
+            </a>
+            <a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="btn-outline modal-form-btn">
+              <i class="fas fa-clipboard-list" style="margin-right: 8px;"></i>
+              <span>Fill Custom Order Form</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="luxury-toast" class="luxury-toast">
+    <i class="fas fa-info-circle"></i>
+    <span id="toast-text">Template link copied!</span>
+  </div>
 
   <script src="script.js"></script>
 </body>
