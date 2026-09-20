@@ -3469,13 +3469,15 @@ window.openTemplatePreview = function(templateId) {
   // Live Demo button in modal sidebar
   const liveDemoBtn = document.getElementById('modal-live-demo-btn');
   if (liveDemoBtn) {
-    if (tpl.liveDemoUrl || tpl.category === 'birthday') {
-      liveDemoBtn.href = tpl.liveDemoUrl || 'birthday-magic.html';
-      liveDemoBtn.style.display = 'inline-flex';
-    } else {
-      liveDemoBtn.href = 'birthday-magic.html';
-      liveDemoBtn.style.display = 'inline-flex';
-    }
+    const categoryDemoMap = {
+      wedding: 'wedding-royal.html',
+      birthday: 'birthday-magic.html',
+      anniversary: 'anniversary-timeless.html',
+      engagement: 'engagement-proposal.html',
+      babyshower: 'babyshower-magic.html'
+    };
+    liveDemoBtn.href = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+    liveDemoBtn.style.display = 'inline-flex';
   }
 
   // WhatsApp CTA link prefill in sidebar

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Sweet Miracle On The Way | Baby Shower & Cradle Celebration</title>
+  <meta name="description" content="A dreamy, pastel baby shower celebration website with interactive baby guessing game, lullaby audio, nursery wishlist, and blessing guestbook.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --pastel-blue: #a0c4ff;
+      --pastel-pink: #ffc6ff;
+      --pastel-yellow: #fdffb6;
+      --pastel-mint: #caffbf;
+      --text-main: #2b2d42;
+      --card-glass: rgba(255, 255, 255, 0.85);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: linear-gradient(135deg, #f0f7ff 0%, #fff0f5 50%, #fafff0 100%);
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+    }
+
+    .miracle-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 24px;
+      background: rgba(160, 196, 255, 0.25);
+      border: 1px solid var(--pastel-blue);
+      border-radius: 50px;
+      color: #0077b6;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .hero-title {
+      font-family: 'Quicksand', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      color: #4a4e69;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      font-family: 'Caveat', cursive;
+      color: #ff006e;
+      display: block;
+      font-size: 1.1em;
+    }
+
+    /* Guessing Game Card */
+    .game-card {
+      background: var(--card-glass);
+      backdrop-filter: blur(15px);
+      border: 2px dashed #bde0fe;
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 600px;
+      margin: 30px auto;
+      box-shadow: 0 15px 35px rgba(160, 196, 255, 0.2);
+    }
+
+    .game-title {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.6rem;
+      color: #22223b;
+      margin-bottom: 10px;
+    }
+
+    .btn-guess {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 8px;
+      transition: transform 0.2s;
+    }
+
+    .btn-boy { background: #bde0fe; color: #003049; }
+    .btn-girl { background: #ffc8dd; color: #590d22; }
+    .btn-both { background: #fdffb6; color: #583101; }
+
+    .btn-guess:hover {
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="miracle-tag">👶 A Sweet Little Miracle Is Coming 👶</div>
+    <h1 class="hero-title">
+      Baby Shower & Cradle Gala
+      <span>Celebrating Baby Malhotra</span>
+    </h1>
+    <p style="color:#6c757d; max-width:550px; margin:0 auto 25px; font-size:1.05rem;">
+      Tiny fingers, tiny toes, and a love that overflows! Join Pooja & Rahul as we welcome our greatest blessing.
+    </p>
+
+    <!-- INTERACTIVE BABY PREDICTION GAME -->
+    <div class="game-card">
+      <div style="font-size:3rem; margin-bottom:10px;">🍼🧸👶</div>
+      <h2 class="game-title">Baby Guessing Booth!</h2>
+      <p style="color:#6c757d; font-size:0.95rem; margin-bottom:20px;">Cast your vote on Team Boy or Team Girl!</p>
+      
+      <div>
+        <button class="btn-guess btn-boy" onclick="vote('Team Prince Boy 👑')">💙 Team Boy</button>
+        <button class="btn-guess btn-girl" onclick="vote('Team Princess Girl 🌸')">💖 Team Girl</button>
+        <button class="btn-guess btn-both" onclick="vote('Surprise Twins! 🌟')">💛 Surprise Twins!</button>
+      </div>
+
+      <div id="vote-res" style="margin-top:20px; font-weight:700; color:#3a86ff; min-height:24px;"></div>
+    </div>
+  </section>
+
+  <script>
+    function vote(team) {
+      document.getElementById('vote-res').innerHTML = `🎉 You voted for <strong>${team}</strong>! Blessing recorded with love! ✨`;
+    }
+  </script>
+</body>
+
+</html>

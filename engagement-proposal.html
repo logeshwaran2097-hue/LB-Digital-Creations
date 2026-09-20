@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>She Said Yes! | Romantic Proposal & Engagement Celebration</title>
+  <meta name="description" content="An interactive engagement website with 3D Ring Box opening, proposal love story, couple trivia quiz, and Google Calendar sync.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --rose-gold: #b76e79;
+      --gold-sparkle: #fce4b8;
+      --navy-bg: #090a1a;
+      --card-bg: rgba(18, 20, 48, 0.85);
+      --glass-border: rgba(183, 110, 121, 0.35);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 50% 25%, #251838 0%, #090a1a 70%, #03040c 100%);
+      color: #faf8f5;
+      overflow-x: hidden;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 20px 60px;
+    }
+
+    .proposal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 24px;
+      background: rgba(183, 110, 121, 0.15);
+      border: 1px solid var(--rose-gold);
+      border-radius: 50px;
+      color: var(--gold-sparkle);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .hero-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(3.2rem, 8vw, 6rem);
+      color: var(--rose-gold);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-names {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    /* Interactive 3D Ring Box */
+    .ring-box-stage {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 500px;
+      margin: 20px auto 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .ring-box {
+      width: 130px;
+      height: 130px;
+      background: linear-gradient(135deg, #4a0e2e, #1a0510);
+      border: 2px solid var(--rose-gold);
+      border-radius: 20px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(183, 110, 121, 0.4);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .ring-box:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    .ring-box.opened {
+      transform: scale(1.15);
+      border-color: #ffd700;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+    }
+
+    .ring-status {
+      font-size: 1.05rem;
+      color: var(--gold-sparkle);
+      font-weight: 600;
+    }
+
+    /* Trivia Quiz Box */
+    .section-wrap {
+      padding: 70px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quiz-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 35px 25px;
+      margin-top: 25px;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      padding: 14px 20px;
+      margin: 10px 0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      border-radius: 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .quiz-opt-btn:hover {
+      background: rgba(183, 110, 121, 0.3);
+      border-color: var(--rose-gold);
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="proposal-tag">💍 The Countdown to Forever Begins 💍</div>
+    <h1 class="hero-title">She Said Yes!</h1>
+    <h2 class="hero-names">Tanvi & Rishabh</h2>
+    <p style="color:#d1c4e9; max-width:550px; margin:0 auto 30px; font-size:1.05rem;">
+      Under the starlit Parisian skies, two souls made a lifelong promise. Tap the velvet ring box to open our proposal story!
+    </p>
+
+    <!-- INTERACTIVE RING BOX -->
+    <div class="ring-box-stage">
+      <div class="ring-box" id="ring-box-btn">💍</div>
+      <div class="ring-status" id="ring-status-text">✨ Tap the Velvet Box to Reveal the Ring ✨</div>
+    </div>
+  </section>
+
+  <!-- COUPLE TRIVIA QUIZ -->
+  <section class="section-wrap">
+    <h2 style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; color:var(--rose-gold);">Couple Fun Trivia</h2>
+    <p style="color:#b39ddb; margin-top:8px;">How well do you know the newly engaged couple?</p>
+
+    <div class="quiz-card">
+      <h3 style="margin-bottom:15px; font-size:1.2rem;">Q1: Who made the first move?</h3>
+      <button class="quiz-opt-btn" onclick="answerQuiz(true)">A) Rishabh, with a cheesy pun over Instagram DM</button>
+      <button class="quiz-opt-btn" onclick="answerQuiz(false)">B) Tanvi, by pretending to need tech advice</button>
+      <button class="quiz-opt-btn" onclick="answerQuiz(false)">C) It was mutual love at first sight</button>
+      <div id="quiz-result" style="margin-top:15px; font-weight:700; color:#ffd700;"></div>
+    </div>
+  </section>
+
+  <script>
+    const box = document.getElementById('ring-box-btn');
+    const status = document.getElementById('ring-status-text');
+    let opened = false;
+
+    box.addEventListener('click', () => {
+      if(!opened) {
+        opened = true;
+        box.classList.add('opened');
+        box.innerHTML = '💎';
+        status.innerHTML = '✨ <strong>She Said Yes!</strong> Forever starts right here. Wedding Date: December 2026 ✨';
+      }
+    });
+
+    function answerQuiz(correct) {
+      const res = document.getElementById('quiz-result');
+      res.textContent = correct ? '🎉 Correct! Rishabh slipped into the DMs with a pun about chai! ☕' : '❌ Haha, close! But it was Rishabh who made the first move!';
+    }
+  </script>
+</body>
+
+</html>

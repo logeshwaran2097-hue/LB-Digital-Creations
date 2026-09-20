@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Maharaja Palace Wedding | Live Interactive Experience</title>
+  <meta name="description" content="A grand, royal Indian wedding website template with auspicious Muhurtham countdown, orchestral shehnai player, baraat itinerary, and WhatsApp RSVP.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --gold: #d4af37;
+      --gold-light: #fae8b2;
+      --gold-dark: #9b7617;
+      --royal-red: #800020;
+      --royal-deep: #120309;
+      --card-bg: rgba(26, 8, 16, 0.85);
+      --glass-border: rgba(212, 175, 55, 0.35);
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 50% 20%, #2e0816 0%, #120309 60%, #080104 100%);
+      color: #faf6ee;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Floating Gold Dust Canvas */
+    #gold-dust {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Royal Navigation */
+    .royal-nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(18, 3, 9, 0.9);
+      border: 1px solid var(--gold);
+      box-shadow: 0 10px 35px rgba(212, 175, 55, 0.25);
+      border-radius: 50px;
+      padding: 10px 28px;
+      display: flex;
+      gap: 24px;
+      z-index: 100;
+      backdrop-filter: blur(15px);
+    }
+
+    .royal-nav a {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+    }
+
+    .royal-nav a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px var(--gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .auspicious-symbol {
+      font-size: 2.4rem;
+      color: var(--gold);
+      margin-bottom: 15px;
+      animation: gentleGlow 2.5s infinite alternate;
+    }
+
+    @keyframes gentleGlow {
+      0% { text-shadow: 0 0 10px rgba(212,175,55,0.4); transform: scale(1); }
+      100% { text-shadow: 0 0 25px rgba(212,175,55,0.9); transform: scale(1.05); }
+    }
+
+    .shlok-text {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .couple-title {
+      font-family: 'Cinzel Decorative', Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      color: var(--gold);
+      line-height: 1.15;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+      margin-bottom: 10px;
+    }
+
+    .and-sym {
+      font-family: 'Great Vibes', cursive;
+      color: #ff758c;
+      font-size: 0.8em;
+      display: block;
+    }
+
+    .wedding-date-banner {
+      font-size: 1.15rem;
+      color: #f7e199;
+      margin: 20px auto 35px;
+      padding: 10px 30px;
+      border-top: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      letter-spacing: 2px;
+      display: inline-block;
+    }
+
+    /* Auspicious Muhurtham Timer */
+    .countdown-wrap {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .time-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 15px 20px;
+      min-width: 80px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+
+    .time-card .val {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+
+    .time-card .lbl {
+      font-size: 0.75rem;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Royal Actions */
+    .btn-royal {
+      padding: 16px 40px;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+      color: #1a0810;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .btn-royal:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    /* Section Styling */
+    .section-wrap {
+      padding: 90px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sec-header h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .sec-header p {
+      color: var(--gold-light);
+      opacity: 0.85;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    /* Itinerary / Ceremony Cards */
+    .itinerary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .ceremony-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .ceremony-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--gold);
+    }
+
+    .ceremony-icon {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .ceremony-time {
+      font-size: 0.85rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .ceremony-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      color: #fff;
+      margin: 8px 0 10px;
+    }
+
+    .ceremony-desc {
+      font-size: 0.88rem;
+      color: #d1b8a5;
+      line-height: 1.6;
+    }
+
+    /* Venue & Map */
+    .venue-box {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 40px 30px;
+      margin-top: 30px;
+    }
+
+    .venue-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .venue-address {
+      color: #e5d8cb;
+      font-size: 1rem;
+      margin-bottom: 25px;
+    }
+
+    /* Floating Shehnai Audio Player */
+    .royal-audio-pill {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(18, 3, 9, 0.95);
+      border: 1px solid var(--gold);
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .audio-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #120309;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <canvas id="gold-dust"></canvas>
+
+  <nav class="royal-nav">
+    <a href="#itinerary">Ceremonies</a>
+    <a href="#venue">Venue</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <section class="hero">
+    <div class="auspicious-symbol">卐 || श्री गणेशाय नमः || 卐</div>
+    <div class="shlok-text">Together with our families, we celebrate love</div>
+    <h1 class="couple-title">
+      Ananya
+      <span class="and-sym">&</span>
+      Karthik
+    </h1>
+    <div class="wedding-date-banner">✨ Saturday, December 19, 2026 • The Leela Palace ✨</div>
+
+    <div class="countdown-wrap">
+      <div class="time-card"><span class="val" id="d">48</span><span class="lbl">Days</span></div>
+      <div class="time-card"><span class="val" id="h">14</span><span class="lbl">Hours</span></div>
+      <div class="time-card"><span class="val" id="m">32</span><span class="lbl">Mins</span></div>
+      <div class="time-card"><span class="val" id="s">19</span><span class="lbl">Secs</span></div>
+    </div>
+
+    <button class="btn-royal" onclick="document.getElementById('itinerary').scrollIntoView({behavior:'smooth'})">
+      <span>Explore Royal Festivities</span>
+    </button>
+  </section>
+
+  <!-- CEREMONIES ITINERARY -->
+  <section class="section-wrap" id="itinerary">
+    <div class="sec-header">
+      <h2>Royal Wedding Itinerary</h2>
+      <p>Join us across three auspicious days of dance, Vedic rituals, and joyful celebrations.</p>
+    </div>
+
+    <div class="itinerary-grid">
+      <div class="ceremony-card">
+        <span class="ceremony-icon">🪔</span>
+        <span class="ceremony-time">Day 1 • 06:00 PM</span>
+        <h3 class="ceremony-title">Sangeet & Mehendi</h3>
+        <p class="ceremony-desc">An evening of henna artistry, royal Rajasthani banquet, and non-stop Bollywood dance performances.</p>
+      </div>
+
+      <div class="ceremony-card">
+        <span class="ceremony-icon">🥁</span>
+        <span class="ceremony-time">Day 2 • 08:30 AM</span>
+        <h3 class="ceremony-title">Baraat Procession</h3>
+        <p class="ceremony-desc">Grand arrival of the groom with traditional dhol-tasha, brass band, and auspicious floral welcome.</p>
+      </div>
+
+      <div class="ceremony-card">
+        <span class="ceremony-icon">👑</span>
+        <span class="ceremony-time">Day 2 • 10:15 AM</span>
+        <h3 class="ceremony-title">Vedic Muhurtham</h3>
+        <p class="ceremony-desc">The sacred Saat Phere around the holy Agni, Vedic mantra chanting, and sacred Mangalsutra ceremony.</p>
+      </div>
+
+      <div class="ceremony-card">
+        <span class="ceremony-icon">🥂</span>
+        <span class="ceremony-time">Day 2 • 07:30 PM</span>
+        <h3 class="ceremony-title">Royal Reception Gala</h3>
+        <p class="ceremony-desc">Grand stage congratulations, live orchestral symphony, champagne toasts, and midnight royal feast.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUE & RSVP -->
+  <section class="section-wrap" id="venue">
+    <div class="sec-header">
+      <h2>The Palace Ballroom</h2>
+      <p>We await the honor of welcoming your family to celebrate our union.</p>
+    </div>
+
+    <div class="venue-box">
+      <h3 class="venue-title">The Leela Grand Palace Hotel</h3>
+      <p class="venue-address"><i class="fas fa-map-marker-alt" style="color:var(--gold); margin-right:8px;"></i> Adyar Seaface Road, MRC Nagar, Chennai, Tamil Nadu</p>
+      <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn-royal" style="display:inline-block; text-decoration:none; padding:12px 30px; font-size:0.9rem;">
+        <i class="fas fa-directions"></i> Get Google Maps Directions
+      </a>
+    </div>
+  </section>
+
+  <div class="royal-audio-pill">
+    <button class="audio-btn" id="audio-toggle"><i class="fas fa-play" id="audio-icon"></i></button>
+    <span style="font-size:0.8rem; color:var(--gold-light); font-weight:600;">Royal Shehnai Raga</span>
+  </div>
+
+  <script>
+    // Gold Dust particles
+    const c = document.getElementById('gold-dust');
+    const ctx = c.getContext('2d');
+    function res() { c.width = window.innerWidth; c.height = window.innerHeight; }
+    res(); window.addEventListener('resize', res);
+    let pts = [];
+    for(let i=0; i<40; i++) pts.push({
+      x: Math.random()*c.width, y: Math.random()*c.height,
+      s: Math.random()*2+0.5, sp: Math.random()*0.4+0.1, op: Math.random()*0.5+0.2
+    });
+    function anim() {
+      ctx.clearRect(0,0,c.width,c.height);
+      pts.forEach(p => {
+        p.y -= p.sp;
+        if(p.y < 0) { p.y = c.height; p.x = Math.random()*c.width; }
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.s, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(212, 175, 55, ${p.op})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(anim);
+    }
+    anim();
+
+    // Audio synthesizer
+    let aCtx = null, isP = false, timer = null;
+    const btn = document.getElementById('audio-toggle');
+    const icon = document.getElementById('audio-icon');
+    const raga = [587.33, 659.25, 739.99, 880.00, 987.77];
+    function playNote(f) {
+      if(!aCtx) aCtx = new (window.AudioContext||window.webkitAudioContext)();
+      const o = aCtx.createOscillator();
+      const g = aCtx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(f, aCtx.currentTime);
+      g.gain.setValueAtTime(0.05, aCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, aCtx.currentTime+1.5);
+      o.connect(g); g.connect(aCtx.destination);
+      o.start(); o.stop(aCtx.currentTime+1.5);
+    }
+    btn.addEventListener('click', () => {
+      isP = !isP;
+      if(isP) {
+        if(!aCtx) aCtx = new (window.AudioContext||window.webkitAudioContext)();
+        if(aCtx.state === 'suspended') aCtx.resume();
+        icon.className = 'fas fa-pause';
+        let step = 0;
+        timer = setInterval(() => {
+          playNote(raga[step%raga.length]);
+          step++;
+        }, 500);
+      } else {
+        clearInterval(timer);
+        icon.className = 'fas fa-play';
+      }
+    });
+  </script>
+</body>
+
+</html>

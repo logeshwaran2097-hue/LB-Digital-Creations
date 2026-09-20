@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>25 Years of Timeless Love | Silver Jubilee Celebration</title>
+  <meta name="description" content="An emotional and nostalgic 25th Silver Jubilee Anniversary celebration website with vintage film strip reel, love milestone odyssey, and audio player.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --silver: #e2e8f0;
+      --silver-glow: #f8fafc;
+      --accent-wine: #7209b7;
+      --bg-dark: #0b0914;
+      --card-bg: rgba(22, 18, 38, 0.85);
+      --glass-border: rgba(226, 232, 240, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 50% 30%, #1c1533 0%, #0b0914 70%, #05040a 100%);
+      color: #f1f5f9;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    .nav-silver {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(11, 9, 20, 0.88);
+      border: 1px solid var(--glass-border);
+      padding: 10px 26px;
+      border-radius: 50px;
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+      backdrop-filter: blur(15px);
+    }
+
+    .nav-silver a {
+      color: var(--silver);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 60px;
+    }
+
+    .jubilee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 24px;
+      background: rgba(226, 232, 240, 0.1);
+      border: 1px solid var(--silver);
+      border-radius: 50px;
+      color: var(--silver-glow);
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 25px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.6rem, 6vw, 5.2rem);
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      text-shadow: 0 4px 25px rgba(226, 232, 240, 0.2);
+    }
+
+    .hero-title span {
+      font-family: 'Great Vibes', cursive;
+      color: #f472b6;
+      display: block;
+      font-size: 0.8em;
+    }
+
+    .hero-date {
+      font-size: 1.1rem;
+      color: #cbd5e1;
+      letter-spacing: 2px;
+      margin-bottom: 35px;
+    }
+
+    .film-strip-wrap {
+      display: flex;
+      gap: 15px;
+      max-width: 900px;
+      margin: 20px auto 40px;
+      overflow-x: auto;
+      padding: 20px 10px;
+    }
+
+    .film-frame {
+      background: #000;
+      border: 2px solid #334155;
+      border-radius: 8px;
+      padding: 10px;
+      min-width: 180px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+    }
+
+    .film-frame:hover {
+      transform: scale(1.05);
+      border-color: var(--silver);
+    }
+
+    .film-img-placeholder {
+      height: 140px;
+      background: linear-gradient(135deg, #475569, #1e293b);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #94a3b8;
+    }
+
+    .film-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--silver-glow);
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    .film-desc {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .section-wrap {
+      padding: 80px 20px;
+      max-width: 950px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 25px 15px;
+    }
+
+    .stat-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--silver-glow);
+      font-weight: 700;
+    }
+
+    .stat-lbl {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .love-letter-card {
+      background: #faf8f5;
+      color: #1e1b2e;
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: left;
+      margin-top: 40px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .letter-body {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    .letter-sign {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #7209b7;
+      text-align: right;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav-silver">
+    <a href="#milestones">Milestones</a>
+    <a href="#stats">In Numbers</a>
+    <a href="#letter">Love Letter</a>
+  </nav>
+
+  <section class="hero">
+    <div class="jubilee-badge">✨ Celebrating 25 Silver Years of Togetherness ✨</div>
+    <h1 class="hero-title">
+      Meenakshi
+      <span>&</span>
+      Sundaresan
+    </h1>
+    <div class="hero-date">1999 — 2024 • A Silver Jubilee Odyssey</div>
+
+    <!-- FILM STRIP REEL -->
+    <div class="film-strip-wrap">
+      <div class="film-frame">
+        <div class="film-img-placeholder">💍</div>
+        <div class="film-year">1999</div>
+        <div class="film-desc">The Sacred Vows</div>
+      </div>
+      <div class="film-frame">
+        <div class="film-img-placeholder">🏡</div>
+        <div class="film-year">2005</div>
+        <div class="film-desc">First Dream Home</div>
+      </div>
+      <div class="film-frame">
+        <div class="film-img-placeholder">👶</div>
+        <div class="film-year">2008</div>
+        <div class="film-desc">Joy of Parenthood</div>
+      </div>
+      <div class="film-frame">
+        <div class="film-img-placeholder">✈️</div>
+        <div class="film-year">2018</div>
+        <div class="film-desc">Global Adventures</div>
+      </div>
+      <div class="film-frame">
+        <div class="film-img-placeholder">🥂</div>
+        <div class="film-year">2024</div>
+        <div class="film-desc">Silver Jubilee Gala</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="stats">
+    <h2 style="font-family:'Playfair Display',serif; font-size:2.4rem;">25 Years In Numbers</h2>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-val">9,125</div><div class="stat-lbl">Days of Shared Laughter</div></div>
+      <div class="stat-card"><div class="stat-val">219,000</div><div class="stat-lbl">Hours of Unwavering Love</div></div>
+      <div class="stat-card"><div class="stat-val">2</div><div class="stat-lbl">Wonderful Children</div></div>
+      <div class="stat-card"><div class="stat-val">∞</div ><div class="stat-lbl">Moments of Pure Grace</div></div>
+    </div>
+
+    <div class="love-letter-card" id="letter">
+      <div class="letter-body">
+        "Through twenty-five years of changing seasons, growing dreams, and countless morning teas together, our love has only deepened into something truly sublime. Here is to twenty-five more chapters of endless adventure and lifelong companionship."
+      </div>
+      <div class="letter-sign">— Forever & Always Yours</div>
+    </div>
+  </section>
+</body>
+
+</html>
