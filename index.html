@@ -67,37 +67,6 @@
   <!-- PARTICLES -->
   <canvas id="particles-canvas"></canvas>
 
-  <!-- LANGUAGE SELECTION MODAL -->
-  <div class="lang-overlay" id="lang-overlay">
-    <div class="lang-modal">
-      <div class="lang-icon">🌐</div>
-      <h2>Select Language</h2>
-      <p>Choose your preferred language for the website</p>
-      <div class="lang-options">
-        <button class="lang-btn active" data-lang="en">English</button>
-        <button class="lang-btn" data-lang="ta">தமிழ் (Tamil)</button>
-        <button class="lang-btn" data-lang="hi">हिन्दी (Hindi)</button>
-        <button class="lang-btn" data-lang="te">తెలుగు (Telugu)</button>
-        <button class="lang-btn" data-lang="ml">മലയാളം (Malayalam)</button>
-      </div>
-      <div id="google_translate_element" style="display:none;"></div>
-      <button id="close-lang-btn" class="btn-primary" style="margin-top: 15px; width: 100%;">Continue <i
-          class="fas fa-arrow-right" style="margin-left:8px"></i></button>
-    </div>
-  </div>
-
-  <!-- GOOGLE TRANSLATE SCRIPT -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'en,ta,hi,te,ml'
-      }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript"
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">

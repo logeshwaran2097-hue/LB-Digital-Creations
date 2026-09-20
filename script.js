@@ -1,53 +1,14 @@
 // ===== LOADING SCREEN =====
 window.addEventListener('load', () => {
   const loader = document.querySelector('.loader');
-  const langOverlay = document.getElementById('lang-overlay');
 
   setTimeout(() => {
     loader.classList.add('hidden');
     // Remove loader from DOM after fade-out so it doesn't block clicks
     setTimeout(() => {
       loader.style.display = 'none';
-      if (langOverlay) {
-        langOverlay.classList.add('show');
-      }
     }, 800);
   }, 1800);
-});
-
-// ===== LANGUAGE MODAL =====
-const closeLangBtn = document.getElementById('close-lang-btn');
-if (closeLangBtn) {
-  closeLangBtn.addEventListener('click', () => {
-    const langOverlay = document.getElementById('lang-overlay');
-    langOverlay.classList.remove('show');
-    setTimeout(() => {
-      langOverlay.style.display = 'none';
-    }, 500);
-  });
-}
-
-const langBtns = document.querySelectorAll('.lang-btn');
-langBtns.forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    // Update active UI
-    langBtns.forEach(b => b.classList.remove('active'));
-    e.currentTarget.classList.add('active');
-
-    // Get language code
-    const selectedLang = e.currentTarget.getAttribute('data-lang');
-
-    // Trigger Google Translate hidden select
-    const select = document.querySelector('.goog-te-combo');
-    if (select) {
-      select.value = selectedLang;
-      select.dispatchEvent(new Event('change'));
-    } else {
-      // Fallback if Google Translate isn't fully loaded
-      document.cookie = `googtrans=/en/${selectedLang}; path=/`;
-      window.location.reload();
-    }
-  });
 });
 
 // ===== DETECT MOBILE / TOUCH DEVICE =====
