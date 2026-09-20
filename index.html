@@ -232,6 +232,16 @@
         </div>
       </div>
 
+      <!-- ANIMATED VS NON-ANIMATED EXPERIENCE FILTER -->
+      <div class="type-filter-row">
+        <span class="type-filter-label"><i class="fas fa-sliders-h"></i> Experience Style:</span>
+        <div class="type-filter-group" id="type-filters">
+          <button class="type-tab active" data-type="all">All Styles <span class="type-count">50</span></button>
+          <button class="type-tab" data-type="animated">⚡ Animated & Interactive <span class="type-count">32</span></button>
+          <button class="type-tab" data-type="non-animated">💎 Classic & Minimalist <span class="type-count">18</span></button>
+        </div>
+      </div>
+
       <div class="templates-meta-status">
         <div class="results-info">
           <span>Showing <strong id="visible-count">50</strong> curated templates</span>
@@ -280,56 +290,95 @@
         ones.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="birthday" role="button" tabindex="0" title="Click to view Birthday templates">
         <div class="service-icon">🎂</div>
         <h3>Birthday Websites</h3>
-        <p>Make birthdays unforgettable with a personalized website featuring photos, wishes, and beautiful animations.
-        </p>
+        <p>Make birthdays unforgettable with personalized websites featuring photos, wishes, and party animations.</p>
+        <div class="service-card-action">
+          <span>View 10 Birthday Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="wedding" role="button" tabindex="0" title="Click to view Wedding templates">
         <div class="service-icon">💒</div>
         <h3>Wedding Websites</h3>
-        <p>Elegant wedding pages with event details, photo galleries, countdown timers, and easy sharing for guests.</p>
+        <p>Elegant wedding portals with event details, photo galleries, countdown timers, and easy sharing for guests.</p>
+        <div class="service-card-action">
+          <span>View 10 Wedding Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="anniversary" role="button" tabindex="0" title="Click to view Anniversary templates">
         <div class="service-icon">💕</div>
         <h3>Anniversary Websites</h3>
         <p>Celebrate your love story with a stunning anniversary website featuring your journey together.</p>
+        <div class="service-card-action">
+          <span>View 8 Anniversary Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="engagement" role="button" tabindex="0" title="Click to view Engagement templates">
         <div class="service-icon">💍</div>
         <h3>Engagement Websites</h3>
         <p>Share the joy of your engagement with a beautiful digital page for family and friends.</p>
+        <div class="service-card-action">
+          <span>View 5 Engagement Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="babyshower" role="button" tabindex="0" title="Click to view Baby Shower templates">
         <div class="service-icon">👶</div>
         <h3>Baby Shower & Naming</h3>
         <p>Adorable websites for baby showers, naming ceremonies, and welcoming your little one.</p>
+        <div class="service-card-action">
+          <span>View 6 Baby Shower Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="special" role="button" tabindex="0" title="Click to view Festival & Celebration templates">
         <div class="service-icon">🎉</div>
         <h3>Festival & Celebration</h3>
         <p>Festive websites for celebrations, invitations, and greeting pages to spread the joy.</p>
+        <div class="service-card-action">
+          <span>View 5 Festival Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="invitation" role="button" tabindex="0" title="Click to view Invitation templates">
         <div class="service-icon">💌</div>
         <h3>Invitation Websites</h3>
         <p>Digital invite pages that replace printed cards — modern, eco-friendly, and shareable instantly.</p>
+        <div class="service-card-action">
+          <span>View 6 Invitation Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="anniversary" role="button" tabindex="0" title="Click to view Love & Couple templates">
         <div class="service-icon">❤️</div>
         <h3>Love & Couple Story</h3>
         <p>Tell your love story digitally with a beautiful couple story website featuring your memories.</p>
+        <div class="service-card-action">
+          <span>View Couple Story Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="special" role="button" tabindex="0" title="Click to view Memorial templates">
         <div class="service-icon">🕊️</div>
         <h3>Memorial & Tribute</h3>
         <p>Heartfelt tribute pages honoring loved ones with photos, memories, and messages.</p>
+        <div class="service-card-action">
+          <span>View Memorial Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card reveal" data-category="all" role="button" tabindex="0" title="Click to view Custom Event templates">
         <div class="service-icon">🌟</div>
         <h3>Custom Event Websites</h3>
         <p>Any special occasion? We create custom websites tailored to your unique event and needs.</p>
+        <div class="service-card-action">
+          <span>Explore All 50 Templates</span>
+          <i class="fas fa-arrow-right"></i>
+        </div>
       </div>
     </div>
   </section>
@@ -622,21 +671,149 @@
               <div class="browser-address" id="mockup-address">https://lbdigitalcreations.in/demo/royal-maharaja</div>
             </div>
             <div class="mockup-viewport" id="mockup-viewport">
-              <div class="mockup-hero" id="mockup-hero">
-                <div class="mockup-floating-tag" id="mockup-tag">Exclusive Showcase</div>
-                <h3 id="mockup-heading">Royal Maharaja Wedding</h3>
-                <p id="mockup-subheading">A majestic royal palace celebration with golden crest animations, live shehnai background score, and interactive guest RSVP.</p>
-                <div class="mockup-countdown-sample">
-                  <div class="cd-box"><span>14</span><small>Days</small></div>
-                  <div class="cd-box"><span>08</span><small>Hours</small></div>
-                  <div class="cd-box"><span>42</span><small>Mins</small></div>
-                  <div class="cd-box"><span>19</span><small>Secs</small></div>
+              <div class="demo-site-container" id="demo-site-container">
+                <!-- 1. DEMO SITE NAV -->
+                <div class="demo-site-nav">
+                  <div class="demo-nav-logo" id="demo-nav-logo">
+                    <span class="demo-monogram">👑</span>
+                    <span class="demo-brand-name" id="demo-brand-name">Royal Celebration</span>
+                  </div>
+                  <div class="demo-nav-links">
+                    <span>Story</span>
+                    <span>Schedule</span>
+                    <span>Gallery</span>
+                    <span>Location</span>
+                    <span class="demo-rsvp-pill">RSVP</span>
+                  </div>
                 </div>
-                <div class="mockup-interactive-pills">
-                  <span class="m-pill"><i class="fas fa-music"></i> Audio Player</span>
-                  <span class="m-pill"><i class="fas fa-envelope-open-text"></i> Live RSVP</span>
-                  <span class="m-pill"><i class="fas fa-images"></i> 4K Gallery</span>
-                  <span class="m-pill"><i class="fas fa-map-marker-alt"></i> Google Maps</span>
+
+                <!-- 2. DEMO HERO SECTION -->
+                <div class="demo-hero-section" id="demo-hero-section">
+                  <div class="demo-experience-badge" id="demo-experience-badge">
+                    <span class="exp-icon">⚡</span>
+                    <span id="demo-exp-text">Animated Interactive Experience</span>
+                  </div>
+
+                  <h3 class="demo-hero-names" id="demo-hero-names">Ananya & Karthik</h3>
+                  <div class="demo-hero-date" id="demo-hero-date">✨ Saturday, December 19, 2026 • Grand Palace Ballroom ✨</div>
+                  
+                  <p class="demo-hero-invitation-text" id="demo-hero-subheading">
+                    We request the honor of your presence as we celebrate our auspicious union surrounded by family, love, and sacred joy.
+                  </p>
+
+                  <!-- FLOATING MUSIC PLAYER BAR -->
+                  <div class="demo-music-bar" id="demo-music-bar">
+                    <button class="demo-music-play-btn" id="demo-music-play-btn" title="Toggle audio">
+                      <i class="fas fa-play" id="demo-play-icon"></i>
+                    </button>
+                    <div class="demo-music-info">
+                      <span class="music-label">Background Melody</span>
+                      <strong id="demo-music-title">Royal Shehnai & Sitar Harmony</strong>
+                    </div>
+                    <div class="demo-soundwave" id="demo-soundwave">
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3. DEMO COUNTDOWN TIMER -->
+                <div class="demo-countdown-strip">
+                  <div class="demo-section-label">Counting Down To The Celebration</div>
+                  <div class="demo-countdown-boxes">
+                    <div class="demo-cd-box"><span id="demo-cd-days">18</span><small>Days</small></div>
+                    <div class="demo-cd-box"><span id="demo-cd-hours">09</span><small>Hours</small></div>
+                    <div class="demo-cd-box"><span id="demo-cd-mins">44</span><small>Minutes</small></div>
+                    <div class="demo-cd-box"><span id="demo-cd-secs">27</span><small>Seconds</small></div>
+                  </div>
+                </div>
+
+                <!-- 4. DEMO OUR STORY / WELCOME -->
+                <div class="demo-content-section demo-story-section">
+                  <div class="demo-sec-header">
+                    <span class="demo-sec-tag">Our Journey</span>
+                    <h4 id="demo-story-title">How Our Story Unfolded</h4>
+                  </div>
+                  <div class="demo-story-grid">
+                    <div class="demo-portrait-box">
+                      <div class="demo-portrait-placeholder" id="demo-portrait-bg">
+                        <span class="demo-portrait-icon" id="demo-portrait-icon">👰🤵</span>
+                        <span class="demo-portrait-badge">Couple Portrait</span>
+                      </div>
+                    </div>
+                    <div class="demo-story-text-col">
+                      <p id="demo-story-body">
+                        "From our first serendipitous encounter to countless shared memories, laughter, and milestones, our journey has been an extraordinary blessing. We cannot wait to begin this new chapter with all the people who mean the world to us."
+                      </p>
+                      <div class="demo-quote-author" id="demo-story-author">— Forever & Always</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 5. DEMO EVENT ITINERARY / TIMELINE -->
+                <div class="demo-content-section demo-itinerary-section">
+                  <div class="demo-sec-header">
+                    <span class="demo-sec-tag">Schedule of Events</span>
+                    <h4>Ceremonies & Celebrations</h4>
+                  </div>
+                  <div class="demo-timeline-cards" id="demo-timeline-cards">
+                    <!-- Rendered dynamically -->
+                  </div>
+                </div>
+
+                <!-- 6. DEMO MEMORIES GALLERY -->
+                <div class="demo-content-section demo-gallery-section">
+                  <div class="demo-sec-header">
+                    <span class="demo-sec-tag">Treasured Memories</span>
+                    <h4>Photo & Reel Showcase</h4>
+                  </div>
+                  <div class="demo-gallery-grid" id="demo-gallery-grid">
+                    <!-- 4 placeholder photo cards -->
+                    <div class="demo-photo-card"><span class="photo-icon">📸</span><small>Sweet Moments</small></div>
+                    <div class="demo-photo-card"><span class="photo-icon">✨</span><small>Golden Hours</small></div>
+                    <div class="demo-photo-card"><span class="photo-icon">🥂</span><small>Celebration</small></div>
+                    <div class="demo-photo-card"><span class="photo-icon">💖</span><small>Forever Love</small></div>
+                  </div>
+                </div>
+
+                <!-- 7. DEMO VENUE & LOCATION -->
+                <div class="demo-content-section demo-location-section">
+                  <div class="demo-sec-header">
+                    <span class="demo-sec-tag">Join Our Celebration</span>
+                    <h4>Venue & Directions</h4>
+                  </div>
+                  <div class="demo-venue-card">
+                    <div class="demo-venue-map-preview">
+                      <i class="fas fa-map-marked-alt map-pin-icon"></i>
+                      <span>Interactive GPS Map View</span>
+                    </div>
+                    <div class="demo-venue-details">
+                      <h5 id="demo-venue-name">The Leela Grand Palace, Ballroom Hall</h5>
+                      <p id="demo-venue-address">Adyar Seaface Road, MRC Nagar, Chennai, Tamil Nadu</p>
+                      <button class="demo-maps-btn"><i class="fas fa-location-arrow"></i> Open Google Maps Navigation</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 8. DEMO RSVP & WISHES FORM -->
+                <div class="demo-content-section demo-rsvp-section">
+                  <div class="demo-sec-header">
+                    <span class="demo-sec-tag">Guest Check-In</span>
+                    <h4>Will You Celebrate With Us?</h4>
+                  </div>
+                  <div class="demo-rsvp-form-mockup">
+                    <div class="demo-input-mock">Guest Name: Priya & Family</div>
+                    <div class="demo-rsvp-options">
+                      <span class="rsvp-opt active">✓ Joyfully Attending (2)</span>
+                      <span class="rsvp-opt">Regretfully Decline</span>
+                    </div>
+                    <div class="demo-textarea-mock">"Wishing you both an eternity of pure bliss and adventures together! ❤️"</div>
+                    <button class="demo-submit-btn">Send Wishes & Confirm RSVP</button>
+                  </div>
+                </div>
+
+                <!-- 9. DEMO FOOTER -->
+                <div class="demo-site-footer">
+                  <p>Crafted with love for an unforgettable celebration • LB Digital Creations</p>
                 </div>
               </div>
             </div>
