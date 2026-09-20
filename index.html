@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LB Digital Creations — Creating Websites for Your Special Moments</title>
+  <meta name="description"
+    content="LB Digital Creations creates beautiful, shareable websites for birthdays, weddings, anniversaries, and all your special celebrations. Turn your moments into memorable digital experiences.">
+  <meta name="keywords"
+    content="LB Digital Creations, birthday website, wedding website, anniversary website, invitation website, celebration website, digital invitations, custom event websites, special moments website, lb digital">
+  <meta name="author" content="LB Digital Creations">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://logeshwaran2097-hue.github.io/LB-Digital-Creations/">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LB Digital Creations — Creating Websites for Your Special Moments">
+  <meta property="og:description"
+    content="We create beautiful, shareable websites for birthdays, weddings, anniversaries, and all your special celebrations.">
+  <meta property="og:url" content="https://logeshwaran2097-hue.github.io/LB-Digital-Creations/">
+  <meta property="og:image" content="https://logeshwaran2097-hue.github.io/LB-Digital-Creations/logo.jpg">
+  <meta property="og:site_name" content="LB Digital Creations">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LB Digital Creations">
+  <meta name="twitter:description"
+    content="Creating Websites for Your Special Moments — Birthdays, Weddings, Anniversaries & More">
+  <meta name="twitter:image" content="https://logeshwaran2097-hue.github.io/LB-Digital-Creations/logo.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.jpg" type="image/jpeg">
+
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "LB Digital Creations",
+    "description": "We create beautiful, shareable websites for birthdays, weddings, anniversaries, and all your special celebrations.",
+    "email": "lbdigitalcreations7326@gmail.com",
+    "telephone": "+916381366088",
+    "sameAs": [
+      "https://www.instagram.com/lb_digital_creations",
+      "https://whatsapp.com/channel/0029Vb7jTKl9sBIAWhoh383E"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader">
+    <img src="logo.jpg" alt="LB Digital Creations" class="loader-logo">
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- PARTICLES -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- LANGUAGE SELECTION MODAL -->
+  <div class="lang-overlay" id="lang-overlay">
+    <div class="lang-modal">
+      <div class="lang-icon">🌐</div>
+      <h2>Select Language</h2>
+      <p>Choose your preferred language for the website</p>
+      <div class="lang-options">
+        <button class="lang-btn active" data-lang="en">English</button>
+        <button class="lang-btn" data-lang="ta">தமிழ் (Tamil)</button>
+        <button class="lang-btn" data-lang="hi">हिन्दी (Hindi)</button>
+        <button class="lang-btn" data-lang="te">తెలుగు (Telugu)</button>
+        <button class="lang-btn" data-lang="ml">മലയാളം (Malayalam)</button>
+      </div>
+      <div id="google_translate_element" style="display:none;"></div>
+      <button id="close-lang-btn" class="btn-primary" style="margin-top: 15px; width: 100%;">Continue <i
+          class="fas fa-arrow-right" style="margin-left:8px"></i></button>
+    </div>
+  </div>
+
+  <!-- GOOGLE TRANSLATE SCRIPT -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,ta,hi,te,ml'
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript"
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="nav-logo">
+      <img src="logo.jpg" alt="LB Digital Creations">
+      <span>LB Digital Creations</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="nav-cta">Order Now</a>
+      </li>
+    </ul>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg-glow g1"></div>
+    <div class="hero-bg-glow g2"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="dot"></span> Now Accepting New Projects</div>
+      <h1>We Build Digital<br><span class="highlight" id="typing-text">Websites</span></h1>
+      <p class="hero-tagline">✨ Creating Websites for Your Special Moments ✨</p>
+      <p>We create beautiful and shareable websites for special occasions — birthdays, weddings, anniversaries, and
+        celebrations. Turn your special moments into a memorable digital experience.</p>
+      <blockquote class="hero-quote">"Your special moments deserve a digital stage — let us craft it for you."
+      </blockquote>
+      <div class="hero-btns">
+        <a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" class="btn-primary">Order Now <i
+            class="fas fa-arrow-right" style="margin-left:8px"></i></a>
+        <a href="#services" class="btn-outline">Explore Services</a>
+        <a href="#contact" class="btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES SECTION ===== -->
+  <section class="services" id="services">
+    <div class="section-header reveal">
+      <span class="section-tag">What We Create</span>
+      <h2>Websites We Build</h2>
+      <p>Custom-designed websites for every special occasion — modern, attractive, and easy to share with your loved
+        ones.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🎂</div>
+        <h3>Birthday Websites</h3>
+        <p>Make birthdays unforgettable with a personalized website featuring photos, wishes, and beautiful animations.
+        </p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💒</div>
+        <h3>Wedding Websites</h3>
+        <p>Elegant wedding pages with event details, photo galleries, countdown timers, and easy sharing for guests.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💕</div>
+        <h3>Anniversary Websites</h3>
+        <p>Celebrate your love story with a stunning anniversary website featuring your journey together.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💍</div>
+        <h3>Engagement Websites</h3>
+        <p>Share the joy of your engagement with a beautiful digital page for family and friends.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">👶</div>
+        <h3>Baby Shower & Naming</h3>
+        <p>Adorable websites for baby showers, naming ceremonies, and welcoming your little one.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🎉</div>
+        <h3>Festival & Celebration</h3>
+        <p>Festive websites for celebrations, invitations, and greeting pages to spread the joy.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💌</div>
+        <h3>Invitation Websites</h3>
+        <p>Digital invite pages that replace printed cards — modern, eco-friendly, and shareable instantly.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">❤️</div>
+        <h3>Love & Couple Story</h3>
+        <p>Tell your love story digitally with a beautiful couple story website featuring your memories.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🕊️</div>
+        <h3>Memorial & Tribute</h3>
+        <p>Heartfelt tribute pages honoring loved ones with photos, memories, and messages.</p>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌟</div>
+        <h3>Custom Event Websites</h3>
+        <p>Any special occasion? We create custom websites tailored to your unique event and needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW IT WORKS SECTION ===== -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-header reveal">
+      <span class="section-tag">Simple Process</span>
+      <h2>How It Works</h2>
+      <p>Getting your dream website is easy — just 3 simple steps!</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number">1</div>
+        <h3>Fill the Order Form</h3>
+        <p>Share your details, photos, preferences and event information through our simple order form.</p>
+      </div>
+      <div class="step-connector reveal"><i class="fas fa-arrow-right"></i></div>
+      <div class="step-card reveal">
+        <div class="step-number">2</div>
+        <h3>We Design Your Website</h3>
+        <p>Our team contacts you via WhatsApp to confirm details and starts crafting your beautiful website.</p>
+      </div>
+      <div class="step-connector reveal"><i class="fas fa-arrow-right"></i></div>
+      <div class="step-card reveal">
+        <div class="step-number">3</div>
+        <h3>Review & Share</h3>
+        <p>Preview your website, request minor changes, and share it with your friends and family!</p>
+      </div>
+    </div>
+    <div class="payment-note reveal">
+      <i class="fas fa-info-circle"></i>
+      <p><strong>Payment:</strong> 50% advance to begin, remaining after completion. Pricing based on your selected
+        design and features.</p>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about" id="about">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="section-tag">Who We Are</span>
+        <h2>Your Moments, Our <span class="highlight">Digital Canvas</span></h2>
+        <p>LB Digital Creations is dedicated to turning your special moments into stunning digital experiences. We
+          design beautiful, shareable websites that bring your celebrations to life online.</p>
+        <p>From birthdays to weddings, every occasion deserves a memorable digital presence. Just share your details and
+          we'll handle the rest — creating modern, attractive layouts with your photos, videos, and event details.</p>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat-card">
+          <div class="number">🎨</div>
+          <div class="label">Custom Designs</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">📸</div>
+          <div class="label">Photo & Video Integration</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">🔗</div>
+          <div class="label">Easy Sharing</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">💎</div>
+          <div class="label">Modern Layouts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact" id="contact">
+    <div class="section-header reveal">
+      <span class="section-tag">Get In Touch</span>
+      <h2>Let's Create Together</h2>
+      <p>Have a project in mind? Reach out and let's make it happen.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Connect With Us</h3>
+        <p>Whether you need a website, a brand refresh, or a digital strategy — we're just a message away.</p>
+        <div class="contact-links">
+          <a href="mailto:lbdigitalcreations7326@gmail.com" class="contact-link" id="email-link">
+            <div class="icon email"><i class="fas fa-envelope"></i></div>
+            <div class="details">
+              <span>Email Us</span>
+              <strong>lbdigitalcreations7326@gmail.com</strong>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/lb_digital_creations" target="_blank" rel="noopener" class="contact-link"
+            id="insta-link">
+            <div class="icon insta"><i class="fab fa-instagram"></i></div>
+            <div class="details">
+              <span>Follow on Instagram</span>
+              <strong>@lb_digital_creations</strong>
+            </div>
+          </a>
+          <a href="https://whatsapp.com/channel/0029Vb7jTKl9sBIAWhoh383E" target="_blank" rel="noopener"
+            class="contact-link" id="whatsapp-link">
+            <div class="icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+            <div class="details">
+              <span>WhatsApp Channel</span>
+              <strong>Join Our Channel</strong>
+            </div>
+          </a>
+          <a href="https://wa.me/916381366088" target="_blank" rel="noopener" class="contact-link" id="call-link">
+            <div class="icon whatsapp"><i class="fas fa-phone"></i></div>
+            <div class="details">
+              <span>Call / WhatsApp</span>
+              <strong>+91 6381366088</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">
+        <img src="logo.jpg" alt="LB">
+        <span>LB Digital Creations</span>
+      </div>
+      <div class="footer-socials">
+        <a href="mailto:lbdigitalcreations7326@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/lb_digital_creations" target="_blank" rel="noopener" title="Instagram"><i
+            class="fab fa-instagram"></i></a>
+        <a href="https://whatsapp.com/channel/0029Vb7jTKl9sBIAWhoh383E" target="_blank" rel="noopener"
+          title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://forms.gle/67NyjyyHuk3HtT6a9" target="_blank" rel="noopener" title="Order Form"><i
+            class="fas fa-clipboard-list"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 LB Digital Creations. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://logeshwaran2097-hue.github.io/LB-Digital-Creations/sitemap.xml
