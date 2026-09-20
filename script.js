@@ -877,6 +877,66 @@ const TEMPLATES_DATA = [
     }
   },
   {
+    "id": "romantic-birthday-magic",
+    "title": "Romantic Birthday Wonderland",
+    "category": "birthday",
+    "categoryLabel": "Birthday",
+    "badge": "Viral Sensation",
+    "badgeClass": "trending",
+    "icon": "🎂",
+    "bgGradient": "linear-gradient(135deg, #ff758c 0%, #ff7eb3 50%, #7afcff 100%)",
+    "colors": [
+      "#ff477e",
+      "#ffd166",
+      "#7b2cbf"
+    ],
+    "rating": "5.0 ★",
+    "desc": "Interactive 3D cake cutting with candle blow-out, pop-up wishing balloons, polaroid memory lane, secret love letter reveal, and celebration audio.",
+    "features": [
+      "3D Candle Blow-Out",
+      "Pop Wishing Balloons",
+      "Polaroid Memory Lane",
+      "Secret Love Letter",
+      "Confetti & Fireworks FX"
+    ],
+    "animationType": "animated",
+    "liveDemoUrl": "birthday-magic.html",
+    "demo": {
+      "celebrants": "Happy Birthday, My Love",
+      "date": "A Very Special Day Sculpted With Love ✨",
+      "subheading": "Every single moment with you is a celebration, but today is especially magical. Welcome to your personalized digital wonderland!",
+      "musicTitle": "Romantic Birthday Melody & Chords",
+      "story": "On this extraordinary day that the universe chose to bring you into the world, my heart is overflowing with love and gratitude.",
+      "author": "— Forever Your Biggest Fan ❤️",
+      "portraitIcon": "🎂💖",
+      "portraitBadge": "Birthday Star",
+      "venueName": "Grand Celebration Gala & Sunset Terrace",
+      "venueAddress": "Adyar Seaface Road, MRC Nagar, Chennai",
+      "itinerary": [
+        {
+          "time": "06:00 PM",
+          "title": "Welcome Mocktails & Polaroids",
+          "desc": "Arrival photos & memory lane gallery"
+        },
+        {
+          "time": "07:30 PM",
+          "title": "Interactive Cake Cutting Ceremony",
+          "desc": "Candle blow-out & confetti shower"
+        },
+        {
+          "time": "08:30 PM",
+          "title": "Pop Wishing Balloons Surprise",
+          "desc": "Secret promise reveal and memory notes"
+        },
+        {
+          "time": "09:30 PM",
+          "title": "Grand Fireworks Finale",
+          "desc": "Midnight starlight and celebration music"
+        }
+      ]
+    }
+  },
+  {
     "id": "sweet-sixteen-sparkle",
     "title": "Sweet Sixteen Sparkle",
     "category": "birthday",
@@ -3404,6 +3464,18 @@ window.openTemplatePreview = function(templateId) {
     swatchesContainer.innerHTML = tpl.colors.map(c => `
       <span class="color-swatch" style="background:${c};" title="${c}"></span>
     `).join('');
+  }
+
+  // Live Demo button in modal sidebar
+  const liveDemoBtn = document.getElementById('modal-live-demo-btn');
+  if (liveDemoBtn) {
+    if (tpl.liveDemoUrl || tpl.category === 'birthday') {
+      liveDemoBtn.href = tpl.liveDemoUrl || 'birthday-magic.html';
+      liveDemoBtn.style.display = 'inline-flex';
+    } else {
+      liveDemoBtn.href = 'birthday-magic.html';
+      liveDemoBtn.style.display = 'inline-flex';
+    }
   }
 
   // WhatsApp CTA link prefill in sidebar
