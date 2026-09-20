@@ -4,33 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Sweet Miracle On The Way | Baby Shower & Cradle Celebration</title>
-  <meta name="description" content="A dreamy, pastel baby shower celebration website with interactive baby guessing game, lullaby audio, nursery wishlist, and blessing guestbook.">
+  <title>A Little Prince Arrives | Royal Baby Shower & Cradle Gala</title>
+  <meta name="description" content="A dreamy, fairytale baby shower celebration website with floating starlight clouds, baby gender guessing booth, lullaby music, and itinerary.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@600;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@600;700&family=Caveat:wght@700&family=Cinzel:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --pastel-blue: #a0c4ff;
-      --pastel-pink: #ffc6ff;
-      --pastel-yellow: #fdffb6;
-      --pastel-mint: #caffbf;
-      --text-main: #2b2d42;
-      --card-glass: rgba(255, 255, 255, 0.85);
+      --pastel-sky: #e0f2fe;
+      --pastel-blue: #38bdf8;
+      --royal-gold: #d4af37;
+      --gold-light: #fef08a;
+      --navy-deep: #0c1829;
+      --card-glass: rgba(255, 255, 255, 0.92);
+      --card-glass-dark: rgba(15, 29, 49, 0.85);
+      --text-main: #1e293b;
+      --shadow-soft: 0 15px 35px rgba(56, 189, 248, 0.15);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: linear-gradient(135deg, #f0f7ff 0%, #fff0f5 50%, #fafff0 100%);
+      background: radial-gradient(circle at 50% 20%, #e0f2fe 0%, #f0fdf4 50%, #fefce8 100%);
       color: var(--text-main);
       overflow-x: hidden;
       min-height: 100vh;
       text-align: center;
+    }
+
+    #clouds-canvas {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .nav-pill {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 10px 24px;
+      border-radius: 50px;
+      display: flex;
+      gap: 20px;
+      z-index: 100;
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .nav-pill a {
+      color: #0369a1;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .hero {
@@ -39,111 +75,367 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 100px 20px 60px;
+      padding: 110px 20px 60px;
+      position: relative;
+      z-index: 2;
     }
 
-    .miracle-tag {
+    .miracle-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 24px;
-      background: rgba(160, 196, 255, 0.25);
+      background: rgba(56, 189, 248, 0.15);
       border: 1px solid var(--pastel-blue);
       border-radius: 50px;
-      color: #0077b6;
+      color: #0284c7;
       font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      animation: bounceFloat 2.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes bounceFloat {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-8px); }
+    }
+
+    .hero-crown {
+      font-size: 3.5rem;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 6px 12px rgba(212, 175, 55, 0.4));
     }
 
     .hero-title {
       font-family: 'Quicksand', sans-serif;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      color: #4a4e69;
-      line-height: 1.2;
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      color: #0c4a6e;
+      line-height: 1.15;
       margin-bottom: 12px;
     }
 
     .hero-title span {
       font-family: 'Caveat', cursive;
-      color: #ff006e;
+      color: #0284c7;
       display: block;
       font-size: 1.1em;
     }
 
-    /* Guessing Game Card */
-    .game-card {
-      background: var(--card-glass);
-      backdrop-filter: blur(15px);
-      border: 2px dashed #bde0fe;
-      border-radius: 24px;
-      padding: 40px 30px;
-      max-width: 600px;
-      margin: 30px auto;
-      box-shadow: 0 15px 35px rgba(160, 196, 255, 0.2);
+    .parents-tagline {
+      font-size: 1.15rem;
+      color: #475569;
+      font-weight: 600;
+      margin-bottom: 25px;
     }
 
-    .game-title {
+    .date-card-pill {
+      background: #ffffff;
+      border: 1px solid #bae6fd;
+      border-radius: 50px;
+      padding: 12px 32px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0369a1;
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15);
+      margin-bottom: 35px;
+    }
+
+    /* Interactive Countdown */
+    .countdown-row {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 35px;
+    }
+
+    .cd-box {
+      background: #ffffff;
+      border: 1px solid #7dd3fc;
+      border-radius: 16px;
+      padding: 14px 18px;
+      min-width: 75px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .cd-val {
       font-family: 'Quicksand', sans-serif;
-      font-size: 1.6rem;
-      color: #22223b;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0284c7;
+      display: block;
+    }
+
+    .cd-lbl {
+      font-size: 0.72rem;
+      color: #64748b;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Section Wrapper */
+    .section-wrap {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sec-header h2 {
+      font-family: 'Quicksand', sans-serif;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      color: #0c4a6e;
       margin-bottom: 10px;
     }
 
-    .btn-guess {
-      padding: 12px 28px;
+    .sec-header p {
+      color: #64748b;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 35px;
+    }
+
+    /* Guessing Booth Game */
+    .game-card {
+      background: var(--card-glass);
+      border: 2px dashed #7dd3fc;
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 650px;
+      margin: 0 auto 40px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-vote {
+      padding: 14px 30px;
       border: none;
       border-radius: 50px;
       font-weight: 700;
       font-size: 1rem;
       cursor: pointer;
       margin: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       transition: transform 0.2s;
     }
 
-    .btn-boy { background: #bde0fe; color: #003049; }
-    .btn-girl { background: #ffc8dd; color: #590d22; }
-    .btn-both { background: #fdffb6; color: #583101; }
+    .btn-boy { background: linear-gradient(135deg, #7dd3fc, #0284c7); color: white; }
+    .btn-girl { background: linear-gradient(135deg, #f472b6, #db2777); color: white; }
+    .btn-twins { background: linear-gradient(135deg, #fde047, #ca8a04); color: #422006; }
 
-    .btn-guess:hover {
+    .btn-vote:hover {
       transform: scale(1.08);
+    }
+
+    /* Itinerary Cards */
+    .itinerary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .it-card {
+      background: #ffffff;
+      border: 1px solid #bae6fd;
+      border-radius: 18px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .it-card:hover {
+      transform: translateY(-6px);
+      border-color: #0284c7;
+    }
+
+    .it-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .it-time { font-size: 0.8rem; font-weight: 700; color: #0284c7; text-transform: uppercase; }
+    .it-title { font-family: 'Quicksand', sans-serif; font-size: 1.2rem; color: #0c4a6e; margin: 8px 0 6px; }
+    .it-desc { font-size: 0.88rem; color: #64748b; line-height: 1.6; }
+
+    /* Floating Lullaby Player */
+    .lullaby-pill {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #7dd3fc;
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .lullaby-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
 
 <body>
+  <canvas id="clouds-canvas"></canvas>
+
+  <nav class="nav-pill">
+    <a href="#ceremonies"><i class="fas fa-calendar-check"></i> Schedule</a>
+    <a href="#game"><i class="fas fa-gamepad"></i> Guessing Booth</a>
+    <a href="#venue"><i class="fas fa-map-marker-alt"></i> Venue</a>
+  </nav>
+
   <section class="hero">
-    <div class="miracle-tag">👶 A Sweet Little Miracle Is Coming 👶</div>
+    <div class="miracle-badge"><i class="fas fa-star"></i> A Blessed Blessing Is Coming</div>
+    <div class="hero-crown">👑🧸🍼</div>
     <h1 class="hero-title">
-      Baby Shower & Cradle Gala
-      <span>Celebrating Baby Malhotra</span>
+      Welcoming Baby Aarohi
+      <span>Little Prince Royal Arrival</span>
     </h1>
-    <p style="color:#6c757d; max-width:550px; margin:0 auto 25px; font-size:1.05rem;">
-      Tiny fingers, tiny toes, and a love that overflows! Join Pooja & Rahul as we welcome our greatest blessing.
-    </p>
+    <p class="parents-tagline">Mom & Dad: Kavya & Arjun • With boundless joy & gratitude</p>
+    
+    <div class="date-card-pill">
+      ✨ Sunday, November 22, 2026 • The Blossom Grand Pavilion ✨
+    </div>
 
-    <!-- INTERACTIVE BABY PREDICTION GAME -->
-    <div class="game-card">
-      <div style="font-size:3rem; margin-bottom:10px;">🍼🧸👶</div>
-      <h2 class="game-title">Baby Guessing Booth!</h2>
-      <p style="color:#6c757d; font-size:0.95rem; margin-bottom:20px;">Cast your vote on Team Boy or Team Girl!</p>
-      
-      <div>
-        <button class="btn-guess btn-boy" onclick="vote('Team Prince Boy 👑')">💙 Team Boy</button>
-        <button class="btn-guess btn-girl" onclick="vote('Team Princess Girl 🌸')">💖 Team Girl</button>
-        <button class="btn-guess btn-both" onclick="vote('Surprise Twins! 🌟')">💛 Surprise Twins!</button>
-      </div>
-
-      <div id="vote-res" style="margin-top:20px; font-weight:700; color:#3a86ff; min-height:24px;"></div>
+    <div class="countdown-row">
+      <div class="cd-box"><span class="cd-val">48</span><span class="cd-lbl">Days</span></div>
+      <div class="cd-box"><span class="cd-val">14</span><span class="cd-lbl">Hours</span></div>
+      <div class="cd-box"><span class="cd-val">32</span><span class="cd-lbl">Mins</span></div>
+      <div class="cd-box"><span class="cd-val">19</span><span class="cd-lbl">Secs</span></div>
     </div>
   </section>
 
+  <!-- GUESSING BOOTH -->
+  <section class="section-wrap" id="game">
+    <div class="game-card">
+      <h2 style="font-family:'Quicksand',sans-serif; color:#0c4a6e; font-size:1.8rem; margin-bottom:8px;">🎈 Baby Gender & Blessing Booth!</h2>
+      <p style="color:#64748b; font-size:0.95rem; margin-bottom:20px;">Cast your joyful vote for the upcoming little miracle:</p>
+      
+      <div>
+        <button class="btn-vote btn-boy" onclick="castVote('Team Little Prince 👑')">💙 Team Prince Boy</button>
+        <button class="btn-vote btn-girl" onclick="castVote('Team Little Princess 🌸')">💖 Team Princess Girl</button>
+        <button class="btn-vote btn-twins" onclick="castVote('Surprise Twin Angels 🌟')">💛 Surprise Twins!</button>
+      </div>
+
+      <div id="vote-output" style="margin-top:20px; font-weight:700; color:#0284c7; min-height:25px;"></div>
+    </div>
+  </section>
+
+  <!-- ITINERARY -->
+  <section class="section-wrap" id="ceremonies">
+    <div class="sec-header">
+      <h2>Celebration Schedule</h2>
+      <p>Join us for an afternoon filled with nursery rhymes, maternal blessings, and royal high tea.</p>
+    </div>
+
+    <div class="itinerary-grid">
+      <div class="it-card">
+        <span class="it-icon">🌸</span>
+        <span class="it-time">04:00 PM</span>
+        <h3 class="it-title">Bangle & Blessings</h3>
+        <p class="it-desc">Traditional glass bangles ceremony and sacred maternal blessings for Mom-to-be.</p>
+      </div>
+
+      <div class="it-card">
+        <span class="it-icon">🍼</span>
+        <span class="it-time">05:30 PM</span>
+        <h3 class="it-title">Cradle Swing Ritual</h3>
+        <p class="it-desc">Ornate floral cradle blessing with lullabies sung by aunts and grandmothers.</p>
+      </div>
+
+      <div class="it-card">
+        <span class="it-icon">🎂</span>
+        <span class="it-time">06:30 PM</span>
+        <h3 class="it-title">Cake Cutting & Games</h3>
+        <p class="it-desc">Baby trivia games, diaper raffle draw, and customized pastel dessert buffet.</p>
+      </div>
+
+      <div class="it-card">
+        <span class="it-icon">🥂</span>
+        <span class="it-time">07:30 PM</span>
+        <h3 class="it-title">Royal High Tea Feast</h3>
+        <p class="it-desc">Gourmet delicacies, mocktail bar, and return gift distribution.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="lullaby-pill">
+    <button class="lullaby-btn" id="lullaby-toggle"><i class="fas fa-play" id="lullaby-icon"></i></button>
+    <span style="font-size:0.8rem; color:#0369a1; font-weight:700;">Sweet Lullaby Chimes</span>
+  </div>
+
   <script>
-    function vote(team) {
-      document.getElementById('vote-res').innerHTML = `🎉 You voted for <strong>${team}</strong>! Blessing recorded with love! ✨`;
+    function castVote(choice) {
+      document.getElementById('vote-output').innerHTML = `🎉 You voted for <strong>${choice}</strong>! May the little angel be blessed with health and happiness! ✨`;
     }
+
+    // Floating Starlight Clouds
+    const cvs = document.getElementById('clouds-canvas');
+    const ctx = cvs.getContext('2d');
+    function rsz() { cvs.width = window.innerWidth; cvs.height = window.innerHeight; }
+    rsz(); window.addEventListener('resize', rsz);
+    let stars = [];
+    for(let i=0; i<30; i++) stars.push({
+      x: Math.random()*cvs.width, y: Math.random()*cvs.height,
+      r: Math.random()*2+1, vy: Math.random()*0.3+0.1, op: Math.random()*0.5+0.2
+    });
+    function render() {
+      ctx.clearRect(0,0,cvs.width,cvs.height);
+      stars.forEach(s => {
+        s.y -= s.vy;
+        if(s.y < 0) { s.y = cvs.height; s.x = Math.random()*cvs.width; }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(56, 189, 248, ${s.op})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(render);
+    }
+    render();
+
+    // Audio synthesizer
+    let aud = null, play = false, tId = null;
+    const lBtn = document.getElementById('lullaby-toggle');
+    const lIcn = document.getElementById('lullaby-icon');
+    const notes = [523.25, 587.33, 659.25, 783.99, 880.00, 1046.50];
+    function playChime(f) {
+      if(!aud) aud = new (window.AudioContext||window.webkitAudioContext)();
+      const o = aud.createOscillator();
+      const g = aud.createGain();
+      o.type = 'sine';
+      o.frequency.setValueAtTime(f, aud.currentTime);
+      g.gain.setValueAtTime(0.04, aud.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, aud.currentTime+1.8);
+      o.connect(g); g.connect(aud.destination);
+      o.start(); o.stop(aud.currentTime+1.8);
+    }
+    lBtn.addEventListener('click', () => {
+      play = !play;
+      if(play) {
+        if(!aud) aud = new (window.AudioContext||window.webkitAudioContext)();
+        if(aud.state === 'suspended') aud.resume();
+        lIcn.className = 'fas fa-pause';
+        let st = 0;
+        tId = setInterval(() => {
+          playChime(notes[st%notes.length]);
+          st++;
+        }, 600);
+      } else {
+        clearInterval(tId);
+        lIcn.className = 'fas fa-play';
+      }
+    });
   </script>
 </body>
 
