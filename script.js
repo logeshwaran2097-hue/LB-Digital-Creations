@@ -3175,7 +3175,16 @@ function renderTemplates() {
       ? '<span class="template-animation-badge animated">⚡ Animated FX</span>'
       : '<span class="template-animation-badge non-animated">💎 Classic Clean</span>';
 
-    const whatsappOrderUrl = `https://wa.me/916381366088?text=${encodeURIComponent(`Hello LB Digital Creations! I would like to order the "${tpl.title}" (${tpl.animationType === 'animated' ? 'Animated Edition' : 'Classic Edition'}) celebration website template.`)}`;
+    const categoryDemoMap = {
+      wedding: 'wedding-royal.html',
+      birthday: 'birthday-magic.html',
+      anniversary: 'anniversary-timeless.html',
+      engagement: 'engagement-proposal.html',
+      babyshower: 'babyshower-magic.html',
+      invitation: 'engagement-proposal.html',
+      special: 'anniversary-timeless.html'
+    };
+    const demoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
 
     return `
       <div class="template-card reveal active" data-id="${tpl.id}" data-category="${tpl.category}" data-animation="${tpl.animationType}">
@@ -3205,10 +3214,13 @@ function renderTemplates() {
 
           <div class="template-actions">
             <button class="btn-preview" onclick="openTemplatePreview('${tpl.id}')" title="Preview complete top-to-bottom template">
-              <i class="fas fa-eye"></i> <span>Preview</span>
+              <i class="fas fa-eye"></i> <span>Quick View</span>
             </button>
+            <a href="${demoUrl}" target="_blank" rel="noopener" class="btn-demo-link" style="display:inline-flex; align-items:center; gap:6px; padding:8px 12px; background:rgba(212,175,55,0.12); border:1px solid var(--gold); border-radius:8px; color:var(--gold-light); font-size:0.82rem; font-weight:600; text-decoration:none;" title="Open full interactive website in new tab">
+              <i class="fas fa-external-link-alt"></i> <span>Live Demo</span>
+            </a>
             <a href="${whatsappOrderUrl}" target="_blank" rel="noopener" class="btn-order-whatsapp" title="Order via WhatsApp">
-              <i class="fab fa-whatsapp"></i> <span>Order Now</span>
+              <i class="fab fa-whatsapp"></i> <span>Order</span>
             </a>
           </div>
         </div>
@@ -3466,17 +3478,28 @@ window.openTemplatePreview = function(templateId) {
     `).join('');
   }
 
+  // Dynamic Category Live Demo Mapping
+  const categoryDemoMap = {
+    wedding: 'wedding-royal.html',
+    birthday: 'birthday-magic.html',
+    anniversary: 'anniversary-timeless.html',
+    engagement: 'engagement-proposal.html',
+    babyshower: 'babyshower-magic.html',
+    invitation: 'engagement-proposal.html',
+    special: 'anniversary-timeless.html'
+  };
+  const targetDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+
+  // Update iframe to load the real, distinct interactive template
+  const mockupIframe = document.getElementById('mockup-iframe');
+  if (mockupIframe) {
+    mockupIframe.src = targetDemoUrl;
+  }
+
   // Live Demo button in modal sidebar
   const liveDemoBtn = document.getElementById('modal-live-demo-btn');
   if (liveDemoBtn) {
-    const categoryDemoMap = {
-      wedding: 'wedding-royal.html',
-      birthday: 'birthday-magic.html',
-      anniversary: 'anniversary-timeless.html',
-      engagement: 'engagement-proposal.html',
-      babyshower: 'babyshower-magic.html'
-    };
-    liveDemoBtn.href = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+    liveDemoBtn.href = targetDemoUrl;
     liveDemoBtn.style.display = 'inline-flex';
   }
 
