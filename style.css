@@ -2639,26 +2639,6 @@ section {
   opacity: 0.5;
 }
 
-.payment-note {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  max-width: 700px;
-  margin: 40px auto 0;
-  padding: 18px 25px;
-  background: var(--glass);
-  border: 1px solid var(--glass-border);
-  border-radius: 14px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
-.payment-note i {
-  color: var(--gold);
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
 
 /* ===== ABOUT SECTION ===== */
 .about {
@@ -3142,12 +3122,6 @@ section {
 
   .step-connector {
     transform: rotate(90deg);
-  }
-
-  .payment-note {
-    flex-direction: column;
-    text-align: center;
-    padding: 15px 18px;
   }
 
   .about {
