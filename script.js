@@ -3488,7 +3488,10 @@ window.openTemplatePreview = function(templateId) {
     invitation: 'engagement-proposal.html',
     special: 'anniversary-timeless.html'
   };
-  const targetDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+  const baseDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+  const celebrantsText = tpl.demo ? tpl.demo.celebrants : tpl.title;
+  const dateText = tpl.demo ? tpl.demo.date : '';
+  const targetDemoUrl = `${baseDemoUrl}?id=${encodeURIComponent(tpl.id)}&title=${encodeURIComponent(tpl.title)}&celebrants=${encodeURIComponent(celebrantsText)}&date=${encodeURIComponent(dateText)}`;
 
   // Update iframe to load the real, distinct interactive template
   const mockupIframe = document.getElementById('mockup-iframe');

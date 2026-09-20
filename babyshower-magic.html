@@ -376,6 +376,26 @@
   </div>
 
   <script>
+    // Parse dynamic URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const customTitle = urlParams.get('title');
+    const customCelebrants = urlParams.get('celebrants');
+    const customDate = urlParams.get('date');
+
+    if (customTitle) {
+      document.title = `${customTitle} | Live Celebration Experience`;
+    }
+    if (customCelebrants) {
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        heroTitle.innerHTML = `${customCelebrants}<span>${customTitle || 'Sweet Celebration'}</span>`;
+      }
+    }
+    if (customDate) {
+      const dateEl = document.querySelector('.date-card-pill');
+      if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+    }
+
     function castVote(choice) {
       document.getElementById('vote-output').innerHTML = `🎉 You voted for <strong>${choice}</strong>! May the little angel be blessed with health and happiness! ✨`;
     }

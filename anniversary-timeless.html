@@ -278,6 +278,30 @@
       <div class="letter-sign">— Forever & Always Yours</div>
     </div>
   </section>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const customTitle = urlParams.get('title');
+    const customCelebrants = urlParams.get('celebrants');
+    const customDate = urlParams.get('date');
+
+    if (customTitle) document.title = `${customTitle} | Milestone Celebration`;
+    if (customCelebrants) {
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        const parts = customCelebrants.split('&');
+        if (parts.length > 1) {
+          heroTitle.innerHTML = `${parts[0].trim()}<span>&</span>${parts[1].trim()}`;
+        } else {
+          heroTitle.innerHTML = customCelebrants;
+        }
+      }
+    }
+    if (customDate) {
+      const dateEl = document.querySelector('.hero-date');
+      if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+    }
+  </script>
 </body>
 
 </html>

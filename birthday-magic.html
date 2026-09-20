@@ -1056,6 +1056,22 @@
 
   <!-- JAVASCRIPT LOGIC -->
   <script>
+    // Parse dynamic URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const customTitle = urlParams.get('title');
+    const customCelebrants = urlParams.get('celebrants');
+    const customDate = urlParams.get('date');
+
+    if (customTitle) {
+      document.title = `${customTitle} | Romantic Celebration`;
+    }
+    if (customCelebrants) {
+      const heroSub = document.querySelector('.hero-subtitle');
+      if (heroSub) {
+        heroSub.textContent = `${customCelebrants} ✨`;
+      }
+    }
+
     // ===== FALLING SAKURA & PETALS CANVAS =====
     const canvas = document.getElementById('petals-canvas');
     const ctx = canvas.getContext('2d');

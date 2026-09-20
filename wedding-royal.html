@@ -403,6 +403,31 @@
   </div>
 
   <script>
+    // Parse dynamic URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const customTitle = urlParams.get('title');
+    const customCelebrants = urlParams.get('celebrants');
+    const customDate = urlParams.get('date');
+
+    if (customTitle) {
+      document.title = `${customTitle} | Royal Wedding Experience`;
+    }
+    if (customCelebrants) {
+      const coupleTitle = document.querySelector('.couple-title');
+      if (coupleTitle) {
+        const parts = customCelebrants.split('&');
+        if (parts.length > 1) {
+          coupleTitle.innerHTML = `${parts[0].trim()}<span class="and-sym">&</span>${parts[1].trim()}`;
+        } else {
+          coupleTitle.innerHTML = customCelebrants;
+        }
+      }
+    }
+    if (customDate) {
+      const dateEl = document.querySelector('.wedding-date-banner');
+      if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+    }
+
     // Gold Dust particles
     const c = document.getElementById('gold-dust');
     const ctx = c.getContext('2d');
