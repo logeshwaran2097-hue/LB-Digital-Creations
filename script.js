@@ -1,15 +1,19 @@
 // ===== LOADING SCREEN =====
-window.addEventListener('load', () => {
+function hideLoader() {
   const loader = document.querySelector('.loader');
-
-  setTimeout(() => {
+  if (loader) {
     loader.classList.add('hidden');
-    // Remove loader from DOM after fade-out so it doesn't block clicks
     setTimeout(() => {
       loader.style.display = 'none';
-    }, 800);
-  }, 1800);
+    }, 600);
+  }
+}
+
+window.addEventListener('load', () => {
+  setTimeout(hideLoader, 800);
 });
+// Fallback so page content is never blocked if load event already occurred
+setTimeout(hideLoader, 1800);
 
 // ===== DETECT MOBILE / TOUCH DEVICE =====
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -3184,7 +3188,12 @@ function renderTemplates() {
       invitation: 'engagement-proposal.html',
       special: 'anniversary-timeless.html'
     };
-    const demoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+    const baseDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+    const celebrantsText = tpl.demo ? tpl.demo.celebrants : tpl.title;
+    const dateText = tpl.demo ? tpl.demo.date : '';
+    const demoUrl = `${baseDemoUrl}?id=${encodeURIComponent(tpl.id)}&title=${encodeURIComponent(tpl.title)}&celebrants=${encodeURIComponent(celebrantsText)}&date=${encodeURIComponent(dateText)}`;
+
+    const whatsappOrderUrl = `https://wa.me/916381366088?text=${encodeURIComponent(`Hello LB Digital Creations! I would like to order the "${tpl.title}" (${tpl.animationType === 'animated' ? 'Animated' : 'Classic'} Style) celebration website template.`)}`;
 
     return `
       <div class="template-card reveal active" data-id="${tpl.id}" data-category="${tpl.category}" data-animation="${tpl.animationType}">
@@ -3594,143 +3603,7 @@ document.querySelectorAll('.demo-rsvp-options .rsvp-opt').forEach(opt => {
   });
 });
 
-// ========================================================
-// FEATURE 1: INTERACTIVE "DESIGN YOUR DREAM SITE" STUDIO LOGIC
-// ========================================================
-(function initStudio() {
-  const occasionPills = document.querySelectorAll('#studio-occasion-pills .studio-pill');
-  const nameInput = document.getElementById('studio-name-input');
-  const dateInput = document.getElementById('studio-date-input');
-  const paletteBtns = document.querySelectorAll('#studio-palettes .palette-option');
-  const musicBtns = document.querySelectorAll('#studio-music-options .music-pill-opt');
-  const addonRsvp = document.getElementById('addon-rsvp');
-  const addonMap = document.getElementById('addon-map');
-  const addonGallery = document.getElementById('addon-gallery');
-  const orderBtn = document.getElementById('studio-order-btn');
 
-  // Target preview elements
-  const phoneScreen = document.getElementById('phone-screen-target');
-  const phoneCrest = document.getElementById('phone-crest');
-  const phoneBrandTitle = document.getElementById('phone-brand-title');
-  const phoneOccasionPill = document.getElementById('phone-occasion-pill');
-  const phoneNamesDisplay = document.getElementById('phone-names-display');
-  const phoneDateDisplay = document.getElementById('phone-date-display');
-  const phoneTrackTitle = document.getElementById('phone-track-title');
-  const phoneStoryText = document.getElementById('phone-story-text');
-  const phoneRsvpPreview = document.getElementById('phone-rsvp-preview');
-  const phoneMapPreview = document.getElementById('phone-map-preview');
-  const phoneGalleryPreview = document.getElementById('phone-gallery-preview');
-
-  if (!phoneScreen) return;
-
-  let currentOccasion = 'wedding';
-  let currentOccasionLabel = 'Royal Wedding Portal';
-  let currentIcon = '👑';
-  let currentPalette = 'Royal Velvet';
-  let currentMusic = 'Royal Sitar & Shehnai Raga';
-
-  const occasionStoryMap = {
-    wedding: '"Two souls united in love and sacred vows, ready to celebrate a lifetime of magical adventures together."',
-    birthday: '"Celebrating another year of boundless dreams, vibrant laughter, and making memories with the best people."',
-    anniversary: '"25 golden years of cherished memories, unwavering commitment, and a timeless love that grows brighter every day."',
-    engagement: '"A sacred promise sealed with rings and pure love. Join us as we begin our countdown to forever."',
-    babyshower: '"A sweet little miracle is on the way to fill our world with joy, laughter, and endless blessings."'
-  };
-
-  function updateStudioPreview() {
-    const names = (nameInput && nameInput.value.trim()) || 'Ananya & Karthik';
-    const date = (dateInput && dateInput.value.trim()) || 'Saturday, December 19, 2026';
-
-    if (phoneCrest) phoneCrest.textContent = currentIcon;
-    if (phoneBrandTitle) phoneBrandTitle.textContent = names.split('&')[0].trim() || names;
-    if (phoneOccasionPill) phoneOccasionPill.textContent = `${currentIcon} ${currentOccasionLabel}`;
-    if (phoneNamesDisplay) phoneNamesDisplay.textContent = names;
-    if (phoneDateDisplay) phoneDateDisplay.textContent = `✨ ${date} ✨`;
-    if (phoneTrackTitle) phoneTrackTitle.textContent = currentMusic;
-    if (phoneStoryText) phoneStoryText.textContent = occasionStoryMap[currentOccasion] || occasionStoryMap.wedding;
-
-    // Addons visibility
-    if (phoneRsvpPreview) phoneRsvpPreview.style.display = addonRsvp && addonRsvp.checked ? 'flex' : 'none';
-    if (phoneMapPreview) phoneMapPreview.style.display = addonMap && addonMap.checked ? 'flex' : 'none';
-    if (phoneGalleryPreview) phoneGalleryPreview.style.display = addonGallery && addonGallery.checked ? 'flex' : 'none';
-
-    // WhatsApp CTA link prefill
-    if (orderBtn) {
-      const selectedAddons = [];
-      if (addonRsvp && addonRsvp.checked) selectedAddons.push('WhatsApp RSVP');
-      if (addonMap && addonMap.checked) selectedAddons.push('GPS Venue Map');
-      if (addonGallery && addonGallery.checked) selectedAddons.push('4K Photo Gallery');
-
-      const message = `Hello LB Digital Creations! I customized my dream website in the Live Studio:
-- Occasion: ${currentOccasionLabel}
-- Names: ${names}
-- Date: ${date}
-- Aesthetic Theme: ${currentPalette}
-- Music: ${currentMusic}
-- Included Modules: ${selectedAddons.join(', ')}
-
-I would like to discuss and book this custom design!`;
-
-      orderBtn.href = `https://wa.me/916381366088?text=${encodeURIComponent(message)}`;
-    }
-  }
-
-  // Occasion Pills click
-  occasionPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      occasionPills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      currentOccasion = pill.getAttribute('data-occasion');
-      currentIcon = pill.getAttribute('data-icon');
-      currentOccasionLabel = pill.getAttribute('data-sub');
-
-      const defaultName = pill.getAttribute('data-default-name');
-      if (nameInput && defaultName) {
-        nameInput.value = defaultName;
-      }
-
-      updateStudioPreview();
-      showLuxuryToast(`Studio Theme set to ${currentOccasionLabel}`);
-    });
-  });
-
-  // Inputs live listener
-  if (nameInput) nameInput.addEventListener('input', updateStudioPreview);
-  if (dateInput) dateInput.addEventListener('input', updateStudioPreview);
-
-  // Palette click
-  paletteBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      paletteBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentPalette = btn.getAttribute('title') || 'Luxury Gold';
-      const bg = btn.getAttribute('data-bg');
-      if (phoneScreen && bg) {
-        phoneScreen.style.background = bg;
-      }
-      updateStudioPreview();
-    });
-  });
-
-  // Music Option click
-  musicBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      musicBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      currentMusic = btn.getAttribute('data-track');
-      updateStudioPreview();
-      showLuxuryToast(`Soundtrack selected: ${currentMusic}`);
-    });
-  });
-
-  // Addons toggle
-  [addonRsvp, addonMap, addonGallery].forEach(cb => {
-    if (cb) cb.addEventListener('change', updateStudioPreview);
-  });
-
-  // Initial preview update
-  updateStudioPreview();
-})();
 
 // ========================================================
 // FEATURE 2: INTERACTIVE PRICING CALCULATOR LOGIC
