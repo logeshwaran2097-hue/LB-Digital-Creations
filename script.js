@@ -3993,3 +3993,47 @@ Please share the onboarding details and order form!`;
   });
 })();
 
+// ========================================================
+// HERO EDITORIAL SHOWCASE INTERACTION
+// ========================================================
+(function initHeroShowcase() {
+  const pills = document.querySelectorAll('.showcase-nav-pills .nav-pill-btn');
+  const cards = document.querySelectorAll('.editorial-card');
+  const track = document.getElementById('hero-carousel-track');
+
+  if (!pills.length || !cards.length) return;
+
+  function setActiveCategory(category) {
+    pills.forEach(btn => {
+      btn.classList.toggle('active', btn.getAttribute('data-target') === category);
+    });
+
+    cards.forEach(card => {
+      const match = card.getAttribute('data-category') === category;
+      card.classList.toggle('active', match);
+      if (match && track && window.innerWidth <= 992) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  }
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const targetCat = pill.getAttribute('data-target');
+      setActiveCategory(targetCat);
+    });
+  });
+
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      const cat = card.getAttribute('data-category');
+      pills.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-target') === cat);
+      });
+      cards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+    });
+  });
+})();
+
+

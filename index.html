@@ -48,10 +48,10 @@
   }
   </script>
 
-  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans & Space Grotesk -->
+  <!-- Google Fonts: Cinzel Decorative, Playfair Display, Cormorant Garamond, Plus Jakarta Sans & Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -101,49 +101,218 @@
     </button>
   </nav>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
+  <!-- ===== HERO SECTION (ULTRA-EDITORIAL MAGAZINE VOGUE STYLE) ===== -->
+  <section class="hero editorial-hero" id="home">
     <div class="hero-bg-glow g1"></div>
     <div class="hero-bg-glow g2"></div>
     <div class="hero-bg-glow g3"></div>
+    <div class="hero-mesh-overlay"></div>
     
-    <div class="hero-content">
-      <div class="hero-badge reveal">
-        <span class="gem-icon">💎</span>
-        <span class="hero-badge-text">Haute Digital Atelier • 50+ Bespoke Celebration Templates</span>
+    <div class="hero-content editorial-hero-content">
+      <!-- VOGUE EDITION BADGE -->
+      <div class="editorial-badge reveal">
+        <span class="editorial-badge-gem">💎</span>
+        <span class="editorial-badge-text">HAUTE DIGITAL ATELIER • VOL. 2026 COUTURE COLLECTION</span>
         <span class="badge-shimmer"></span>
       </div>
 
-      <h1 class="reveal">
-        Crafting Ultra-Luxury<br>
-        <span class="highlight-wrapper">
-          <span class="highlight" id="typing-text">Celebration Websites</span>
-          <span class="gold-underline"></span>
-        </span>
-      </h1>
-
-      <p class="hero-tagline reveal">✨ Transforming Milestones Into Timeless Digital Masterpieces ✨</p>
+      <!-- EDITORIAL VOGUE HEADLINE -->
+      <div class="editorial-title-wrap reveal">
+        <span class="editorial-pre-title">Crafting Ultra-Luxury</span>
+        <h1 class="editorial-main-title">
+          Royal Celebration Portals
+        </h1>
+        <p class="editorial-italic-script">
+          Where Eternal Memories Meet Bespoke Digital Artistry
+        </p>
+      </div>
       
-      <p class="hero-desc reveal">
-        We architect bespoke, interactive websites for the celebrations that define your life — royal weddings, milestone birthdays, anniversaries, and grand invitations. Featuring interactive RSVPs, orchestral audio, and heirloom-grade photo galleries.
+      <p class="editorial-lead-desc reveal">
+        We architect living digital stages for life's crowning milestones — royal weddings, landmark birthdays, silver anniversaries, and grand invitations. Engineered with immersive audio, interactive RSVPs, 3D animations, and heirloom-grade typography.
       </p>
 
-      <blockquote class="hero-quote reveal">
-        <i class="fas fa-quote-left quote-icon"></i>
-        <span>"Your most precious moments deserve a world-class digital stage — meticulously sculpted with love and elegance."</span>
-      </blockquote>
+      <!-- 3D FLOATING MULTI-CATEGORY INVITATION SHOWCASE -->
+      <div class="editorial-showcase-container reveal">
+        <div class="showcase-header">
+          <span class="showcase-tag"><i class="fas fa-sparkles"></i> Live Bespoke Portals</span>
+          <span class="showcase-hint">Click any card to explore the interactive live demo</span>
+        </div>
 
-      <div class="hero-btns reveal">
+        <div class="editorial-carousel-track" id="hero-carousel-track">
+          <!-- CARD 1: ROYAL WEDDING -->
+          <div class="editorial-card active" data-category="wedding">
+            <div class="card-gold-border"></div>
+            <div class="card-inner">
+              <div class="card-top-bar">
+                <span class="card-crest">👑</span>
+                <span class="card-badge-pill gold">Palace Edition</span>
+              </div>
+              <div class="card-media-preview wedding-bg">
+                <div class="preview-overlay"></div>
+                <div class="card-floating-badge"><i class="fas fa-music"></i> Shehnai Raga Live</div>
+                <div class="card-names-title">Ananya & Karthik</div>
+                <div class="card-sub-info">Vedic Muhurtham • Live Countdown</div>
+              </div>
+              <div class="card-features-chips">
+                <span><i class="fas fa-check"></i> Muhurtham Timer</span>
+                <span><i class="fab fa-whatsapp"></i> WhatsApp RSVP</span>
+                <span><i class="fas fa-map-marker-alt"></i> GPS Map</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="wedding-royal.html" class="card-demo-btn" target="_blank">
+                  <span>Live Demo</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#customizer" class="card-customize-btn">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2: ROMANTIC BIRTHDAY -->
+          <div class="editorial-card" data-category="birthday">
+            <div class="card-gold-border"></div>
+            <div class="card-inner">
+              <div class="card-top-bar">
+                <span class="card-crest">🎂</span>
+                <span class="card-badge-pill rose">Euphoria Edition</span>
+              </div>
+              <div class="card-media-preview birthday-bg">
+                <div class="preview-overlay"></div>
+                <div class="card-floating-badge"><i class="fas fa-birthday-cake"></i> 3D Cake & Candles</div>
+                <div class="card-names-title">Rohan's 25th Milestone</div>
+                <div class="card-sub-info">Midnight Glow • Wish Balloons</div>
+              </div>
+              <div class="card-features-chips">
+                <span><i class="fas fa-check"></i> Blowout Candles</span>
+                <span><i class="fas fa-camera-retro"></i> Polaroid Wall</span>
+                <span><i class="fas fa-envelope-open-text"></i> Love Letter</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="birthday-magic.html" class="card-demo-btn" target="_blank">
+                  <span>Live Demo</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#customizer" class="card-customize-btn">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3: SHE SAID YES ENGAGEMENT -->
+          <div class="editorial-card" data-category="engagement">
+            <div class="card-gold-border"></div>
+            <div class="card-inner">
+              <div class="card-top-bar">
+                <span class="card-crest">💍</span>
+                <span class="card-badge-pill purple">Couture Edition</span>
+              </div>
+              <div class="card-media-preview engagement-bg">
+                <div class="preview-overlay"></div>
+                <div class="card-floating-badge"><i class="fas fa-gem"></i> 3D Velvet Ring Box</div>
+                <div class="card-names-title">Sneha & Vikram</div>
+                <div class="card-sub-info">She Said Yes! • Proposal Story</div>
+              </div>
+              <div class="card-features-chips">
+                <span><i class="fas fa-check"></i> Open Ring Box</span>
+                <span><i class="fas fa-heart"></i> Couple Quiz</span>
+                <span><i class="fas fa-guitar"></i> Romance Guitar</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="engagement-proposal.html" class="card-demo-btn" target="_blank">
+                  <span>Live Demo</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#customizer" class="card-customize-btn">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4: SILVER JUBILEE ANNIVERSARY -->
+          <div class="editorial-card" data-category="anniversary">
+            <div class="card-gold-border"></div>
+            <div class="card-inner">
+              <div class="card-top-bar">
+                <span class="card-crest">💕</span>
+                <span class="card-badge-pill emerald">Heirloom Edition</span>
+              </div>
+              <div class="card-media-preview anniversary-bg">
+                <div class="preview-overlay"></div>
+                <div class="card-floating-badge"><i class="fas fa-film"></i> Vintage Film Reel</div>
+                <div class="card-names-title">Priya & Rahul (25 Yrs)</div>
+                <div class="card-sub-info">Timeless Devotion • Love Story</div>
+              </div>
+              <div class="card-features-chips">
+                <span><i class="fas fa-check"></i> Numbers of Love</span>
+                <span><i class="fas fa-glass-cheers"></i> Toast Blessings</span>
+                <span><i class="fas fa-compact-disc"></i> Cello Serenade</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="anniversary-timeless.html" class="card-demo-btn" target="_blank">
+                  <span>Live Demo</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#customizer" class="card-customize-btn">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 5: BABY SHOWER & CRADLE -->
+          <div class="editorial-card" data-category="babyshower">
+            <div class="card-gold-border"></div>
+            <div class="card-inner">
+              <div class="card-top-bar">
+                <span class="card-crest">👶</span>
+                <span class="card-badge-pill blue">Celestial Edition</span>
+              </div>
+              <div class="card-media-preview babyshower-bg">
+                <div class="preview-overlay"></div>
+                <div class="card-floating-badge"><i class="fas fa-cloud-sun"></i> Pastel Cloudscape</div>
+                <div class="card-names-title">Baby Anaya's Welcome</div>
+                <div class="card-sub-info">Gender Guessing • Cradle Ritual</div>
+              </div>
+              <div class="card-features-chips">
+                <span><i class="fas fa-check"></i> Gender Poll</span>
+                <span><i class="fas fa-baby-carriage"></i> Cradle Shower</span>
+                <span><i class="fas fa-music"></i> Lullaby Chimes</span>
+              </div>
+              <div class="card-actions-row">
+                <a href="babyshower-magic.html" class="card-demo-btn" target="_blank">
+                  <span>Live Demo</span> <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+                <a href="#customizer" class="card-customize-btn">
+                  <i class="fas fa-wand-magic-sparkles"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CATEGORY SWITCHER PILLS -->
+        <div class="showcase-nav-pills">
+          <button class="nav-pill-btn active" data-target="wedding">👑 Royal Wedding</button>
+          <button class="nav-pill-btn" data-target="birthday">🎂 Milestone Birthday</button>
+          <button class="nav-pill-btn" data-target="engagement">💍 Romantic Engagement</button>
+          <button class="nav-pill-btn" data-target="anniversary">💕 Silver Anniversary</button>
+          <button class="nav-pill-btn" data-target="babyshower">👶 Baby Shower</button>
+        </div>
+      </div>
+
+      <!-- EDITORIAL CTA GROUP -->
+      <div class="hero-btns editorial-btns reveal">
         <a href="templates.html" class="btn-primary btn-gold-luxury">
-          <span>Explore 50 Templates</span>
+          <span>Explore 50+ Templates</span>
           <i class="fas fa-gem" style="margin-left:10px"></i>
         </a>
-        <a href="https://wa.me/916381366088?text=Hello%20LB%20Digital%20Creations!%20I'd%20like%20to%20discuss%20a%20luxury%20website%20for%20my%20event." target="_blank" rel="noopener" class="btn-outline btn-glass-whatsapp">
-          <i class="fab fa-whatsapp" style="margin-right:8px; color: #25D366;"></i>
-          <span>WhatsApp VIP Chat</span>
+        <a href="#customizer" class="btn-outline btn-glass-studio">
+          <i class="fas fa-wand-magic-sparkles" style="margin-right:8px; color:var(--gold);"></i>
+          <span>Customize in Live Studio</span>
         </a>
-        <a href="#services" class="btn-outline">
-          <span>Our Services</span>
+        <a href="https://wa.me/916381366088?text=Hello%20LB%20Digital%20Creations!%20I'd%20like%20to%20order%20a%20luxury%20custom%20website." target="_blank" rel="noopener" class="btn-outline btn-glass-whatsapp">
+          <i class="fab fa-whatsapp" style="margin-right:8px; color: #25D366;"></i>
+          <span>WhatsApp VIP Concierge</span>
         </a>
       </div>
 
@@ -151,12 +320,12 @@
       <div class="hero-stats-bar reveal">
         <div class="stat-pill">
           <div class="stat-number"><span class="counter" data-target="50" data-suffix="+">50+</span></div>
-          <div class="stat-label">Bespoke Templates</div>
+          <div class="stat-label">Haute Templates</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-pill">
           <div class="stat-number">24–48h</div>
-          <div class="stat-label">Fast Delivery</div>
+          <div class="stat-label">Rapid Crafting</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-pill">
