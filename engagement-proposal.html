@@ -179,7 +179,24 @@
       <button class="quiz-opt-btn" onclick="answerQuiz(false)">C) It was mutual love at first sight</button>
       <div id="quiz-result" style="margin-top:15px; font-weight:700; color:#ffd700;"></div>
     </div>
+
+    <!-- ENGAGEMENT WISHES FORM -->
+    <div style="background:var(--card-bg); border:1px solid var(--glass-border); border-radius:20px; padding:35px 25px; max-width:600px; margin:40px auto 0; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
+      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--gold-sparkle); margin-bottom:12px;">Send Engagement Wishes & RSVP</h3>
+      <input type="text" id="eng-name" style="width:100%; padding:12px 16px; background:rgba(0,0,0,0.4); border:1px solid var(--glass-border); border-radius:10px; color:#fff; font-size:0.95rem; margin-bottom:12px;" placeholder="Your Name (e.g. Priya & Family)">
+      <textarea id="eng-msg" style="width:100%; height:80px; padding:12px 16px; background:rgba(0,0,0,0.4); border:1px solid var(--glass-border); border-radius:10px; color:#fff; font-size:0.95rem; margin-bottom:15px; resize:none;" placeholder="Write your engagement wishes..."></textarea>
+      <button onclick="sendEngWish()" style="padding:14px 32px; background:linear-gradient(135deg, #b76e79, #fce4b8); color:#120309; border:none; border-radius:50px; font-weight:700; cursor:pointer; font-size:1rem; display:inline-flex; align-items:center; gap:8px;">
+        <i class="fab fa-whatsapp"></i> <span>Send Engagement Wishes</span>
+      </button>
+    </div>
   </section>
+
+  <div style="position:fixed; bottom:20px; right:20px; background:rgba(9,10,26,0.92); border:1px solid var(--rose-gold); border-radius:50px; padding:10px 20px; display:flex; align-items:center; gap:12px; z-index:100;">
+    <button id="eng-music-btn" style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#b76e79,#fce4b8); color:#120309; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;">
+      <i class="fas fa-play" id="eng-icon"></i>
+    </button>
+    <span style="font-size:0.8rem; color:var(--gold-sparkle); font-weight:600;">Enchanted Acoustic Guitar</span>
+  </div>
 
   <script>
     const urlParams = new URLSearchParams(window.location.search);
@@ -210,6 +227,48 @@
       const res = document.getElementById('quiz-result');
       res.textContent = correct ? '🎉 Correct! Rishabh slipped into the DMs with a pun about chai! ☕' : '❌ Haha, close! But it was Rishabh who made the first move!';
     }
+
+    function sendEngWish() {
+      const name = document.getElementById('eng-name').value.trim() || 'Friend & Family';
+      const msg = document.getElementById('eng-msg').value.trim() || 'Congratulations on your engagement! Wishing you a lifetime of happiness!';
+      const waText = `💍 Engagement Congratulations for ${customCelebrants || 'Tanvi & Rishabh'}:
+- From: ${name}
+- Message: "${msg}"`;
+      window.open(`https://wa.me/916381366088?text=${encodeURIComponent(waText)}`, '_blank');
+    }
+
+    // Audio Synthesizer
+    let aCtx = null, isPlaying = false, eTimer = null;
+    const eBtn = document.getElementById('eng-music-btn');
+    const eIcn = document.getElementById('eng-icon');
+    const notes = [659.25, 783.99, 987.77, 880, 1046.50];
+    function playPluck(f) {
+      if(!aCtx) aCtx = new (window.AudioContext||window.webkitAudioContext)();
+      const o = aCtx.createOscillator();
+      const g = aCtx.createGain();
+      o.type = 'triangle';
+      o.frequency.setValueAtTime(f, aCtx.currentTime);
+      g.gain.setValueAtTime(0.04, aCtx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, aCtx.currentTime+1.5);
+      o.connect(g); g.connect(aCtx.destination);
+      o.start(); o.stop(aCtx.currentTime+1.5);
+    }
+    eBtn.addEventListener('click', () => {
+      isPlaying = !isPlaying;
+      if(isPlaying) {
+        if(!aCtx) aCtx = new (window.AudioContext||window.webkitAudioContext)();
+        if(aCtx.state === 'suspended') aCtx.resume();
+        eIcn.className = 'fas fa-pause';
+        let st = 0;
+        eTimer = setInterval(() => {
+          playPluck(notes[st%notes.length]);
+          st++;
+        }, 550);
+      } else {
+        clearInterval(eTimer);
+        eIcn.className = 'fas fa-play';
+      }
+    });
   </script>
 </body>
 
