@@ -5,48 +5,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>She Said Yes! | Romantic Proposal & Engagement Celebration</title>
-  <meta name="description" content="An interactive engagement website with 3D Ring Box opening, proposal love story, couple trivia quiz, and Google Calendar sync.">
+  <meta name="description" content="An interactive luxury engagement celebration website with 3D velvet ring box, proposal storybook, couple trivia quiz, ceremony schedule, and WhatsApp RSVP.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Great+Vibes&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
     :root {
-      --rose-gold: #b76e79;
+      --rose-gold: #e0929e;
+      --rose-dark: #b76e79;
       --gold-sparkle: #fce4b8;
       --navy-bg: #090a1a;
-      --card-bg: rgba(18, 20, 48, 0.85);
-      --glass-border: rgba(183, 110, 121, 0.35);
+      --navy-card: rgba(18, 20, 48, 0.85);
+      --glass-border: rgba(224, 146, 158, 0.35);
+      --glow-rose: 0 0 35px rgba(224, 146, 158, 0.3);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background: radial-gradient(circle at 50% 25%, #251838 0%, #090a1a 70%, #03040c 100%);
+      background: radial-gradient(circle at 50% 20%, #251433 0%, #0c0a1a 60%, #03040c 100%);
       color: #faf8f5;
       overflow-x: hidden;
       min-height: 100vh;
       text-align: center;
     }
 
+    /* Starlight Shimmer Canvas */
+    #stars-canvas {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Floating Navigation */
+    .nav-floating {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(12, 10, 26, 0.9);
+      border: 1px solid var(--rose-gold);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-radius: 50px;
+      padding: 10px 26px;
+      display: flex;
+      gap: 22px;
+      z-index: 100;
+      backdrop-filter: blur(15px);
+    }
+
+    .nav-floating a {
+      color: var(--gold-sparkle);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-floating a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px var(--rose-gold);
+    }
+
+    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 100px 20px 60px;
+      padding: 120px 20px 60px;
+      position: relative;
+      z-index: 2;
     }
 
-    .proposal-tag {
+    .proposal-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 24px;
-      background: rgba(183, 110, 121, 0.15);
+      background: rgba(224, 146, 158, 0.15);
       border: 1px solid var(--rose-gold);
       border-radius: 50px;
       color: var(--gold-sparkle);
@@ -54,48 +101,68 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      animation: pulseGlow 2.5s infinite alternate;
+    }
+
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 10px rgba(224, 146, 158, 0.2); }
+      100% { box-shadow: 0 0 25px rgba(224, 146, 158, 0.6); }
     }
 
     .hero-title {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(3.2rem, 8vw, 6rem);
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
       color: var(--rose-gold);
       line-height: 1.1;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 20px rgba(224, 146, 158, 0.3);
     }
 
     .hero-names {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
-    /* Interactive 3D Ring Box */
+    .proposal-date-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 10px 30px;
+      font-size: 1rem;
+      color: var(--gold-sparkle);
+      margin-bottom: 35px;
+      display: inline-block;
+      letter-spacing: 1.5px;
+    }
+
+    /* 3D Velvet Ring Box */
     .ring-box-stage {
-      background: var(--card-bg);
+      background: var(--navy-card);
       border: 1px solid var(--glass-border);
       border-radius: 24px;
       padding: 40px 30px;
-      max-width: 500px;
-      margin: 20px auto 40px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      max-width: 550px;
+      margin: 10px auto 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+      position: relative;
     }
 
     .ring-box {
-      width: 130px;
-      height: 130px;
-      background: linear-gradient(135deg, #4a0e2e, #1a0510);
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle at 30% 30%, #5e1136 0%, #200412 100%);
       border: 2px solid var(--rose-gold);
-      border-radius: 20px;
+      border-radius: 24px;
       margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(183, 110, 121, 0.4);
+      box-shadow: 0 12px 35px rgba(224, 146, 158, 0.4);
       transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
@@ -106,99 +173,359 @@
     .ring-box.opened {
       transform: scale(1.15);
       border-color: #ffd700;
-      box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+      box-shadow: 0 0 50px rgba(255, 215, 0, 0.8);
+      background: radial-gradient(circle at 50% 50%, #751a44 0%, #1a030e 100%);
     }
 
     .ring-status {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       color: var(--gold-sparkle);
       font-weight: 600;
+      line-height: 1.6;
     }
+
+    /* Section Styling */
+    .section-wrap {
+      padding: 85px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sec-header h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--rose-gold);
+      margin-bottom: 10px;
+    }
+
+    .sec-header p {
+      color: #cbd5e1;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 35px;
+    }
+
+    /* Proposal Story Chapters */
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    .story-card {
+      background: var(--navy-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 35px 25px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--rose-gold);
+    }
+
+    .story-chapter-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      color: var(--rose-gold);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .story-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      color: #fff;
+      margin: 8px 0 12px;
+    }
+
+    .story-body {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    /* Ceremony Itinerary */
+    .itinerary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .it-card {
+      background: var(--navy-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 30px 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .it-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--rose-gold);
+    }
+
+    .it-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .it-time { font-size: 0.82rem; font-weight: 700; color: var(--rose-gold); text-transform: uppercase; }
+    .it-title { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; color: #fff; margin: 8px 0 6px; }
+    .it-desc { font-size: 0.88rem; color: #94a3b8; line-height: 1.6; }
 
     /* Trivia Quiz Box */
-    .section-wrap {
-      padding: 70px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
     .quiz-card {
-      background: var(--card-bg);
+      background: var(--navy-card);
       border: 1px solid var(--glass-border);
       border-radius: 20px;
-      padding: 35px 25px;
-      margin-top: 25px;
+      padding: 40px 30px;
+      max-width: 650px;
+      margin: 25px auto 0;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
     }
 
     .quiz-opt-btn {
       display: block;
       width: 100%;
       padding: 14px 20px;
-      margin: 10px 0;
-      background: rgba(255,255,255,0.05);
+      margin: 12px 0;
+      background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.15);
       color: #fff;
       border-radius: 12px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       cursor: pointer;
+      text-align: left;
       transition: all 0.2s;
     }
 
     .quiz-opt-btn:hover {
-      background: rgba(183, 110, 121, 0.3);
+      background: rgba(224, 146, 158, 0.25);
       border-color: var(--rose-gold);
+      transform: translateX(4px);
+    }
+
+    /* RSVP Form Card */
+    .rsvp-card {
+      background: var(--navy-card);
+      border: 1px solid var(--rose-gold);
+      border-radius: 24px;
+      padding: 40px 30px;
+      max-width: 600px;
+      margin: 40px auto 0;
+      box-shadow: var(--glow-rose);
+    }
+
+    .rsvp-field {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--glass-border);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      font-family: inherit;
+    }
+
+    .rsvp-field:focus {
+      outline: none;
+      border-color: var(--rose-gold);
+    }
+
+    .btn-submit-rsvp {
+      padding: 15px 36px;
+      background: linear-gradient(135deg, var(--rose-gold), var(--gold-sparkle));
+      color: #120309;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      box-shadow: 0 10px 25px rgba(224, 146, 158, 0.4);
+      transition: transform 0.2s;
+    }
+
+    .btn-submit-rsvp:hover {
+      transform: scale(1.02);
+    }
+
+    /* Floating Acoustic Music Player */
+    .music-floating-pill {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(12, 10, 26, 0.95);
+      border: 1px solid var(--rose-gold);
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .music-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-gold), var(--gold-sparkle));
+      color: #120309;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   </style>
 </head>
 
 <body>
+  <canvas id="stars-canvas"></canvas>
+
+  <nav class="nav-floating">
+    <a href="#story"><i class="fas fa-book-open"></i> Story</a>
+    <a href="#schedule"><i class="fas fa-calendar-alt"></i> Ceremony</a>
+    <a href="#trivia"><i class="fas fa-gamepad"></i> Trivia</a>
+    <a href="#rsvp"><i class="fas fa-envelope"></i> RSVP</a>
+  </nav>
+
+  <!-- 1. HERO & RING BOX -->
   <section class="hero">
-    <div class="proposal-tag">💍 The Countdown to Forever Begins 💍</div>
+    <div class="proposal-badge"><i class="fas fa-ring"></i> The Countdown to Forever Begins</div>
     <h1 class="hero-title">She Said Yes!</h1>
     <h2 class="hero-names">Tanvi & Rishabh</h2>
-    <p style="color:#d1c4e9; max-width:550px; margin:0 auto 30px; font-size:1.05rem;">
-      Under the starlit Parisian skies, two souls made a lifelong promise. Tap the velvet ring box to open our proposal story!
-    </p>
+    <div class="proposal-date-card">
+      ✨ Friday, December 4, 2026 • The Starlight Terrace Lounge ✨
+    </div>
 
-    <!-- INTERACTIVE RING BOX -->
     <div class="ring-box-stage">
       <div class="ring-box" id="ring-box-btn">💍</div>
-      <div class="ring-status" id="ring-status-text">✨ Tap the Velvet Box to Reveal the Ring ✨</div>
+      <div class="ring-status" id="ring-status-text">
+        ✨ Tap the Velvet Box to Reveal the Diamond Ring ✨
+      </div>
     </div>
   </section>
 
-  <!-- COUPLE TRIVIA QUIZ -->
-  <section class="section-wrap">
-    <h2 style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; color:var(--rose-gold);">Couple Fun Trivia</h2>
-    <p style="color:#b39ddb; margin-top:8px;">How well do you know the newly engaged couple?</p>
+  <!-- 2. PROPOSAL STORY CHAPTERS -->
+  <section class="section-wrap" id="story">
+    <div class="sec-header">
+      <h2>How The Question Was Popped</h2>
+      <p>Three beautiful chapters leading up to our unforgettable moment.</p>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-card">
+        <span class="story-chapter-num">Chapter 1 • 2021</span>
+        <h3 class="story-title">Filter Coffee & First Laughs</h3>
+        <p class="story-body">What was meant to be a quick 30-minute cafe chat turned into a 5-hour conversation that neither of us wanted to end.</p>
+      </div>
+
+      <div class="story-card">
+        <span class="story-chapter-num">Chapter 2 • 2024</span>
+        <h3 class="story-title">Adventures & Shared Dreams</h3>
+        <p class="story-body">From spontaneous mountain roadtrips to cooking burnt pasta at midnight, we discovered that home is wherever we are together.</p>
+      </div>
+
+      <div class="story-card">
+        <span class="story-chapter-num">Chapter 3 • Paris</span>
+        <h3 class="story-title">The Starlight Promise</h3>
+        <p class="story-body">Under the sparkling midnight Eiffel lights, Rishabh got down on one knee. With tears and joy, Tanvi said YES!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. CEREMONY ITINERARY -->
+  <section class="section-wrap" id="schedule">
+    <div class="sec-header">
+      <h2>Ring Ceremony Schedule</h2>
+      <p>We invite you to celebrate this milestone with evening cocktails, sacred rituals, and feast.</p>
+    </div>
+
+    <div class="itinerary-grid">
+      <div class="it-card">
+        <span class="it-icon">🥂</span>
+        <span class="it-time">06:30 PM</span>
+        <h3 class="it-title">Sunset Welcome Drinks</h3>
+        <p class="it-desc">Arrival cocktail lounge, acoustic melodies, and photobooth snapshots.</p>
+      </div>
+
+      <div class="it-card">
+        <span class="it-icon">💍</span>
+        <span class="it-time">07:45 PM</span>
+        <h3 class="it-title">Traditional Ring Exchange</h3>
+        <p class="it-desc">Auspicious shagun, ring exchange ceremony, and family elders' blessings.</p>
+      </div>
+
+      <div class="it-card">
+        <span class="it-icon">🎂</span>
+        <span class="it-time">08:45 PM</span>
+        <h3 class="it-title">Cake Cutting & Toasts</h3>
+        <p class="it-desc">Celebration champagne toast and sweetest wishes from bridesmaids & groomsmen.</p>
+      </div>
+
+      <div class="it-card">
+        <span class="it-icon">🍽️</span>
+        <span class="it-time">09:30 PM</span>
+        <h3 class="it-title">Royal Dinner Banquet</h3>
+        <p class="it-desc">Multi-cuisine dinner spread and celebration dance music.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. COUPLE TRIVIA QUIZ -->
+  <section class="section-wrap" id="trivia">
+    <div class="sec-header">
+      <h2>Couple Fun Trivia</h2>
+      <p>Test how well you know the newly engaged couple!</p>
+    </div>
 
     <div class="quiz-card">
-      <h3 style="margin-bottom:15px; font-size:1.2rem;">Q1: Who made the first move?</h3>
+      <h3 style="margin-bottom:15px; font-size:1.25rem; font-family:'Cormorant Garamond',serif; color:#fff;">Q: Who made the first move?</h3>
       <button class="quiz-opt-btn" onclick="answerQuiz(true)">A) Rishabh, with a cheesy pun over Instagram DM</button>
       <button class="quiz-opt-btn" onclick="answerQuiz(false)">B) Tanvi, by pretending to need tech advice</button>
       <button class="quiz-opt-btn" onclick="answerQuiz(false)">C) It was mutual love at first sight</button>
-      <div id="quiz-result" style="margin-top:15px; font-weight:700; color:#ffd700;"></div>
+      <div id="quiz-result" style="margin-top:15px; font-weight:700; color:#ffd700; min-height:24px;"></div>
+    </div>
+  </section>
+
+  <!-- 5. RSVP & VENUE -->
+  <section class="section-wrap" id="rsvp">
+    <div class="sec-header">
+      <h2>Confirm Attendance & Blessings</h2>
+      <p>Kindly confirm your presence so we can reserve the best seat for your family.</p>
     </div>
 
-    <!-- ENGAGEMENT WISHES FORM -->
-    <div style="background:var(--card-bg); border:1px solid var(--glass-border); border-radius:20px; padding:35px 25px; max-width:600px; margin:40px auto 0; box-shadow:0 10px 30px rgba(0,0,0,0.4);">
-      <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.8rem; color:var(--gold-sparkle); margin-bottom:12px;">Send Engagement Wishes & RSVP</h3>
-      <input type="text" id="eng-name" style="width:100%; padding:12px 16px; background:rgba(0,0,0,0.4); border:1px solid var(--glass-border); border-radius:10px; color:#fff; font-size:0.95rem; margin-bottom:12px;" placeholder="Your Name (e.g. Priya & Family)">
-      <textarea id="eng-msg" style="width:100%; height:80px; padding:12px 16px; background:rgba(0,0,0,0.4); border:1px solid var(--glass-border); border-radius:10px; color:#fff; font-size:0.95rem; margin-bottom:15px; resize:none;" placeholder="Write your engagement wishes..."></textarea>
-      <button onclick="sendEngWish()" style="padding:14px 32px; background:linear-gradient(135deg, #b76e79, #fce4b8); color:#120309; border:none; border-radius:50px; font-weight:700; cursor:pointer; font-size:1rem; display:inline-flex; align-items:center; gap:8px;">
-        <i class="fab fa-whatsapp"></i> <span>Send Engagement Wishes</span>
+    <div class="rsvp-card">
+      <input type="text" id="eng-name" class="rsvp-field" placeholder="Your Full Name (e.g. Anand & Family)">
+      <input type="number" id="eng-guests" class="rsvp-field" placeholder="Number of Guests Attending" min="1" max="10">
+      <textarea id="eng-msg" class="rsvp-field" style="height:90px; resize:none;" placeholder="Write your heartfelt engagement wishes..."></textarea>
+      <button class="btn-submit-rsvp" onclick="sendEngWish()">
+        <i class="fab fa-whatsapp"></i> <span>Send Engagement RSVP via WhatsApp</span>
       </button>
     </div>
   </section>
 
-  <div style="position:fixed; bottom:20px; right:20px; background:rgba(9,10,26,0.92); border:1px solid var(--rose-gold); border-radius:50px; padding:10px 20px; display:flex; align-items:center; gap:12px; z-index:100;">
-    <button id="eng-music-btn" style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#b76e79,#fce4b8); color:#120309; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;">
-      <i class="fas fa-play" id="eng-icon"></i>
-    </button>
+  <!-- FLOATING MUSIC PLAYER -->
+  <div class="music-floating-pill">
+    <button class="music-btn" id="eng-music-btn"><i class="fas fa-play" id="eng-icon"></i></button>
     <span style="font-size:0.8rem; color:var(--gold-sparkle); font-weight:600;">Enchanted Acoustic Guitar</span>
   </div>
 
   <script>
+    // URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
     const customTitle = urlParams.get('title');
     const customCelebrants = urlParams.get('celebrants');
@@ -209,7 +536,12 @@
       const namesEl = document.querySelector('.hero-names');
       if (namesEl) namesEl.textContent = customCelebrants;
     }
+    if (customDate) {
+      const dateEl = document.querySelector('.proposal-date-card');
+      if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+    }
 
+    // Interactive Ring Box
     const box = document.getElementById('ring-box-btn');
     const status = document.getElementById('ring-status-text');
     let opened = false;
@@ -219,23 +551,49 @@
         opened = true;
         box.classList.add('opened');
         box.innerHTML = '💎';
-        status.innerHTML = '✨ <strong>She Said Yes!</strong> Forever starts right here. Wedding Date: December 2026 ✨';
+        status.innerHTML = '✨ <strong>She Said Yes!</strong> Forever starts right here. Ring ceremony celebration awaits! ✨';
       }
     });
 
     function answerQuiz(correct) {
       const res = document.getElementById('quiz-result');
-      res.textContent = correct ? '🎉 Correct! Rishabh slipped into the DMs with a pun about chai! ☕' : '❌ Haha, close! But it was Rishabh who made the first move!';
+      res.textContent = correct ? '🎉 Correct! Rishabh broke the ice with a hilarious pun about chai! ☕' : '❌ Haha, close! But it was Rishabh who made the first move!';
     }
 
     function sendEngWish() {
-      const name = document.getElementById('eng-name').value.trim() || 'Friend & Family';
-      const msg = document.getElementById('eng-msg').value.trim() || 'Congratulations on your engagement! Wishing you a lifetime of happiness!';
-      const waText = `💍 Engagement Congratulations for ${customCelebrants || 'Tanvi & Rishabh'}:
-- From: ${name}
+      const name = document.getElementById('eng-name').value.trim() || 'Honored Guest';
+      const guests = document.getElementById('eng-guests').value.trim() || '2';
+      const msg = document.getElementById('eng-msg').value.trim() || 'Wishing you both boundless happiness and love on your engagement!';
+      const waText = `💍 Engagement RSVP Confirmation for ${customCelebrants || 'Tanvi & Rishabh'}:
+- Guest Name: ${name}
+- Guests: ${guests}
 - Message: "${msg}"`;
       window.open(`https://wa.me/916381366088?text=${encodeURIComponent(waText)}`, '_blank');
     }
+
+    // Starlight Canvas
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize(); window.addEventListener('resize', resize);
+    let stars = [];
+    for(let i=0; i<35; i++) stars.push({
+      x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+      r: Math.random()*2+0.5, vy: Math.random()*0.3+0.1, op: Math.random()*0.5+0.2
+    });
+    function drawStars() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      stars.forEach(s => {
+        s.y -= s.vy;
+        if(s.y < 0) { s.y = canvas.height; s.x = Math.random()*canvas.width; }
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(224, 146, 158, ${s.op})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
 
     // Audio Synthesizer
     let aCtx = null, isPlaying = false, eTimer = null;
