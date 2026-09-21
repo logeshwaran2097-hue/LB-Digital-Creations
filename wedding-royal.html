@@ -534,9 +534,29 @@
     const customTitle = urlParams.get('title');
     const customCelebrants = urlParams.get('celebrants');
     const customDate = urlParams.get('date');
+    const customBg = urlParams.get('bg');
+    const customAccent = urlParams.get('accent');
+    const customDesc = urlParams.get('desc');
+    const customStory = urlParams.get('story');
+    const customVenue = urlParams.get('venue');
+    const customAddress = urlParams.get('address');
+    const customMusic = urlParams.get('music');
+    const customIcon = urlParams.get('icon');
+    const customBadge = urlParams.get('badge');
 
+    if (customBg) {
+      document.body.style.background = customBg;
+    }
+    if (customAccent) {
+      document.documentElement.style.setProperty('--gold', customAccent);
+      document.documentElement.style.setProperty('--gold-light', customAccent);
+    }
+    if (customIcon) {
+      const sym = document.querySelector('.auspicious-symbol');
+      if (sym) sym.textContent = customIcon;
+    }
     if (customTitle) {
-      document.title = `${customTitle} | Royal Wedding Experience`;
+      document.title = `${customTitle} | Live Celebration Portal`;
     }
     if (customCelebrants) {
       const coupleTitle = document.querySelector('.couple-title');
@@ -553,12 +573,32 @@
       const dateEl = document.querySelector('.wedding-date-banner');
       if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
     }
+    if (customDesc) {
+      const descEl = document.querySelector('.invitation-verse');
+      if (descEl) descEl.textContent = `"${customDesc}"`;
+    }
+    if (customStory) {
+      const storyEl = document.querySelector('.story-quote');
+      if (storyEl) storyEl.textContent = `"${customStory}"`;
+    }
+    if (customVenue) {
+      const venueEl = document.querySelector('.venue-card h4');
+      if (venueEl) venueEl.textContent = customVenue;
+    }
+    if (customAddress) {
+      const addrEl = document.querySelector('.venue-card p');
+      if (addrEl) addrEl.textContent = customAddress;
+    }
+    if (customMusic) {
+      const musicEl = document.querySelector('.royal-audio-pill span');
+      if (musicEl) musicEl.textContent = customMusic;
+    }
 
     function submitRSVP() {
       const name = document.getElementById('rsvp-name').value.trim() || 'Honored Guest';
       const guests = document.getElementById('rsvp-guests').value.trim() || '2';
       const msg = document.getElementById('rsvp-msg').value.trim() || 'Wishing you both eternal bliss and happiness!';
-      const waText = `Namaste! RSVP Confirmation for ${customCelebrants || 'Ananya & Karthik'} Wedding:
+      const waText = `Namaste! RSVP Confirmation for ${customCelebrants || 'Celebration'} Website:
 - Guest Name: ${name}
 - Number of Guests: ${guests}
 - Blessings: "${msg}"`;

@@ -378,10 +378,21 @@
   <script>
     // Parse dynamic URL parameters
     const urlParams = new URLSearchParams(window.location.search);
+    const customBg = urlParams.get('bg');
+    const customAccent = urlParams.get('accent');
     const customTitle = urlParams.get('title');
     const customCelebrants = urlParams.get('celebrants');
     const customDate = urlParams.get('date');
+    const customDesc = urlParams.get('desc');
+    const customStory = urlParams.get('story');
 
+    if (customBg) {
+      document.body.style.background = customBg;
+    }
+    if (customAccent) {
+      document.documentElement.style.setProperty('--gold-accent', customAccent);
+      document.documentElement.style.setProperty('--pink-soft', customAccent);
+    }
     if (customTitle) {
       document.title = `${customTitle} | Live Celebration Experience`;
     }
@@ -394,6 +405,14 @@
     if (customDate) {
       const dateEl = document.querySelector('.date-card-pill');
       if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+    }
+    if (customDesc) {
+      const subEl = document.querySelector('.hero-sub');
+      if (subEl) subEl.textContent = customDesc;
+    }
+    if (customStory) {
+      const storyQuote = document.querySelector('.story-quote');
+      if (storyQuote) storyQuote.textContent = `"${customStory}"`;
     }
 
     function castVote(choice) {

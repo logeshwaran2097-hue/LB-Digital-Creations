@@ -3142,6 +3142,45 @@ if (initialCat && ['wedding', 'birthday', 'anniversary', 'engagement', 'babyshow
   filterTabs.forEach(t => t.classList.toggle('active', t.getAttribute('data-category') === initialCat));
 }
 
+function buildTemplateDemoUrl(tpl) {
+  const categoryDemoMap = {
+    wedding: 'wedding-royal.html',
+    birthday: 'birthday-magic.html',
+    anniversary: 'anniversary-timeless.html',
+    engagement: 'engagement-proposal.html',
+    babyshower: 'babyshower-magic.html',
+    invitation: 'engagement-proposal.html',
+    special: 'anniversary-timeless.html'
+  };
+  const baseDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
+  const celebrantsText = tpl.demo ? tpl.demo.celebrants : tpl.title;
+  const dateText = tpl.demo ? tpl.demo.date : '';
+  const descText = tpl.desc || '';
+  const storyText = tpl.demo ? (tpl.demo.story || '') : '';
+  const venueText = tpl.demo ? (tpl.demo.venueName || '') : '';
+  const addressText = tpl.demo ? (tpl.demo.venueAddress || '') : '';
+  const musicText = tpl.demo ? (tpl.demo.musicTitle || '') : '';
+  const accentColor = tpl.colors && tpl.colors.length ? tpl.colors[0] : '';
+  const bg = tpl.bgGradient || '';
+  const icon = tpl.icon || '';
+
+  const params = new URLSearchParams();
+  params.set('id', tpl.id);
+  params.set('title', tpl.title);
+  params.set('celebrants', celebrantsText);
+  if (dateText) params.set('date', dateText);
+  if (descText) params.set('desc', descText);
+  if (storyText) params.set('story', storyText);
+  if (venueText) params.set('venue', venueText);
+  if (addressText) params.set('address', addressText);
+  if (musicText) params.set('music', musicText);
+  if (accentColor) params.set('accent', accentColor);
+  if (bg) params.set('bg', bg);
+  if (icon) params.set('icon', icon);
+
+  return `${baseDemoUrl}?${params.toString()}`;
+}
+
 function renderTemplates() {
   if (!templatesGrid) return;
 
@@ -3179,19 +3218,7 @@ function renderTemplates() {
       ? '<span class="template-animation-badge animated">⚡ Animated FX</span>'
       : '<span class="template-animation-badge non-animated">💎 Classic Clean</span>';
 
-    const categoryDemoMap = {
-      wedding: 'wedding-royal.html',
-      birthday: 'birthday-magic.html',
-      anniversary: 'anniversary-timeless.html',
-      engagement: 'engagement-proposal.html',
-      babyshower: 'babyshower-magic.html',
-      invitation: 'engagement-proposal.html',
-      special: 'anniversary-timeless.html'
-    };
-    const baseDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
-    const celebrantsText = tpl.demo ? tpl.demo.celebrants : tpl.title;
-    const dateText = tpl.demo ? tpl.demo.date : '';
-    const demoUrl = `${baseDemoUrl}?id=${encodeURIComponent(tpl.id)}&title=${encodeURIComponent(tpl.title)}&celebrants=${encodeURIComponent(celebrantsText)}&date=${encodeURIComponent(dateText)}`;
+    const demoUrl = buildTemplateDemoUrl(tpl);
 
     const whatsappOrderUrl = `https://wa.me/916381366088?text=${encodeURIComponent(`Hello LB Digital Creations! I would like to order the "${tpl.title}" (${tpl.animationType === 'animated' ? 'Animated' : 'Classic'} Style) celebration website template.`)}`;
 
@@ -3487,20 +3514,7 @@ window.openTemplatePreview = function(templateId) {
     `).join('');
   }
 
-  // Dynamic Category Live Demo Mapping
-  const categoryDemoMap = {
-    wedding: 'wedding-royal.html',
-    birthday: 'birthday-magic.html',
-    anniversary: 'anniversary-timeless.html',
-    engagement: 'engagement-proposal.html',
-    babyshower: 'babyshower-magic.html',
-    invitation: 'engagement-proposal.html',
-    special: 'anniversary-timeless.html'
-  };
-  const baseDemoUrl = tpl.liveDemoUrl || categoryDemoMap[tpl.category] || 'wedding-royal.html';
-  const celebrantsText = tpl.demo ? tpl.demo.celebrants : tpl.title;
-  const dateText = tpl.demo ? tpl.demo.date : '';
-  const targetDemoUrl = `${baseDemoUrl}?id=${encodeURIComponent(tpl.id)}&title=${encodeURIComponent(tpl.title)}&celebrants=${encodeURIComponent(celebrantsText)}&date=${encodeURIComponent(dateText)}`;
+  const targetDemoUrl = buildTemplateDemoUrl(tpl);
 
   // Update iframe to load the real, distinct interactive template
   const mockupIframe = document.getElementById('mockup-iframe');

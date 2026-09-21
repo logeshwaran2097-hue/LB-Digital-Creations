@@ -297,10 +297,52 @@
   </div>
 
   <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const customBg = urlParams.get('bg');
+    const customAccent = urlParams.get('accent');
+    const customTitle = urlParams.get('title');
+    const customCelebrants = urlParams.get('celebrants');
+    const customDate = urlParams.get('date');
+    const customDesc = urlParams.get('desc');
+    const customStory = urlParams.get('story');
+    const customMusic = urlParams.get('music');
+
+    if (customBg) {
+      document.body.style.background = customBg;
+    }
+    if (customAccent) {
+      document.documentElement.style.setProperty('--silver-glow', customAccent);
+      document.documentElement.style.setProperty('--silver', customAccent);
+    }
+    if (customTitle) document.title = `${customTitle} | Milestone Celebration`;
+    if (customCelebrants) {
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) {
+        const parts = customCelebrants.split('&');
+        if (parts.length > 1) {
+          heroTitle.innerHTML = `${parts[0].trim()}<span>&</span>${parts[1].trim()}`;
+        } else {
+          heroTitle.innerHTML = customCelebrants;
+        }
+      }
+    }
+    if (customDate) {
+      const dateEl = document.querySelector('.hero-date');
+      if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+    }
+    if (customStory) {
+      const letterEl = document.querySelector('.letter-body');
+      if (letterEl) letterEl.textContent = `"${customStory}"`;
+    }
+    if (customDesc) {
+      const heroSub = document.querySelector('.hero-sub');
+      if (heroSub) heroSub.textContent = customDesc;
+    }
+
     function sendAnnivWish() {
       const name = document.getElementById('anniv-name').value.trim() || 'Well-wisher';
-      const msg = document.getElementById('anniv-msg').value.trim() || 'Wishing you both a wonderful 25th Silver Jubilee anniversary filled with eternal love!';
-      const waText = `✨ Silver Jubilee Anniversary Blessings for ${customCelebrants || 'Meenakshi & Sundaresan'}:
+      const msg = document.getElementById('anniv-msg').value.trim() || 'Wishing you both a wonderful anniversary filled with eternal love!';
+      const waText = `✨ Anniversary Blessings for ${customCelebrants || 'Celebrants'}:
 - From: ${name}
 - Message: "${msg}"`;
       window.open(`https://wa.me/916381366088?text=${encodeURIComponent(waText)}`, '_blank');
@@ -322,44 +364,23 @@
       o.connect(g); g.connect(audCtx.destination);
       o.start(); o.stop(audCtx.currentTime+2.0);
     }
-    mBtn.addEventListener('click', () => {
-      playing = !playing;
-      if(playing) {
-        if(!audCtx) audCtx = new (window.AudioContext||window.webkitAudioContext)();
-        if(audCtx.state === 'suspended') audCtx.resume();
-        mIcn.className = 'fas fa-pause';
-        let st = 0;
-        sTimer = setInterval(() => {
-          playCello(notes[st%notes.length]);
-          st++;
-        }, 650);
-      } else {
-        clearInterval(sTimer);
-        mIcn.className = 'fas fa-play';
-      }
-    });
-
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const customTitle = urlParams.get('title');
-    const customCelebrants = urlParams.get('celebrants');
-    const customDate = urlParams.get('date');
-
-    if (customTitle) document.title = `${customTitle} | Milestone Celebration`;
-    if (customCelebrants) {
-      const heroTitle = document.querySelector('.hero-title');
-      if (heroTitle) {
-        const parts = customCelebrants.split('&');
-        if (parts.length > 1) {
-          heroTitle.innerHTML = `${parts[0].trim()}<span>&</span>${parts[1].trim()}`;
+    if (mBtn) {
+      mBtn.addEventListener('click', () => {
+        playing = !playing;
+        if(playing) {
+          if(!audCtx) audCtx = new (window.AudioContext||window.webkitAudioContext)();
+          if(audCtx.state === 'suspended') audCtx.resume();
+          mIcn.className = 'fas fa-pause';
+          let st = 0;
+          sTimer = setInterval(() => {
+            playCello(notes[st%notes.length]);
+            st++;
+          }, 650);
         } else {
-          heroTitle.innerHTML = customCelebrants;
+          clearInterval(sTimer);
+          mIcn.className = 'fas fa-play';
         }
-      }
-    }
-    if (customDate) {
-      const dateEl = document.querySelector('.hero-date');
-      if (dateEl) dateEl.textContent = `✨ ${customDate} ✨`;
+      });
     }
   </script>
 </body>

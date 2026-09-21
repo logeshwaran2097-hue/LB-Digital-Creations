@@ -1264,6 +1264,40 @@
         musicStatus.textContent = 'Music Paused';
       }
     });
+
+    // ===== DYNAMIC URL PARAMETERS =====
+    const urlParams = new URLSearchParams(window.location.search);
+    const customTitle = urlParams.get('title');
+    const customCelebrants = urlParams.get('celebrants');
+    const customDate = urlParams.get('date');
+    const customBg = urlParams.get('bg');
+    const customAccent = urlParams.get('accent');
+    const customDesc = urlParams.get('desc');
+
+    if (customBg) {
+      document.body.style.background = customBg;
+    }
+    if (customAccent) {
+      document.documentElement.style.setProperty('--primary-rose', customAccent);
+      document.documentElement.style.setProperty('--accent-glow', customAccent);
+    }
+    if (customTitle) {
+      document.title = `${customTitle} | Live Celebration Portal`;
+      const badge = document.querySelector('.hero-sparkle-badge');
+      if (badge) badge.innerHTML = `✨ Special Celebration Edition ✨`;
+    }
+    if (customCelebrants) {
+      const nameEl = document.querySelector('.hero-title-gradient');
+      if (nameEl) nameEl.textContent = customCelebrants;
+    }
+    if (customDate) {
+      const dateEl = document.querySelector('.hero-subtitle');
+      if (dateEl) dateEl.textContent = `Celebrating on ${customDate} • A Milestone of Magic & Smiles`;
+    }
+    if (customDesc) {
+      const descEl = document.querySelector('.letter-body');
+      if (descEl) descEl.innerHTML = `<p>${customDesc}</p>`;
+    }
   </script>
 </body>
 
