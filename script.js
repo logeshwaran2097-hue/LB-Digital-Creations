@@ -388,7 +388,7 @@ function showLuxuryToast(message) {
 - Selected Tier: ${currentTierName} (₹${currentTierPrice.toLocaleString('en-IN')})${addonText}
 - Total Investment: ₹${grandTotal.toLocaleString('en-IN')}
 
-Please share the onboarding details and order form!`;
+Please share the onboarding details and next steps!`;
 
       bookBtn.href = `https://wa.me/916381366088?text=${encodeURIComponent(message)}`;
     }

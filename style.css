@@ -5025,8 +5025,8 @@ section {
   color: var(--gold);
 }
 
-.footer-pill-btn.form i {
-  color: #f7e199;
+.footer-pill-btn.insta i {
+  color: #E1306C;
 }
 
 .footer-pill-btn:hover {
