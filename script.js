@@ -336,6 +336,8 @@ function showLuxuryToast(message) {
 // FEATURE 2: INTERACTIVE PRICING CALCULATOR LOGIC
 // ========================================================
 (function initPricingCalculator() {
+  const websitePills = document.querySelectorAll('.website-type-pill');
+  const selectedWebsiteTypeEl = document.getElementById('calc-selected-website-type');
   const tierCards = document.querySelectorAll('.tier-card');
   const addonChecks = document.querySelectorAll('.calc-addon-check');
   const selectedTierNameEl = document.getElementById('calc-selected-tier-name');
@@ -347,6 +349,7 @@ function showLuxuryToast(message) {
 
   if (!grandTotalEl) return;
 
+  let selectedWebsiteName = 'Wedding Website';
   let currentTierName = 'Ultra-Luxury Animated Edition';
   let currentTierPrice = 1999;
 
@@ -365,6 +368,7 @@ function showLuxuryToast(message) {
 
     const grandTotal = currentTierPrice + addonsTotal;
 
+    if (selectedWebsiteTypeEl) selectedWebsiteTypeEl.textContent = selectedWebsiteName;
     if (selectedTierNameEl) selectedTierNameEl.textContent = currentTierName;
     if (tierCostEl) tierCostEl.textContent = `₹${currentTierPrice.toLocaleString('en-IN')}`;
 
@@ -381,18 +385,53 @@ function showLuxuryToast(message) {
       grandTotalEl.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
     }
 
-    // Prefill WhatsApp booking link
+    // Prefill WhatsApp booking link with selected website occasion, package tier, and add-ons
     if (bookBtn) {
       const addonText = selectedAddonNames.length > 0 ? `\n- Selected Add-ons: ${selectedAddonNames.join(', ')}` : '\n- Add-ons: None';
-      const message = `Hello LB Digital Creations! I would like to book a celebration website package:
-- Selected Tier: ${currentTierName} (₹${currentTierPrice.toLocaleString('en-IN')})${addonText}
-- Total Investment: ₹${grandTotal.toLocaleString('en-IN')}
+      const message = `Hello LB Digital Creations! I would like to book a celebration website:
+- Occasion / Website Type: ${selectedWebsiteName}
+- Selected Package Tier: ${currentTierName} (₹${currentTierPrice.toLocaleString('en-IN')})${addonText}
+- Total Estimated Investment: ₹${grandTotal.toLocaleString('en-IN')}
 
 Please share the onboarding details and next steps!`;
 
       bookBtn.href = `https://wa.me/916381366088?text=${encodeURIComponent(message)}`;
     }
   }
+
+  function selectWebsiteType(name) {
+    if (!name) return;
+    selectedWebsiteName = name;
+    websitePills.forEach(pill => {
+      const pillName = pill.getAttribute('data-website') || pill.textContent.trim();
+      if (pillName === name || pillName.toLowerCase().includes(name.toLowerCase())) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+    updatePricing();
+  }
+
+  // Website type pills click listeners
+  websitePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const name = pill.getAttribute('data-website') || pill.textContent.trim();
+      selectWebsiteType(name);
+      showLuxuryToast(`Celebration chosen: ${name}`);
+    });
+  });
+
+  // Connect Service Cards action buttons with data-select-website
+  document.querySelectorAll('[data-select-website]').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      const targetWebsite = trigger.getAttribute('data-select-website');
+      if (targetWebsite) {
+        selectWebsiteType(targetWebsite);
+        showLuxuryToast(`Celebration chosen: ${targetWebsite}`);
+      }
+    });
+  });
 
   tierCards.forEach(card => {
     const btn = card.querySelector('.tier-select-btn');
@@ -422,7 +461,7 @@ Please share the onboarding details and next steps!`;
       else if (tierKey === 'bespoke') currentTierName = 'Haute Couture Bespoke Signature';
 
       updatePricing();
-      showLuxuryToast(`Package selected: ${currentTierName}`);
+      showLuxuryToast(`Package tier selected: ${currentTierName}`);
     };
 
     card.addEventListener('click', (e) => {
