@@ -4367,6 +4367,26 @@ section {
 .tier-features li i {
   color: var(--gold);
   font-size: 0.8rem;
+  width: 14px;
+  text-align: center;
+}
+
+.tier-features li.feature-group-header {
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gold-light);
+  font-weight: 700;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px dashed rgba(212, 175, 55, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tier-features li.feature-group-header i {
+  color: var(--gold);
 }
 
 .tier-select-btn {
@@ -4394,6 +4414,107 @@ section {
   border-color: transparent;
   color: #0b0914;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+}
+
+/* INCLUDED IN EVERY PACKAGE BANNER */
+.packages-included-banner {
+  background: linear-gradient(135deg, rgba(18, 17, 34, 0.8) 0%, rgba(10, 9, 26, 0.9) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 35px 0;
+  backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
+}
+
+.packages-included-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold-gradient);
+}
+
+.included-banner-header {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.included-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.included-banner-header h4 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.included-perks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.included-perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.included-perk-item:hover {
+  background: rgba(212, 175, 55, 0.06);
+  border-color: rgba(212, 175, 55, 0.3);
+  transform: translateY(-2px);
+}
+
+.included-perk-item .perk-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.12);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.included-perk-item .perk-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.included-perk-item .perk-text strong {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.included-perk-item .perk-text small {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
 }
 
 /* CALCULATOR BOTTOM PANEL */
