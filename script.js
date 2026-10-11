@@ -422,13 +422,13 @@ Please share the onboarding details and next steps!`;
     });
   });
 
-  // Connect Service Cards action buttons with data-select-website
-  document.querySelectorAll('[data-select-website]').forEach(trigger => {
-    trigger.addEventListener('click', (e) => {
-      const targetWebsite = trigger.getAttribute('data-select-website');
-      if (targetWebsite) {
-        selectWebsiteType(targetWebsite);
-        showLuxuryToast(`Celebration chosen: ${targetWebsite}`);
+  // Service card click handling to open dedicated detail page
+  document.querySelectorAll('.service-card[data-service-url]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      const url = card.getAttribute('data-service-url');
+      if (url) {
+        window.location.href = url;
       }
     });
   });
