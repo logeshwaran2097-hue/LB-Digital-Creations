@@ -57,7 +57,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css?v=2026.14">
+  <link rel="stylesheet" href="style.css?v=2026.25">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -78,21 +78,17 @@
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <a href="#" class="nav-logo">
+    <a href="#" class="nav-logo" aria-label="LB Digital Creations">
       <div class="logo-wrapper">
         <img src="logo.jpg" alt="LB Digital Creations">
         <span class="logo-ring"></span>
-      </div>
-      <div class="logo-text-group">
-        <span class="brand-title">LB Digital Creations</span>
-        <span class="brand-subtitle">Haute Digital Atelier</span>
       </div>
     </a>
     <ul class="nav-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#showcase">Showcase</a></li>
       <li><a href="#comparison">Why Digital</a></li>
-      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#how-it-works">Process</a></li>
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -104,64 +100,82 @@
     </button>
   </nav>
 
-  <!-- ===== HERO SECTION (ULTRA-EDITORIAL MAGAZINE VOGUE STYLE) ===== -->
-  <section class="hero editorial-hero" id="home">
+  <!-- ===== HERO SECTION (PREMIUM LUXURY SHOWCASE) ===== -->
+  <section class="hero luxury-hero-container" id="home">
     <div class="hero-bg-glow g1"></div>
     <div class="hero-bg-glow g2"></div>
     <div class="hero-bg-glow g3"></div>
     <div class="hero-mesh-overlay"></div>
     
-    <div class="hero-content editorial-hero-content">
-      <!-- VOGUE EDITION BADGE -->
-      <div class="editorial-badge reveal">
-        <span class="editorial-badge-gem">💎</span>
-        <span class="editorial-badge-text">HAUTE DIGITAL ATELIER • VOL. 2026 COUTURE COLLECTION</span>
-        <span class="badge-shimmer"></span>
-      </div>
+    <div class="hero-inner-grid">
+      <!-- HERO TEXT COLUMN -->
+      <div class="hero-text-col reveal">
+        <div class="hero-curated-badge">
+          <i class="fas fa-crown"></i>
+          <span>Bespoke Celebration Websites</span>
+        </div>
 
-      <!-- EDITORIAL VOGUE HEADLINE -->
-      <div class="editorial-title-wrap reveal">
-        <span class="editorial-pre-title">Crafting Ultra-Luxury</span>
-        <h1 class="editorial-main-title">
-          Royal Celebration Portals
+        <h1 class="hero-luxury-title">
+          Turn Your Moments Into <span class="gold-gradient-text">Living Websites</span>
         </h1>
-        <p class="editorial-italic-script">
-          Where Eternal Memories Meet Bespoke Digital Artistry
+
+        <p class="hero-luxury-tagline">
+          Modern interactive celebration websites for weddings, birthdays &amp; landmark milestones.
         </p>
-      </div>
-      
-      <p class="editorial-lead-desc reveal">
-        We architect living digital stages for life's crowning milestones — royal weddings, landmark birthdays, silver anniversaries, and grand invitations. Engineered with interactive RSVPs, 3D animations, custom photo galleries, GPS navigation, and heirloom-grade typography.
-      </p>
+        
+        <p class="hero-luxury-desc">
+          Elevate your celebration beyond static paper cards. Share your special moments with live countdown timers, 4K photo galleries, Google Maps venue navigation, and effortless 1-tap WhatsApp RSVP for all your guests.
+        </p>
 
-
-      <!-- EDITORIAL CTA GROUP -->
-      <div class="hero-btns editorial-btns reveal">
-        <a href="#services" class="btn-primary btn-gold-luxury">
-          <span>Explore Bespoke Services</span>
-          <i class="fas fa-crown" style="margin-left:10px"></i>
-        </a>
-        <a href="https://wa.me/916381366088?text=Hello%20LB%20Digital%20Creations!%20I'd%20like%20to%20order%20a%20luxury%20custom%20website." target="_blank" rel="noopener" class="btn-outline btn-glass-whatsapp">
-          <i class="fab fa-whatsapp" style="margin-right:8px; color: #25D366;"></i>
-          <span>Order on WhatsApp Concierge</span>
-        </a>
-      </div>
-
-      <!-- LUXURY STATS TICKER -->
-      <div class="hero-stats-bar reveal">
-        <div class="stat-pill">
-          <div class="stat-number"><span class="counter" data-target="100" data-suffix="%">100%</span></div>
-          <div class="stat-label">Bespoke Portals</div>
+        <div class="hero-btns editorial-btns">
+          <a href="#services" class="btn-primary btn-gold-luxury">
+            <span>Explore Services</span>
+            <i class="fas fa-arrow-right" style="margin-left:8px"></i>
+          </a>
+          <a href="https://wa.me/916381366088?text=Hello%20LB%20Digital%20Creations!%20I'd%20like%20to%20order%20a%20luxury%20custom%20celebration%20website." target="_blank" rel="noopener" class="btn-outline btn-glass-whatsapp">
+            <i class="fab fa-whatsapp" style="margin-right:8px; color: #25D366;"></i>
+            <span>Order on WhatsApp</span>
+          </a>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-pill">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Mobile & Interactive</div>
+
+        <!-- REFINED LUXURY STATS -->
+        <div class="hero-stats-row">
+          <div class="hero-stat-box">
+            <strong>100%</strong>
+            <span>Bespoke Handcrafted</span>
+          </div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat-box">
+            <strong>1-Tap</strong>
+            <span>WhatsApp RSVP</span>
+          </div>
+          <div class="hero-stat-sep"></div>
+          <div class="hero-stat-box">
+            <strong>4.9 ★</strong>
+            <span>Client Distinction</span>
+          </div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-pill">
-          <div class="stat-number">4.9 ★</div>
-          <div class="stat-label">Client Distinction</div>
+      </div>
+
+      <!-- HERO VISUAL MOCKUP COLUMN -->
+      <div class="hero-mockup-col reveal">
+        <div class="hero-device-wrapper">
+          <div class="device-ambient-halo"></div>
+          <img src="luxury-portal-mockup.jpg" alt="Luxury Celebration Website Portal Preview on Gold iPhone" class="hero-mockup-img" width="560" height="700">
+          <div class="hero-floating-badge badge-top">
+            <i class="fas fa-gem" style="color:var(--gold);"></i>
+            <div>
+              <strong>Living Web Experience</strong>
+              <small>Interactive 3D Motion &amp; Sound</small>
+            </div>
+          </div>
+          <div class="hero-floating-badge badge-bottom">
+            <i class="fas fa-clock" style="color:var(--gold-light);"></i>
+            <div>
+              <strong>Real-Time Countdown</strong>
+              <small>Live RSVP &amp; GPS Map</small>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -170,7 +184,7 @@
   <!-- ===== SERVICES SECTION ===== -->
   <section class="services" id="services">
     <div class="section-header reveal">
-      <span class="section-tag"><i class="fas fa-crown"></i> Haute Digital Collection</span>
+      <span class="section-tag"><i class="fas fa-crown"></i> Curated Collections</span>
       <h2>Celebration Websites We Craft</h2>
       <p>Bespoke digital stages for life's crowning moments — breathtaking, mobile-first, and effortlessly shareable with your loved ones.</p>
     </div>
@@ -178,7 +192,7 @@
       <div class="service-card reveal" data-category="birthday" data-service-url="service-details.html?service=birthday">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-cake-candles"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-sparkles"></i> Milestone Edition</span>
         </div>
         <h3>Birthday Websites</h3>
         <p>Make birthdays unforgettable with personalized websites featuring photos, wishes, and festive animations.</p>
@@ -190,7 +204,7 @@
       <div class="service-card reveal" data-category="wedding" data-service-url="service-details.html?service=wedding">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-ring"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-crown"></i> Royal Signature</span>
         </div>
         <h3>Wedding Websites</h3>
         <p>Elegant wedding portals with celebration itinerary, photo galleries, countdown timers, and effortless RSVP sharing.</p>
@@ -202,7 +216,7 @@
       <div class="service-card reveal" data-category="anniversary" data-service-url="service-details.html?service=anniversary">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-gem"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-gem"></i> Golden Heirloom</span>
         </div>
         <h3>Anniversary Websites</h3>
         <p>Celebrate your love story with a timeless anniversary website showcasing your journey and milestones together.</p>
@@ -214,7 +228,7 @@
       <div class="service-card reveal" data-category="engagement" data-service-url="service-details.html?service=engagement">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-heart"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-heart"></i> Elegant Invite</span>
         </div>
         <h3>Engagement Websites</h3>
         <p>Share the joy of your engagement with a bespoke digital announcement crafted for family and friends.</p>
@@ -226,7 +240,7 @@
       <div class="service-card reveal" data-category="babyshower" data-service-url="service-details.html?service=babyshower">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-baby-carriage"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-feather"></i> Precious Welcome</span>
         </div>
         <h3>Baby Shower &amp; Naming</h3>
         <p>Adorable, joyful portals for baby showers, naming ceremonies, and welcoming your little one.</p>
@@ -238,7 +252,7 @@
       <div class="service-card reveal" data-category="special" data-service-url="service-details.html?service=festival">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-champagne-glasses"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-star"></i> Grand Festive</span>
         </div>
         <h3>Festival &amp; Celebration</h3>
         <p>Festive digital hubs for grand celebrations, cultural greetings, and memorable gatherings.</p>
@@ -250,7 +264,7 @@
       <div class="service-card reveal" data-category="invitation" data-service-url="service-details.html?service=invitation">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-envelope-open"></i> Living Invite</span>
         </div>
         <h3>Invitation Websites</h3>
         <p>Modern interactive invites that elevate paper cards — eco-friendly, stunning, and instantly shareable.</p>
@@ -262,7 +276,7 @@
       <div class="service-card reveal" data-category="anniversary" data-service-url="service-details.html?service=lovestory">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-heart-pulse"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-infinity"></i> Couple Story</span>
         </div>
         <h3>Love &amp; Couple Story</h3>
         <p>Capture your unique love story with an interactive digital timeline celebrating all your cherished memories.</p>
@@ -274,7 +288,7 @@
       <div class="service-card reveal" data-category="special" data-service-url="service-details.html?service=memorial">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-dove"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-dove"></i> Dignified Tribute</span>
         </div>
         <h3>Memorial &amp; Tribute</h3>
         <p>Heartfelt, dignified tribute pages honoring loved ones with shared stories, photos, and messages.</p>
@@ -286,7 +300,7 @@
       <div class="service-card reveal" data-category="all" data-service-url="service-details.html?service=customevent">
         <div class="service-card-top-row">
           <div class="service-icon"><i class="fas fa-crown"></i></div>
-          <span class="service-price-pill"><i class="fas fa-tag"></i> From ₹999</span>
+          <span class="service-luxury-badge"><i class="fas fa-wand-magic-sparkles"></i> Bespoke Portal</span>
         </div>
         <h3>Custom Event Websites</h3>
         <p>Hosting a landmark milestone? We craft completely bespoke websites tailored to your exact creative vision.</p>
@@ -316,7 +330,7 @@
 
 
   <!-- ========================================================
-       FEATURE 2: BEFORE VS AFTER (PAPER VS DIGITAL)
+       THE MODERN DISTINCTION: PAPER VS LIVING DIGITAL
        ======================================================== -->
   <section class="comparison-section" id="comparison">
     <div class="section-header reveal">
@@ -328,314 +342,116 @@
     <div class="comparison-grid reveal">
       <!-- TRADITIONAL PAPER CARD -->
       <div class="comparison-card paper-side">
-        <div class="comp-badge paper">Traditional Paper Invitations</div>
-        <div class="comp-icon-display">📜❌</div>
+        <div class="comp-badge paper"><i class="fas fa-scroll"></i> Conventional Paper Stationery</div>
+        <div class="comp-icon-display">
+          <div class="comp-icon-crest paper"><i class="fas fa-file-lines"></i></div>
+        </div>
         <h3>Printed Paper Cards</h3>
         <ul class="comp-checklist">
-          <li class="negative"><i class="fas fa-times-circle"></i> High printing costs & expensive reprints for minor typos</li>
-          <li class="negative"><i class="fas fa-times-circle"></i> Static and easily misplaced in WhatsApp chats or drawers</li>
-          <li class="negative"><i class="fas fa-times-circle"></i> Static, zero countdown excitement, zero interactive guest participation</li>
-          <li class="negative"><i class="fas fa-times-circle"></i> Difficult RSVP tracking (calling each guest individually)</li>
-          <li class="negative"><i class="fas fa-times-circle"></i> Confusing addresses with no 1-click GPS map directions</li>
-          <li class="negative"><i class="fas fa-times-circle"></i> Cannot add new pre-wedding photos or event updates</li>
+          <li class="negative"><i class="fas fa-circle-xmark"></i> High printing costs &amp; expensive reprints for typos</li>
+          <li class="negative"><i class="fas fa-circle-xmark"></i> Static and easily misplaced in chat threads or drawers</li>
+          <li class="negative"><i class="fas fa-circle-xmark"></i> Zero countdown excitement, zero interactive guest participation</li>
+          <li class="negative"><i class="fas fa-circle-xmark"></i> Difficult RSVP tracking (calling each guest individually)</li>
+          <li class="negative"><i class="fas fa-circle-xmark"></i> Confusing addresses with no 1-click GPS map directions</li>
+          <li class="negative"><i class="fas fa-circle-xmark"></i> Cannot add new pre-wedding photos or event updates</li>
         </ul>
-        <div class="comp-summary-pill paper">❌ Outdated & Inflexible</div>
+        <div class="comp-summary-pill paper"><i class="fas fa-ban"></i> Static &amp; Inflexible</div>
       </div>
 
       <!-- LB DIGITAL CREATIONS -->
       <div class="comparison-card digital-side">
-        <div class="comp-badge luxury-glow">💎 LB Digital Living Websites</div>
-        <div class="comp-icon-display">✨📱</div>
+        <div class="comp-badge luxury-glow"><i class="fas fa-crown"></i> LB Digital Living Portals</div>
+        <div class="comp-icon-display">
+          <div class="comp-icon-crest digital"><i class="fas fa-mobile-screen-button"></i></div>
+        </div>
         <h3>Interactive Living Web Portal</h3>
         <ul class="comp-checklist">
-          <li class="positive"><i class="fas fa-check-circle"></i> Share instantly with 1 tap across WhatsApp, Instagram & SMS</li>
-          <li class="positive"><i class="fas fa-check-circle"></i> Live real-time countdown clock & celebration itinerary</li>
-          <li class="positive"><i class="fas fa-check-circle"></i> Interactive countdown timer, animated 3D visual effects & personalized theme styling</li>
-          <li class="positive"><i class="fas fa-check-circle"></i> 1-Click WhatsApp RSVP with automatic guest attendance lists</li>
-          <li class="positive"><i class="fas fa-check-circle"></i> Integrated Google Maps GPS navigation straight to the venue</li>
-          <li class="positive"><i class="fas fa-check-circle"></i> 4K Photo gallery & timeless digital heirloom saved forever</li>
+          <li class="positive"><i class="fas fa-circle-check"></i> Share instantly with 1 tap across WhatsApp, Instagram &amp; SMS</li>
+          <li class="positive"><i class="fas fa-circle-check"></i> Live real-time countdown clock &amp; celebration itinerary</li>
+          <li class="positive"><i class="fas fa-circle-check"></i> Animated 3D visual effects, music &amp; personalized theme styling</li>
+          <li class="positive"><i class="fas fa-circle-check"></i> 1-Click WhatsApp RSVP with automatic guest attendance lists</li>
+          <li class="positive"><i class="fas fa-circle-check"></i> Integrated Google Maps GPS navigation straight to the venue</li>
+          <li class="positive"><i class="fas fa-circle-check"></i> 4K Photo gallery &amp; timeless digital heirloom saved forever</li>
         </ul>
-        <div class="comp-summary-pill digital">✨ 100% Wow Factor Guaranteed</div>
+        <div class="comp-summary-pill digital"><i class="fas fa-award"></i> The Modern Luxury Standard</div>
       </div>
     </div>
   </section>
 
   <!-- ========================================================
-       FEATURE 3: INTERACTIVE PRICING CALCULATOR
+       FEATURE: SIGNATURE ATELIER SHOWCASE (REPLACES CUSTOMIZER)
        ======================================================== -->
-  <section class="pricing-calc-section" id="pricing">
+  <section class="showcase-section" id="showcase">
     <div class="section-header reveal">
-      <span class="section-tag"><i class="fas fa-calculator"></i> Transparent Pricing</span>
-      <h2>Interactive Package Customizer</h2>
-      <p>Select your celebration occasion and experience tier, add your desired custom modules, and see the exact package amount with zero hidden fees.</p>
+      <span class="section-tag"><i class="fas fa-gem"></i> Signature Portfolio</span>
+      <h2>The Living Celebration Experience</h2>
+      <p>Discover how your celebration comes alive with rich media, interactive RSVP, and seamless guest navigation.</p>
     </div>
 
-    <div class="pricing-calc-wrap reveal">
-      <!-- STEP 1: CHOOSE CELEBRATION OCCASION -->
-      <div class="calc-step-header">
-        <span class="step-badge">STEP 1</span>
-        <div class="step-title-meta">
-          <h3>Choose Celebration Website</h3>
-          <p>Select which special occasion you are celebrating to personalize your package</p>
+    <div class="showcase-wrapper reveal">
+      <!-- SHOWCASE VISUAL ROW -->
+      <div class="showcase-visual-card">
+        <div class="showcase-img-container">
+          <img src="luxury-celebration-suite.jpg" alt="Living Celebration Websites Showcase for Birthdays, Anniversaries and Baby Showers" class="showcase-hero-img" width="1200" height="675">
+          <div class="showcase-img-overlay"></div>
+        </div>
+        <div class="showcase-meta-bar">
+          <div class="showcase-pill"><i class="fas fa-crown"></i> Royal Weddings</div>
+          <div class="showcase-pill"><i class="fas fa-cake-candles"></i> Milestone Birthdays</div>
+          <div class="showcase-pill"><i class="fas fa-gem"></i> Golden Anniversaries</div>
+          <div class="showcase-pill"><i class="fas fa-baby-carriage"></i> Baby Showers</div>
+          <div class="showcase-pill"><i class="fas fa-envelope-open-text"></i> Digital Invites</div>
         </div>
       </div>
 
-      <div class="website-type-selector-grid" id="website-type-selector">
-        <button type="button" class="website-type-pill" data-website="Birthday Website">
-          <i class="fas fa-cake-candles"></i>
-          <span>Birthday Website</span>
-        </button>
-        <button type="button" class="website-type-pill active" data-website="Wedding Website">
-          <i class="fas fa-ring"></i>
-          <span>Wedding Website</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Anniversary Website">
-          <i class="fas fa-gem"></i>
-          <span>Anniversary Website</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Engagement Website">
-          <i class="fas fa-heart"></i>
-          <span>Engagement Website</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Baby Shower & Naming">
-          <i class="fas fa-baby-carriage"></i>
-          <span>Baby Shower &amp; Naming</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Digital Invitation">
-          <i class="fas fa-envelope-open-text"></i>
-          <span>Digital Invitation</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Love & Couple Story">
-          <i class="fas fa-heart-pulse"></i>
-          <span>Love &amp; Couple Story</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Festival & Celebration">
-          <i class="fas fa-champagne-glasses"></i>
-          <span>Festival &amp; Celebration</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Memorial & Tribute">
-          <i class="fas fa-dove"></i>
-          <span>Memorial &amp; Tribute</span>
-        </button>
-        <button type="button" class="website-type-pill" data-website="Custom Event Website">
-          <i class="fas fa-crown"></i>
-          <span>Custom Event / Other</span>
-        </button>
-      </div>
-
-      <!-- STEP 2: SELECT EXPERIENCE TIER -->
-      <div class="calc-step-header" style="margin-top: 35px;">
-        <span class="step-badge">STEP 2</span>
-        <div class="step-title-meta">
-          <h3>Select Experience Tier</h3>
-          <p>Choose the level of animation, visual artistry, and interactive modules</p>
-        </div>
-      </div>
-
-      <!-- TIER SELECTOR -->
-      <div class="tier-select-grid">
-        <!-- TIER 1 -->
-        <div class="tier-card" data-tier="classic" data-price="999">
-          <div class="tier-header">
-            <span class="tier-tag">Classic Clean</span>
-            <h3>Minimalist Edition</h3>
-            <div class="tier-price">
-              <span class="currency">₹</span>
-              <span class="amount">999</span>
-            </div>
-            <p>Fast, lightweight & elegant design for intimate gatherings and digital invitations.</p>
+      <!-- SHOWCASE 4-PILLAR FEATURES -->
+      <div class="showcase-pillars-grid">
+        <div class="showcase-pillar-item">
+          <div class="pillar-icon"><i class="fas fa-mobile-screen"></i></div>
+          <div class="pillar-content">
+            <h4>Flawless Mobile Experience</h4>
+            <p>Every website is precision-crafted for seamless viewing on iPhones, Androids, tablets, and desktops.</p>
           </div>
-          <ul class="tier-features">
-            <li><i class="fas fa-check"></i> 1-Page Custom Celebration Website</li>
-            <li><i class="fas fa-check"></i> Event Schedule & Itinerary Timeline</li>
-            <li><i class="fas fa-check"></i> 1-Tap Google Maps GPS Venue Navigation</li>
-            <li><i class="fas fa-check"></i> High-Res Photo Gallery (Up to 5 Photos)</li>
-            <li><i class="fas fa-check"></i> WhatsApp Smart Link Preview & Cover Card</li>
-            <li><i class="fas fa-check"></i> 100% Mobile, Tablet & Desktop Responsive</li>
-            <li><i class="fas fa-check"></i> Lifetime Free Cloud Hosting & SSL</li>
-            <li><i class="fas fa-check"></i> Dedicated WhatsApp White-Glove Support</li>
-          </ul>
-          <button class="tier-select-btn" type="button">Select Plan</button>
         </div>
 
-        <!-- TIER 2 (FEATURED) -->
-        <div class="tier-card featured active" data-tier="luxury" data-price="1999">
-          <div class="popular-ribbon">⭐ MOST POPULAR</div>
-          <div class="tier-header">
-            <span class="tier-tag gold">Ultra-Luxury</span>
-            <h3>Animated Interactive</h3>
-            <div class="tier-price">
-              <span class="currency">₹</span>
-              <span class="amount">1,999</span>
-            </div>
-            <p class="editorial-card-desc">The signature experience with dynamic visual effects, animated countdown, and RSVP tracking.</p>
+        <div class="showcase-pillar-item">
+          <div class="pillar-icon"><i class="fas fa-clock"></i></div>
+          <div class="pillar-content">
+            <h4>Real-Time Dynamic Countdown</h4>
+            <p>A synchronized live countdown timer creating anticipation and excitement for your guests.</p>
           </div>
-          <ul class="tier-features">
-            <li class="feature-group-header"><i class="fas fa-sparkles"></i> Everything in Minimalist Edition, plus:</li>
-            <li><i class="fas fa-check"></i> Full Animated & Interactive 3D Visual Effects</li>
-            <li><i class="fas fa-check"></i> Live Real-Time Countdown Timer Clock</li>
-            <li><i class="fas fa-check"></i> 1-Click WhatsApp Interactive RSVP System</li>
-            <li><i class="fas fa-check"></i> Guest Attendance & Headcount Tracker</li>
-            <li><i class="fas fa-check"></i> 4K Photo Gallery (Up to 15 Photos)</li>
-            <li><i class="fas fa-check"></i> Custom Video Greeting or YouTube Reel Embed</li>
-            <li><i class="fas fa-check"></i> Unlimited Design Revisions Until 100% Satisfied</li>
-          </ul>
-          <button class="tier-select-btn active" type="button">Selected</button>
         </div>
 
-        <!-- TIER 3 -->
-        <div class="tier-card" data-tier="bespoke" data-price="3499">
-          <div class="tier-header">
-            <span class="tier-tag royal">Haute Couture</span>
-            <h3>Bespoke Signature</h3>
-            <div class="tier-price">
-              <span class="currency">₹</span>
-              <span class="amount">3,499</span>
-            </div>
-            <p>100% custom-tailored masterwork with custom couple portrait illustrations and priority service.</p>
+        <div class="showcase-pillar-item">
+          <div class="pillar-icon"><i class="fab fa-whatsapp"></i></div>
+          <div class="pillar-content">
+            <h4>1-Tap WhatsApp RSVP</h4>
+            <p>Guests confirm their attendance with a single tap, sending instant headcounts directly to your WhatsApp.</p>
           </div>
-          <ul class="tier-features">
-            <li class="feature-group-header"><i class="fas fa-crown"></i> Everything in Animated Edition, plus:</li>
-            <li><i class="fas fa-check"></i> 100% Bespoke Theme (Any Layout/FX)</li>
-            <li><i class="fas fa-check"></i> Custom Couple / Portrait Illustration Art</li>
-            <li><i class="fas fa-check"></i> Unlimited 4K Photo Gallery & Video Reels</li>
-            <li><i class="fas fa-check"></i> Guest Wishes & Interactive Memory Wall</li>
-            <li><i class="fas fa-check"></i> Custom Domain Integration Ready (.com / .in)</li>
-            <li><i class="fas fa-check"></i> Dedicated 1-on-1 VIP Concierge Designer</li>
-            <li><i class="fas fa-check"></i> Lifetime Archive & High-Res Source File Backup</li>
-          </ul>
-          <button class="tier-select-btn" type="button">Select Plan</button>
         </div>
-      </div>
 
-      <!-- INCLUDED IN EVERY PACKAGE GUARANTEE BANNER -->
-      <div class="packages-included-banner">
-        <div class="included-banner-header">
-          <span class="included-badge"><i class="fas fa-shield-alt"></i> Guaranteed In Every Package</span>
-          <h4>Standard In Every Single LB Digital Creation</h4>
-        </div>
-        <div class="included-perks-grid">
-          <div class="included-perk-item">
-            <div class="perk-icon"><i class="fas fa-server"></i></div>
-            <div class="perk-text">
-              <strong>Lifetime Cloud Hosting</strong>
-              <small>Never expires, zero recurring hosting fees</small>
-            </div>
-          </div>
-          <div class="included-perk-item">
-            <div class="perk-icon"><i class="fab fa-whatsapp"></i></div>
-            <div class="perk-text">
-              <strong>WhatsApp Rich Link Card</strong>
-              <small>Custom banner preview image for every chat share</small>
-            </div>
-          </div>
-          <div class="included-perk-item">
-            <div class="perk-icon"><i class="fas fa-location-arrow"></i></div>
-            <div class="perk-text">
-              <strong>1-Tap GPS Venue Navigation</strong>
-              <small>Direct Google Maps directions for out-of-town guests</small>
-            </div>
-          </div>
-          <div class="included-perk-item">
-            <div class="perk-icon"><i class="fas fa-mobile-alt"></i></div>
-            <div class="perk-text">
-              <strong>Flawless Mobile Experience</strong>
-              <small>Precision-tuned for iPhones, Androids & iPads</small>
-            </div>
-          </div>
-          <div class="included-perk-item">
-            <div class="perk-icon"><i class="fas fa-lock"></i></div>
-            <div class="perk-text">
-              <strong>SSL Bank-Grade Encryption</strong>
-              <small>Secure HTTPS certificate with ultra-fast CDN loading</small>
-            </div>
-          </div>
-          <div class="included-perk-item">
-            <div class="perk-icon"><i class="fas fa-handshake"></i></div>
-            <div class="perk-text">
-              <strong>50% Advance Safety</strong>
-              <small>Pay remaining balance only after 100% satisfaction</small>
-            </div>
+        <div class="showcase-pillar-item">
+          <div class="pillar-icon"><i class="fas fa-location-dot"></i></div>
+          <div class="pillar-content">
+            <h4>1-Click Google Maps Venue GPS</h4>
+            <p>Integrated GPS directions guide out-of-town guests straight to your celebration venue without confusion.</p>
           </div>
         </div>
       </div>
 
-      <!-- ADD-ONS & SUMMARY ROW -->
-      <div class="calc-bottom-panel">
-        <div class="calc-addons-col">
-          <h4>Customize with Premium Add-ons</h4>
-          <div class="calc-addons-grid">
-            <label class="calc-addon-item">
-              <input type="checkbox" class="calc-addon-check" data-name="Custom Domain (.com / .in)" data-cost="799">
-              <span class="calc-check-box"><i class="fas fa-check"></i></span>
-              <div class="calc-addon-meta">
-                <strong>Custom Domain Name</strong>
-                <small>e.g. karthikananya.com</small>
-              </div>
-              <span class="calc-addon-price">+₹799</span>
-            </label>
-
-            <label class="calc-addon-item">
-              <input type="checkbox" class="calc-addon-check" data-name="VIP Priority Concierge Support" data-cost="499">
-              <span class="calc-check-box"><i class="fas fa-check"></i></span>
-              <div class="calc-addon-meta">
-                <strong>VIP Priority Concierge</strong>
-                <small>Dedicated 1-on-1 designer onboarding</small>
-              </div>
-              <span class="calc-addon-price">+₹499</span>
-            </label>
-
-            <label class="calc-addon-item">
-              <input type="checkbox" class="calc-addon-check" data-name="Custom Portrait Illustration" data-cost="599">
-              <span class="calc-check-box"><i class="fas fa-check"></i></span>
-              <div class="calc-addon-meta">
-                <strong>Digital Couple Portrait Art</strong>
-                <small>Hand-drawn digital artwork</small>
-              </div>
-              <span class="calc-addon-price">+₹599</span>
-            </label>
-
-            <label class="calc-addon-item">
-              <input type="checkbox" class="calc-addon-check" data-name="Cinematic Video Reel Integration" data-cost="399">
-              <span class="calc-check-box"><i class="fas fa-check"></i></span>
-              <div class="calc-addon-meta">
-                <strong>Cinematic Video & Reel Player</strong>
-                <small>Embed 4K pre-wedding / birthday reels</small>
-              </div>
-              <span class="calc-addon-price">+₹399</span>
-            </label>
-          </div>
+      <!-- BESPOKE COMMISSION CONCIERGE BANNER -->
+      <div class="showcase-commission-banner">
+        <div class="commission-text-group">
+          <span class="commission-eyebrow"><i class="fas fa-crown"></i> Bespoke Commissions</span>
+          <h3>Commission Your Celebration Website</h3>
+          <p>Every celebration is unique. Connect directly with our design team on WhatsApp to share your event details, photos, and aesthetic preferences. We will handcraft your living celebration portal tailored to your vision.</p>
         </div>
-
-        <!-- TOTAL & BOOKING CTA -->
-        <div class="calc-summary-col">
-          <div class="summary-breakdown-card">
-            <h4>Package Summary</h4>
-            <div class="breakdown-line website-type-highlight-row">
-              <span><i class="fas fa-sparkles" style="color:var(--gold); margin-right:6px;"></i>Celebration Website</span>
-              <strong id="calc-selected-website-type" class="website-type-val">Wedding Website</strong>
-            </div>
-            <div class="breakdown-line">
-              <span id="calc-selected-tier-name">Ultra-Luxury Animated Edition</span>
-              <strong id="calc-tier-cost">₹1,999</strong>
-            </div>
-            <div class="breakdown-line" id="calc-addons-breakdown-row" style="display:none;">
-              <span>Selected Add-ons</span>
-              <strong id="calc-addons-cost">+₹0</strong>
-            </div>
-            <div class="breakdown-divider"></div>
-            <div class="breakdown-total">
-              <span>Total Estimated Investment</span>
-              <strong class="total-gold-price" id="calc-grand-total">₹1,999</strong>
-            </div>
-            <a href="#" id="calc-whatsapp-book-btn" target="_blank" rel="noopener" class="btn-primary btn-gold-luxury w-100 mt-3">
-              <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>
-              <span>Book This Package on WhatsApp</span>
-            </a>
-            <div class="summary-guarantee">
-              <i class="fas fa-shield-alt" style="color:var(--gold)"></i> 50% Advance • Pay Remaining Only After 100% Satisfaction
-            </div>
-          </div>
+        <div class="commission-cta-group">
+          <a href="https://wa.me/916381366088?text=Hello%20LB%20Digital%20Creations!%20I'd%20like%20to%20commission%20a%20luxury%20custom%20celebration%20website." target="_blank" rel="noopener" class="btn-primary btn-gold-luxury">
+            <i class="fab fa-whatsapp" style="margin-right:8px; font-size:1.15rem;"></i>
+            <span>Order on WhatsApp</span>
+          </a>
+          <span class="commission-safety-note"><i class="fas fa-shield-halved"></i> 50% Advance • Pay Remaining Only After 100% Satisfaction</span>
         </div>
       </div>
     </div>
@@ -644,27 +460,27 @@
   <!-- ===== HOW IT WORKS SECTION ===== -->
   <section class="how-it-works" id="how-it-works">
     <div class="section-header reveal">
-      <span class="section-tag">Simple Process</span>
+      <span class="section-tag"><i class="fas fa-layer-group"></i> Simple Curation</span>
       <h2>How It Works</h2>
-      <p>Getting your dream website is easy — just 3 simple steps!</p>
+      <p>Creating your bespoke celebration website is effortless — just 3 curated steps.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card reveal">
-        <div class="step-number">1</div>
-        <h3>Share Event Details</h3>
-        <p>Connect with us on WhatsApp and share your photos, dates, schedule, and aesthetic preferences.</p>
+        <div class="step-number">01</div>
+        <h3>Share Your Details</h3>
+        <p>Connect with us on WhatsApp. Share your celebration date, venue details, photos, music preferences, and theme.</p>
       </div>
       <div class="step-connector reveal"><i class="fas fa-arrow-right"></i></div>
       <div class="step-card reveal">
-        <div class="step-number">2</div>
-        <h3>We Design Your Website</h3>
-        <p>Our team contacts you via WhatsApp to confirm details and starts crafting your beautiful website.</p>
+        <div class="step-number">02</div>
+        <h3>We Handcraft Your Website</h3>
+        <p>Our design team architects your living website with interactive countdown, RSVP automation, 4K galleries, and GPS maps.</p>
       </div>
       <div class="step-connector reveal"><i class="fas fa-arrow-right"></i></div>
       <div class="step-card reveal">
-        <div class="step-number">3</div>
-        <h3>Review & Share</h3>
-        <p>Preview your website, request minor changes, and share it with your friends and family!</p>
+        <div class="step-number">03</div>
+        <h3>Review &amp; Share Worldwide</h3>
+        <p>Preview your private link, request any fine-tuning, and share instantly with all your friends and family across WhatsApp!</p>
       </div>
     </div>
   </section>
@@ -673,7 +489,7 @@
   <section class="about" id="about">
     <div class="about-grid">
       <div class="about-text reveal">
-        <span class="section-tag">Who We Are</span>
+        <span class="section-tag"><i class="fas fa-feather-pointed"></i> Who We Are</span>
         <h2>Your Moments, Our <span class="highlight">Digital Canvas</span></h2>
         <p>LB Digital Creations is dedicated to turning your special moments into stunning digital experiences. We
           design beautiful, shareable websites that bring your celebrations to life online.</p>
@@ -682,20 +498,20 @@
       </div>
       <div class="about-stats reveal">
         <div class="stat-card">
-          <div class="number">🎨</div>
-          <div class="label">Custom Designs</div>
+          <div class="stat-icon-gold"><i class="fas fa-paint-brush"></i></div>
+          <div class="label">Custom Handcrafted Designs</div>
         </div>
         <div class="stat-card">
-          <div class="number">📸</div>
-          <div class="label">Photo & Video Integration</div>
+          <div class="stat-icon-gold"><i class="fas fa-camera"></i></div>
+          <div class="label">Photo &amp; Video Integration</div>
         </div>
         <div class="stat-card">
-          <div class="number">🔗</div>
-          <div class="label">Easy Sharing</div>
+          <div class="stat-icon-gold"><i class="fas fa-share-nodes"></i></div>
+          <div class="label">Instant 1-Tap Sharing</div>
         </div>
         <div class="stat-card">
-          <div class="number">💎</div>
-          <div class="label">Modern Layouts</div>
+          <div class="stat-icon-gold"><i class="fas fa-crown"></i></div>
+          <div class="label">Modern Luxury Layouts</div>
         </div>
       </div>
     </div>
@@ -705,19 +521,19 @@
   <section class="reviews-section" id="reviews">
     <div class="section-header reveal">
       <span class="section-tag"><i class="fas fa-star"></i> Client Stories</span>
-      <h2>Celebrated by Families & Couples</h2>
+      <h2>Celebrated by Families &amp; Couples</h2>
       <p>Hear from families and couples who turned their once-in-a-lifetime occasions into cherished digital memories.</p>
     </div>
 
     <div class="reviews-grid">
       <div class="review-card reveal">
         <div class="review-header">
-          <div class="review-avatar">👰🤵</div>
+          <div class="review-avatar-monogram">AK</div>
           <div class="review-author-meta">
-            <h4>Ananya & Karthik</h4>
-            <p>Royal Maharaja Wedding Website</p>
+            <h4>Ananya &amp; Karthik</h4>
+            <p>Royal Wedding Celebration</p>
           </div>
-          <div class="review-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
+          <div class="review-badge-verified"><i class="fas fa-shield-halved"></i> Verified</div>
         </div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Our wedding guests were completely blown away by our website! The countdown timer, venue map, and interactive guest RSVP felt like an invitation fit for royalty. LB Digital Creations crafted everything flawlessly!"</p>
@@ -728,12 +544,12 @@
 
       <div class="review-card reveal">
         <div class="review-header">
-          <div class="review-avatar">🎂</div>
+          <div class="review-avatar-monogram">PM</div>
           <div class="review-author-meta">
             <h4>Priya M.</h4>
-            <p>Sweet 16 Sparkle Birthday</p>
+            <p>Sweet 16 Milestone Birthday</p>
           </div>
-          <div class="review-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
+          <div class="review-badge-verified"><i class="fas fa-shield-halved"></i> Verified</div>
         </div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Made my daughter's 16th birthday so magical! Friends easily sent their wishes directly through the website, and everyone loved the photo reel. Best decision ever instead of boring paper cards."</p>
@@ -744,12 +560,12 @@
 
       <div class="review-card reveal">
         <div class="review-header">
-          <div class="review-avatar">💕</div>
+          <div class="review-avatar-monogram">VS</div>
           <div class="review-author-meta">
-            <h4>Venkatesh & Sumathi</h4>
+            <h4>Venkatesh &amp; Sumathi</h4>
             <p>Golden 50th Anniversary</p>
           </div>
-          <div class="review-badge-verified"><i class="fas fa-check-circle"></i> Verified</div>
+          <div class="review-badge-verified"><i class="fas fa-shield-halved"></i> Verified</div>
         </div>
         <div class="review-stars">★★★★★</div>
         <p class="review-text">"Our children surprised us with a 50th anniversary timeline website showcasing our memories from 1974 to 2024. Tears of joy flowed everywhere. Thank you for treating our memories with such elegance."</p>
@@ -821,7 +637,7 @@
     <div class="contact-grid">
       <div class="contact-info reveal">
         <h3>Connect With Us</h3>
-        <p>Whether you need a website, a brand refresh, or a digital strategy — we're just a message away.</p>
+        <p>Whether you need a celebration website, a custom invite, or a memory portal — we're just a message away.</p>
         <div class="contact-links">
           <a href="mailto:lbdigitalcreations7326@gmail.com" class="contact-link" id="email-link">
             <div class="icon email"><i class="fas fa-envelope"></i></div>
@@ -855,7 +671,6 @@
           </a>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -869,11 +684,10 @@
             <img src="logo.jpg" alt="LB Digital Creations" class="footer-logo-img" width="48" height="48" style="width: 48px; height: 48px; max-width: 48px; max-height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); box-shadow: var(--gold-glow-subtle); flex-shrink: 0;">
             <div class="footer-brand-text">
               <span class="footer-title">LB Digital Creations</span>
-              <span class="footer-subtitle">Haute Digital Atelier</span>
             </div>
           </div>
           <p class="footer-bio">
-            Transforming life's crowning moments into bespoke, interactive digital masterpieces. Handcrafted with precision, elegance, and heirloom-grade artistry.
+            Transforming life's crowning moments into bespoke, interactive digital masterpieces. Handcrafted with precision, elegance, and timeless artistry.
           </p>
           <div class="footer-social-links">
             <a href="https://wa.me/916381366088" target="_blank" rel="noopener" class="footer-social-btn" aria-label="WhatsApp">
@@ -897,8 +711,8 @@
           <ul class="footer-links-list">
             <li><a href="#home">Home</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#showcase">Showcase</a></li>
             <li><a href="#comparison">Why Digital</a></li>
-            <li><a href="#pricing">Pricing Customizer</a></li>
             <li><a href="#how-it-works">Our Process</a></li>
             <li><a href="#reviews">Client Stories</a></li>
             <li><a href="#faq">FAQs</a></li>

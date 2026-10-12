@@ -332,97 +332,8 @@ function showLuxuryToast(message) {
 }
 
 
-// ========================================================
-// FEATURE 2: INTERACTIVE PRICING CALCULATOR LOGIC
-// ========================================================
-(function initPricingCalculator() {
-  const websitePills = document.querySelectorAll('.website-type-pill');
-  const selectedWebsiteTypeEl = document.getElementById('calc-selected-website-type');
-  const tierCards = document.querySelectorAll('.tier-card');
-  const addonChecks = document.querySelectorAll('.calc-addon-check');
-  const selectedTierNameEl = document.getElementById('calc-selected-tier-name');
-  const tierCostEl = document.getElementById('calc-tier-cost');
-  const addonsRowEl = document.getElementById('calc-addons-breakdown-row');
-  const addonsCostEl = document.getElementById('calc-addons-cost');
-  const grandTotalEl = document.getElementById('calc-grand-total');
-  const bookBtn = document.getElementById('calc-whatsapp-book-btn');
-
-  if (!grandTotalEl) return;
-
-  let selectedWebsiteName = 'Wedding Website';
-  let currentTierName = 'Ultra-Luxury Animated Edition';
-  let currentTierPrice = 1999;
-
-  function updatePricing() {
-    let addonsTotal = 0;
-    const selectedAddonNames = [];
-
-    addonChecks.forEach(check => {
-      if (check.checked) {
-        const cost = parseInt(check.getAttribute('data-cost'), 10) || 0;
-        const name = check.getAttribute('data-name');
-        addonsTotal += cost;
-        selectedAddonNames.push(`${name} (+₹${cost})`);
-      }
-    });
-
-    const grandTotal = currentTierPrice + addonsTotal;
-
-    if (selectedWebsiteTypeEl) selectedWebsiteTypeEl.textContent = selectedWebsiteName;
-    if (selectedTierNameEl) selectedTierNameEl.textContent = currentTierName;
-    if (tierCostEl) tierCostEl.textContent = `₹${currentTierPrice.toLocaleString('en-IN')}`;
-
-    if (addonsRowEl && addonsCostEl) {
-      if (addonsTotal > 0) {
-        addonsRowEl.style.display = 'flex';
-        addonsCostEl.textContent = `+₹${addonsTotal.toLocaleString('en-IN')}`;
-      } else {
-        addonsRowEl.style.display = 'none';
-      }
-    }
-
-    if (grandTotalEl) {
-      grandTotalEl.textContent = `₹${grandTotal.toLocaleString('en-IN')}`;
-    }
-
-    // Prefill WhatsApp booking link with selected website occasion, package tier, and add-ons
-    if (bookBtn) {
-      const addonText = selectedAddonNames.length > 0 ? `\n- Selected Add-ons: ${selectedAddonNames.join(', ')}` : '\n- Add-ons: None';
-      const message = `Hello LB Digital Creations! I would like to book a celebration website:
-- Occasion / Website Type: ${selectedWebsiteName}
-- Selected Package Tier: ${currentTierName} (₹${currentTierPrice.toLocaleString('en-IN')})${addonText}
-- Total Estimated Investment: ₹${grandTotal.toLocaleString('en-IN')}
-
-Please share the onboarding details and next steps!`;
-
-      bookBtn.href = `https://wa.me/916381366088?text=${encodeURIComponent(message)}`;
-    }
-  }
-
-  function selectWebsiteType(name) {
-    if (!name) return;
-    selectedWebsiteName = name;
-    websitePills.forEach(pill => {
-      const pillName = pill.getAttribute('data-website') || pill.textContent.trim();
-      if (pillName === name || pillName.toLowerCase().includes(name.toLowerCase())) {
-        pill.classList.add('active');
-      } else {
-        pill.classList.remove('active');
-      }
-    });
-    updatePricing();
-  }
-
-  // Website type pills click listeners
-  websitePills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      const name = pill.getAttribute('data-website') || pill.textContent.trim();
-      selectWebsiteType(name);
-      showLuxuryToast(`Celebration chosen: ${name}`);
-    });
-  });
-
-  // Service card click handling to open dedicated detail page
+// ===== SERVICE CARD NAVIGATION =====
+document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.service-card[data-service-url]').forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('a')) return;
@@ -432,61 +343,8 @@ Please share the onboarding details and next steps!`;
       }
     });
   });
+});
 
-  tierCards.forEach(card => {
-    const btn = card.querySelector('.tier-select-btn');
-    const selectTier = () => {
-      tierCards.forEach(c => {
-        c.classList.remove('active');
-        const b = c.querySelector('.tier-select-btn');
-        if (b) {
-          b.classList.remove('active');
-          b.textContent = b.getAttribute('data-orig-text') || 'Select Plan';
-        }
-      });
-
-      card.classList.add('active');
-      if (btn) {
-        if (!btn.getAttribute('data-orig-text')) {
-          btn.setAttribute('data-orig-text', btn.textContent);
-        }
-        btn.classList.add('active');
-        btn.textContent = 'Selected';
-      }
-
-      const tierKey = card.getAttribute('data-tier');
-      currentTierPrice = parseInt(card.getAttribute('data-price'), 10) || 1999;
-      if (tierKey === 'classic') currentTierName = 'Classic Minimalist Edition';
-      else if (tierKey === 'luxury') currentTierName = 'Ultra-Luxury Animated Edition';
-      else if (tierKey === 'bespoke') currentTierName = 'Haute Couture Bespoke Signature';
-
-      updatePricing();
-      showLuxuryToast(`Package tier selected: ${currentTierName}`);
-    };
-
-    card.addEventListener('click', (e) => {
-      if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
-        selectTier();
-      }
-    });
-
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        selectTier();
-      });
-    }
-  });
-
-  addonChecks.forEach(check => {
-    check.addEventListener('change', () => {
-      updatePricing();
-    });
-  });
-
-  // Initial calculation
-  updatePricing();
-})();
 
 
 
