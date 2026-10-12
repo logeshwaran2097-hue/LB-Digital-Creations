@@ -203,6 +203,49 @@
       margin: 0 auto;
     }
 
+    /* CLIENT VISION BANNER */
+    .client-vision-banner {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(18, 17, 34, 0.85) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 16px;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      max-width: 860px;
+      margin: 0 auto 40px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(212, 175, 55, 0.05);
+      font-size: 0.95rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    .client-vision-banner-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .client-vision-banner-text strong {
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 1rem;
+    }
+
+    .client-vision-banner-text span {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+
     /* WHAT WE NEED FROM YOU CHECKLIST GRID */
     .needs-checklist-grid {
       display: grid;
@@ -735,6 +778,14 @@
       .tier-features li {
         font-size: 0.88rem;
       }
+
+      .client-vision-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 16px;
+        gap: 12px;
+        margin-bottom: 30px;
+      }
     }
   </style>
 </head>
@@ -839,9 +890,19 @@
     <!-- BLOCK 1: WHAT WE NEED FROM YOU CHECKLIST -->
     <section class="details-section" id="needs-checklist">
       <div class="details-block-header">
-        <span class="sub-tag"><i class="fas fa-sparkles"></i> Simple Client Checklist</span>
-        <h2>What We Need From You</h2>
-        <p>To craft your bespoke website, simply gather these details and send them to us on WhatsApp. We handle 100% of the design, coding, animations, and hosting!</p>
+        <span class="sub-tag"><i class="fas fa-sparkles"></i> 100% Tailored to Your Vision</span>
+        <h2>What Details We Need From You</h2>
+        <p>Every client has unique ideas — we craft each 1-page website around your specific requirements and celebration style. Share whatever details you have ready on WhatsApp, and we adapt the layout, theme, and features!</p>
+      </div>
+
+      <div class="client-vision-banner">
+        <div class="client-vision-banner-icon">
+          <i class="fas fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="client-vision-banner-text">
+          <strong>Have a unique idea or custom layout in mind?</strong>
+          <span>We build whatever you imagine! Whether you want custom color schemes, couple love story timelines, interactive guest games, or video embeds, we tailor everything to your requirements.</span>
+        </div>
       </div>
 
       <div class="needs-checklist-grid" id="needs-grid">
@@ -852,9 +913,9 @@
     <!-- BLOCK 2: WHAT WE CREATE FOR YOU (FEATURES) -->
     <section class="details-section" id="included-features">
       <div class="details-block-header">
-        <span class="sub-tag"><i class="fas fa-crown"></i> Built-in Masterpieces</span>
-        <h2>What We Create For You</h2>
-        <p>Every portal is hand-crafted with luxury aesthetics, smooth mobile responsiveness, and high-performance cloud infrastructure.</p>
+        <span class="sub-tag"><i class="fas fa-crown"></i> Interactive 1-Page Features</span>
+        <h2>What We Can Create &amp; Show On Your Website</h2>
+        <p>Explore the features, interactive animations, and multimedia modules we can seamlessly build into your custom 1-page celebration portal based on your preferences.</p>
       </div>
 
       <div class="features-showcase-grid" id="features-grid">
