@@ -378,73 +378,6 @@
       line-height: 1.5;
     }
 
-    /* OUR PROMISES & CLIENT AGREEMENT */
-    .promises-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
-      margin-bottom: 50px;
-    }
-
-    .promise-card {
-      background: linear-gradient(135deg, rgba(22, 20, 42, 0.85) 0%, rgba(12, 10, 24, 0.95) 100%);
-      border: 1px solid var(--glass-border);
-      border-radius: 20px;
-      padding: 30px 24px;
-      position: relative;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .promise-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(212, 175, 55, 0.5);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15);
-    }
-
-    .promise-icon-wrap {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(212, 175, 55, 0.12);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      color: var(--gold-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.25rem;
-      margin-bottom: 18px;
-      transition: all 0.3s ease;
-    }
-
-    .promise-card:hover .promise-icon-wrap {
-      background: var(--gold-gradient);
-      color: #0b0914;
-      transform: scale(1.08) rotate(3deg);
-    }
-
-    .promise-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.25rem;
-      color: #ffffff;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .promise-card p {
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.6;
-      margin: 0;
-      flex-grow: 1;
-    }
-
-    .promise-card strong {
-      color: var(--gold-light);
-    }
-
     /* ONBOARDING CALLOUT BANNER */
     .onboarding-action-card {
       background: linear-gradient(135deg, rgba(28, 25, 52, 0.95) 0%, rgba(12, 10, 26, 0.98) 100%);
@@ -853,15 +786,6 @@
         gap: 12px;
         margin-bottom: 30px;
       }
-
-      .promises-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-
-      .promise-card {
-        padding: 24px 20px;
-      }
     }
   </style>
 </head>
@@ -1083,72 +1007,7 @@
       </div>
     </section>
 
-    <!-- BLOCK 4: OUR PROMISES & CLIENT AGREEMENT -->
-    <section class="details-section" id="promises-agreement">
-      <div class="details-block-header">
-        <span class="sub-tag"><i class="fas fa-shield-halved"></i> Peace of Mind Guarantee</span>
-        <h2>Our Promises &amp; Client Agreement</h2>
-        <p>Every website we craft is backed by our strict client-first commitments. Zero hidden costs, total design safety, and complete creative transparency.</p>
-      </div>
-
-      <div class="promises-grid">
-        <!-- PROMISE 1 -->
-        <div class="promise-card">
-          <div class="promise-icon-wrap">
-            <i class="fas fa-shield-check"></i>
-          </div>
-          <h3>50% Advance Safety Policy</h3>
-          <p>Pay only 50% advance to begin design and coding. The remaining balance is paid <strong>only after</strong> you preview and are 100% happy with your live website.</p>
-        </div>
-
-        <!-- PROMISE 2 -->
-        <div class="promise-card">
-          <div class="promise-icon-wrap">
-            <i class="fas fa-wand-magic-sparkles"></i>
-          </div>
-          <h3>Unlimited Design Revisions</h3>
-          <p>We fine-tune typography, color palettes, photos, music tracks, and timings until your celebration portal looks and feels exactly as you imagined.</p>
-        </div>
-
-        <!-- PROMISE 3 -->
-        <div class="promise-card">
-          <div class="promise-icon-wrap">
-            <i class="fas fa-clock-rotate-left"></i>
-          </div>
-          <h3>Guaranteed On-Time Delivery</h3>
-          <p>Your portal is delivered within 24 to 48 hours — well before your big event — giving you plenty of time to share your smart invitation card with guests.</p>
-        </div>
-
-        <!-- PROMISE 4 -->
-        <div class="promise-card">
-          <div class="promise-icon-wrap">
-            <i class="fas fa-tags"></i>
-          </div>
-          <h3>Zero Hidden Charges</h3>
-          <p>Complete price transparency. Lifetime cloud hosting, SSL security, and WhatsApp card previews are fully included with zero surprise renewal fees.</p>
-        </div>
-
-        <!-- PROMISE 5 -->
-        <div class="promise-card">
-          <div class="promise-icon-wrap">
-            <i class="fas fa-user-shield"></i>
-          </div>
-          <h3>Strict Privacy &amp; Family Protection</h3>
-          <p>Your private family photos, venue coordinates, dates, and contact numbers are strictly guarded. Never sold, shared, or displayed without your permission.</p>
-        </div>
-
-        <!-- PROMISE 6 -->
-        <div class="promise-card">
-          <div class="promise-icon-wrap">
-            <i class="fas fa-headset"></i>
-          </div>
-          <h3>Last-Minute Updates &amp; Support</h3>
-          <p>Need to update a ceremony time, add a new family photo, or change the venue map link? Our WhatsApp concierge updates your live website instantly.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOCK 5: DIRECT ONBOARDING CALLOUT -->
+    <!-- BLOCK 4: DIRECT ONBOARDING CALLOUT -->
     <div class="onboarding-action-card">
       <div class="atelier-crown"><i class="fas fa-crown"></i></div>
       <h3 id="card-callout-title">Ready to Create Your Celebration Website?</h3>
